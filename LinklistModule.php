@@ -1,6 +1,6 @@
 <?php
 
-class LinklistModule extends CWebModule
+class LinklistModule extends HWebModule
 {
 	public function init()
 	{
