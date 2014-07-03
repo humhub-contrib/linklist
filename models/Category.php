@@ -1,18 +1,22 @@
 <?php
 
 /**
- * This is the model class for table "user_linkcategory".
+ * This is the model class for table "linklist_category".
  *
- * The followings are the available columns in table 'user_linkcategory':
- * @property integer $user_id
- * @property integer $category_id
+ * The followings are the available columns in table 'linklist_category':
+ * @property integer $id
+ * @property string $title
+ * @property string $description
+ * @property integer $sort_order
  */
-class UserLinkcategory extends CActiveRecord
+class Category extends HActiveRecordContent
 {
+	public $autoAddToWall = false;
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return UserLinkcategory the static model class
+	 * @return LinklistCategory the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -24,7 +28,7 @@ class UserLinkcategory extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'user_linkcategory';
+		return 'linklist_category';
 	}
 
 	/**
@@ -35,11 +39,11 @@ class UserLinkcategory extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, category_id', 'required'),
-			array('user_id, category_id', 'numerical', 'integerOnly'=>true),
+			array('sort_order', 'numerical', 'integerOnly'=>true),
+			array('title, description', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, category_id', 'safe', 'on'=>'search'),
+			array('id, title, description, sort_order', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,17 +55,30 @@ class UserLinkcategory extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'links' => array(self::HAS_MANY, 'Link', 'category_id'),
 		);
 	}
 
+
+	public function afterDelete()
+	{
+		print_r($this->links);
+		foreach($this->links as $link) {
+			$link->delete();
+		}
+		parent::afterDelete();
+	}
+	
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()
 	{
 		return array(
-			'user_id' => 'User',
-			'category_id' => 'Category',
+			'id' => 'ID',
+			'title' => 'Title',
+			'description' => 'Description',
+			'sort_order' => 'Sort Order',
 		);
 	}
 
@@ -76,8 +93,10 @@ class UserLinkcategory extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('category_id',$this->category_id);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('sort_order',$this->sort_order);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
