@@ -9,7 +9,7 @@ class LinklistModule extends HWebModule {
 	public function behaviors() {
 		return array (
 			'SpaceModuleBehavior' => array (
-					'class' => 'application.modules_core.space.SpaceModuleBehavior' 
+					'class' => 'application.modules_core.space.behaviors.SpaceModuleBehavior' 
 			), 
 		);
 	}
