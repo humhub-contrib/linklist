@@ -11,7 +11,11 @@
  */
 ?>
 
-<?php foreach($categories as $category) { ?>
+<?php if(empty($categories)) { ?>
+	<div id="linklist-empty-text"><?php echo Yii::t('LinklistModule.base', 'There have been no links added to this space yet.') ?></div><br />
+<?php } 
+else {
+foreach($categories as $category) { ?>
 <div id="category-entry_<?php echo $category->id?>" class="panel panel-default">
 	<div class="panel-heading">
 		<?php echo $category->title; ?>
@@ -77,6 +81,7 @@
 		</div>
     </div>
 </div>
+<?php } ?>
 <?php } ?>
 <?php if($editable) { ?>
 <div><?php echo CHtml::link('Add Category', array('//linklist/spacelinklist/editCategory', 'category_id' => -1, 'sguid' => $sguid), array('class' => 'btn btn-primary'));?></div>

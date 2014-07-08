@@ -5,6 +5,33 @@ class SpaceLinklistController extends Controller
 	public $subLayout = "application.modules_core.space.views.space._layout";
 	
 	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+				'accessControl', // perform access control for CRUD operations
+		);
+	}
+	
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+				array('allow', // allow authenticated user to perform 'create' and 'update' actions
+						'users' => array('@'),
+				),
+				array('deny', // deny all users
+						'users' => array('*'),
+				),
+		);
+	}
+	
+	/**
 	 * Add mix-ins to this model
 	 *
 	 * @return type
@@ -18,26 +45,32 @@ class SpaceLinklistController extends Controller
 	}
 	
 	private function isEditable($space) {
-		return Yii::app()->user->isAdmin() || $space->owner->guid == Yii::app()->user->guid;
+		return $space->isAdmin(Yii::app()->user->id) || $space->isOwner(Yii::app()->user->id);
 	}
 	
 	public function actionShowLinklist() {
-		$container = $this->getSpace();
-		$categories = Category::model()->contentContainer($container)->findAll();
- 		$links = array();
- 		
-		foreach($categories as $category) {
-			$links[$category->id] = array();
-			foreach(Link::model()->findAllByAttributes(array('category_id'=>$category->id)) as $link) {
-				$links[$category->id][] = $link;
-			} 
+		
+		$container = Yii::app()->getController()->getSpace();
+		$categoryBuffer = Category::model()->contentContainer($container)->findAll(array('order' => 'sort_order ASC'));
+		
+		$categories = array();
+		$links = array();
+		$editable = $this->isEditable($container);
+			
+		foreach($categoryBuffer as $category) {
+			$linkBuffer = Link::model()->findAllByAttributes(array('category_id'=>$category->id), array('order' => 'sort_order ASC'));
+			// categories are only displayed if they contain at least one link or the user may edit them.
+			if(!empty($linkBuffer) || $editable) {
+				$categories[] = $category;
+				$links[$category->id] = $linkBuffer;
+			}
 		}
 		
 		$this->render('showLinklist', array(
 			'sguid' => $container->guid,
 			'categories' => $categories,
 			'links' => $links,
-			'editable' => $this->isEditable($container),
+			'editable' => $editable,
 		));
 	}
 	
@@ -159,32 +192,6 @@ class SpaceLinklistController extends Controller
 			'sguid' => $container->guid,
 			)
 		));
-	}
-	
-	/**
-	 * Clean an array by deleting null values and empty subarrays.
-	 * @param Array $source
-	 * @param Array $result
-	 */
-	public static function cleanArray($source = array(), $result = array()) {
-		if(!is_array($source) || !is_array($result)) {
-			return;
-		}
-		foreach($source as $key => $object) {
-			if($object = null) {
-				continue;
-			}
-			else if(!is_array($object)) {
-				$result[$key] = $object;
-			}
-			else {
-				$temp = array();
-				SpaceLinklistController::cleanArray($object, $temp);
-				if(!empty($temp)) {
-					$result[$key] = $object;
-				}
-			}
-		}
 	}
 }
 
