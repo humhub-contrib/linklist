@@ -2,6 +2,17 @@
 #linklist-empty-txt {
 	visibility:hidden;
 	display:none;
+	padding-bottom:20px;
+}
+
+.linklist-add-category {
+	padding-bottom:20px;	
+	float:right;
+}
+
+.toggle-view-mode {
+	padding-bottom:20px;
+	float:left;
 }
 
 .panel-linklist-category {
@@ -36,6 +47,11 @@
 
 .panel-linklist-category .panel-body .media .media-body ul li {
 	position:relative;
+	padding-bottom:10px;
+}
+
+.panel-linklist-category .panel-body .media .media-body ul li:last-child {
+	padding-bottom:0;
 }
 
 .panel-linklist-category .linklist-interaction-controls {
@@ -68,25 +84,45 @@
 	
 }
 
-.panel-linklist-widget .panel-body {
+.panel-linklist-widget .linklist-body {
+	padding-bottom:10px;
+	font-size:13px;
+}
+
+.panel-linklist-widget .linklist-body .scrollable-content-container {
 	max-height:200px;
+	overflow: hidden;	
 }
 
-.panel-linklist-widget .panel-body .media {
+.panel-linklist-widget .linklist-body .scrollable-content-container .media {
+	border-bottom: 1px solid #EEE;
+	margin:0;
+	padding:5px 10px 5px 10px;
+}
+
+.panel-linklist-widget .linklist-body .scrollable-content-container .media:last-child {
+	border:none;
+	padding-bottom:0;
+}
+
+.panel-linklist-widget .linklist-body .scrollable-content-container .media:first-child {
+	padding-top:0;
+}
+
+.panel-linklist-widget .linklist-body .scrollable-content-container .media-heading {
+
+}
+
+.panel-linklist-widget .linklist-body .scrollable-content-container .media-list {
 	
 }
 
-.panel-linklist-widget .panel-body .media-heading {
-	
+.panel-linklist-widget .linklist-body .scrollable-content-container .media-list li {
+	border-bottom:none;
+	border-top:none;
+	padding:2px 10px 2px 20px;
+	margin-left:-10px;
+	margin-right:-10px;
 }
-
-.panel-linklist-widget .panel-body .media-body {
-	padding-left:10px;
-}
-
-.panel-linklist-widget .panel-body .media-body a {
-	
-}
-
 
 /* css for the linklist wall-entry widget */

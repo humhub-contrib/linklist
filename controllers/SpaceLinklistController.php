@@ -55,22 +55,17 @@ class SpaceLinklistController extends Controller
 		
 		$categories = array();
 		$links = array();
-		$editable = $this->isEditable($container);
 			
 		foreach($categoryBuffer as $category) {
-			$linkBuffer = Link::model()->findAllByAttributes(array('category_id'=>$category->id), array('order' => 'sort_order ASC'));
-			// categories are only displayed if they contain at least one link or the user may edit them.
-			if(!empty($linkBuffer) || $editable) {
-				$categories[] = $category;
-				$links[$category->id] = $linkBuffer;
-			}
+			$categories[] = $category;
+			$links[$category->id] = Link::model()->findAllByAttributes(array('category_id'=>$category->id), array('order' => 'sort_order ASC'));;
 		}
 		
 		$this->render('showLinklist', array(
 			'sguid' => $container->guid,
 			'categories' => $categories,
 			'links' => $links,
-			'editable' => $editable,
+			'editable' => $this->isEditable($container),
 		));
 	}
 	

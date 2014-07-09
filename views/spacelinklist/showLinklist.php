@@ -11,7 +11,7 @@
  */
 ?>
 
-<div id="linklist-empty-txt" <?php if(empty($categories)) { echo 'style="visibility:visible; display:block"'; } ?>><?php echo Yii::t('LinklistModule.base', 'There have been no links added to this space yet.') ?><br /></div>
+<div id="linklist-empty-txt" <?php if(empty($categories)) { echo 'style="visibility:visible; display:block"'; } ?>><?php echo Yii::t('LinklistModule.base', 'There have been no links added to this space yet.') ?></div>
 
 <?php foreach($categories as $category) { ?>
 <div id="linklist-category_<?php echo $category->id?>" class="panel panel-default panel-linklist-category">
@@ -19,7 +19,7 @@
 		<div class="heading">
 			<?php echo $category->title; ?>
 			<?php if($editable) { ?>
-			<div class="linklist-edit-controls">		 
+			<div class="linklist-edit-controls linklist-editable">		 
 			<?php $this->widget('application.widgets.ModalConfirmWidget', array(
 			        'uniqueID' => 'modal_categorydelete_'.$category->id,
 			        'linkOutput' => 'a',
@@ -45,11 +45,13 @@
 	</div>
     <div class="panel-body">  
 		<div class="media">
-			<div class="media-heading"><?php echo $category->description; ?></div>
+			<?php if(!($category->description == NULL || $category->description == "")) { ?>
+				<div class="media-heading"><?php echo $category->description; ?></div>
+			<?php } ?>
 			<div class="media-body">	
 				<ul>
 				<?php foreach($links[$category->id] as $link) { ?>
-					<li id="linklist-link_<?php echo $link->id;?>" style="padding-bottom:10px">
+					<li id="linklist-link_<?php echo $link->id;?>">
 						<a href="<?php echo $link->href; ?>" title="<?php echo $link->description; ?>"><?php echo $link->title; ?></a>
 						
 						<div class="linklist-interaction-controls">	
@@ -58,7 +60,7 @@
 						</div>	
 						                                                
 						<?php if($editable) { ?>
-							<div class="linklist-edit-controls">		 
+							<div class="linklist-edit-controls linklist-editable">		 
 							<?php $this->widget('application.widgets.ModalConfirmWidget', array(
 						        'uniqueID' => 'modal_linkdelete_'.$link->id,
 						        'linkOutput' => 'a',
@@ -91,5 +93,6 @@
 </div>
 <?php } ?>
 <?php if($editable) { ?>
-<div><?php echo CHtml::link('Add Category', array('//linklist/spacelinklist/editCategory', 'category_id' => -1, 'sguid' => $sguid), array('class' => 'btn btn-primary'));?></div>
+<div class="toggle-view-mode"><a href="#" class="btn btn-primary"><?php echo Yii::t('LinklistModule.base', 'Toggle view mode') ?></a></div>
+<div class="linklist-add-category linklist-editable"><?php echo CHtml::link('Add Category', array('//linklist/spacelinklist/editCategory', 'category_id' => -1, 'sguid' => $sguid), array('class' => 'btn btn-primary'));?></div>
 <?php } ?>
