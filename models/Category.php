@@ -41,6 +41,7 @@ class Category extends HActiveRecordContent
 		return array(
 			array('sort_order', 'numerical', 'integerOnly'=>true),
 			array('title, description', 'safe'),
+			array('title', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, title, description, sort_order', 'safe', 'on'=>'search'),

@@ -64,6 +64,8 @@ class Link extends HActiveRecordContent
 			array('category_id', 'required'),
 			array('category_id, sort_order', 'numerical', 'integerOnly'=>true),
 			array('href, title, description', 'safe'),
+			array('href, title', 'required'),
+			array('href', 'url'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, category_id, href, title, description, sort_order', 'safe', 'on'=>'search'),

@@ -20,7 +20,7 @@
             'id' => 'link-edit-form',
             'enableAjaxValidation' => false,
         ));
-		echo $form->errorSummary($link); ?>
+		//echo $form->errorSummary($link); ?>
 
 	    <div class="form-group">
 	        <?php echo $form->labelEx($link, 'title'); ?>

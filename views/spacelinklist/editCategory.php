@@ -20,7 +20,7 @@
             'id' => 'category-edit-form',
             'enableAjaxValidation' => false,
         ));
-		echo $form->errorSummary($category); ?>
+		//echo $form->errorSummary($category); ?>
 
 	    <div class="form-group">
 	        <?php echo $form->labelEx($category, 'title'); ?>
