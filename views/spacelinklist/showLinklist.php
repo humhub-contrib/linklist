@@ -11,7 +11,7 @@
  */
 ?>
 
-<div id="linklist-empty-txt" <?php if(empty($categories)) { echo 'style="visibility:visible; display:block"'; } ?>><?php echo Yii::t('LinklistModule.base', 'There have been no links added to this space yet.') ?></div>
+<div id="linklist-empty-txt" <?php if(empty($categories)) { echo 'style="visibility:visible; display:block"'; } ?>><?php echo Yii::t('LinklistModule.base', 'There have been no links or categories added to this space yet.') ?></div>
 
 <?php foreach($categories as $category) { ?>
 <div id="linklist-category_<?php echo $category->id?>" class="panel panel-default panel-linklist-category">

@@ -4,6 +4,10 @@ class LinklistModule extends HWebModule {
 	public function init() {
 		// this method is called when the module is being created
 		// you may place code here to customize the module or the application
+		// register script and css files
+		$assetPrefix = Yii::app()->assetManager->publish(dirname(__FILE__) . '/resources', true, 0, defined('YII_DEBUG'));
+		Yii::app()->clientScript->registerScriptFile($assetPrefix . '/linklist.js');
+		Yii::app()->clientScript->registerCssFile($assetPrefix . '/linklist.css');
 	}
 	
 	public function behaviors() {
