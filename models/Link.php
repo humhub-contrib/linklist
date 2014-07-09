@@ -13,7 +13,7 @@
  */
 class Link extends HActiveRecordContent
 {
-	public $autoAddToWall = false;
+	public $autoAddToWall = true;
 	
 	/**
 	 * Returns the static model of the specified AR class.
@@ -23,6 +23,26 @@ class Link extends HActiveRecordContent
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	/**
+	 * Returns the Wall Output
+	 */
+	public function getWallOut()
+	{
+		return Yii::app()->getController()->widget('application.modules.linklist.widgets.LinkWallEntryWidget', array('link' => $this), true);
+	}
+	
+	/**
+	 * Returns a title/text which identifies this IContent.
+	 *
+	 * e.g. Post: foo bar 123...
+	 *
+	 * @return String
+	 */
+	public function getContentTitle()
+	{
+		return Yii::t('LinklistModule.base', "Link") . " \"" . Helpers::truncateText($this->title, 25) . "\"";
 	}
 
 	/**
@@ -58,6 +78,7 @@ class Link extends HActiveRecordContent
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+				'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
 		);
 	}
 

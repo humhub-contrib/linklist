@@ -1,7 +1,92 @@
-#spacelinksContent {
+/* css for the linklist module site */
+#linklist-empty-txt {
+	visibility:hidden;
+	display:none;
+}
+
+.panel-linklist-category {
+	
+}
+
+.panel-linklist-category .panel-heading .heading {
+	position:relative;	
+	padding:0;	
+}
+
+.panel-linklist-category .panel-body {
+	
+}
+
+.panel-linklist-category .panel-body .media .media-heading {
+	
+}
+
+.panel-linklist-category .panel-body .media .media-heading {
+	margin:0;
+	padding-bottom:15px;
+}
+
+.panel-linklist-category .panel-body .media .media-body {
+	
+}
+
+.panel-linklist-category .panel-body .media .media-body ul {
+	
+}
+
+.panel-linklist-category .panel-body .media .media-body ul li {
+	position:relative;
+}
+
+.panel-linklist-category .linklist-interaction-controls {
+	font-size: 11px;
+	color: #AEAEAE;
+}
+
+.panel-linklist-category .linklist-interaction-controls a {
+	font-size: 11px;
+	color: #AEAEAE;
+}
+
+.panel-linklist-category .linklist-edit-controls {
+	position:absolute;
+	display:inline;
+	top:0;
+	right:0;
+}
+
+.panel-linklist-category .linklist-edit-controls a {
+	padding-left:4px;
+}
+
+/* css for the linklist module widget */
+.panel-linklist-widget {
+	
+}
+
+.panel-linklist-widget .panel-heading {
+	
+}
+
+.panel-linklist-widget .panel-body {
 	max-height:200px;
 }
 
-#spacelinksContent .media-body {
+.panel-linklist-widget .panel-body .media {
+	
+}
+
+.panel-linklist-widget .panel-body .media-heading {
+	
+}
+
+.panel-linklist-widget .panel-body .media-body {
 	padding-left:10px;
 }
+
+.panel-linklist-widget .panel-body .media-body a {
+	
+}
+
+
+/* css for the linklist wall-entry widget */

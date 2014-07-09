@@ -11,49 +11,56 @@
  */
 ?>
 
-<?php if(empty($categories)) { ?>
-	<div id="linklist-empty-text"><?php echo Yii::t('LinklistModule.base', 'There have been no links added to this space yet.') ?></div><br />
-<?php } 
-else {
-foreach($categories as $category) { ?>
-<div id="category-entry_<?php echo $category->id?>" class="panel panel-default">
+<div id="linklist-empty-txt" <?php if(empty($categories)) { echo 'style="visibility:visible; display:block"'; } ?>><?php echo Yii::t('LinklistModule.base', 'There have been no links added to this space yet.') ?><br /></div>
+
+<?php foreach($categories as $category) { ?>
+<div id="linklist-category_<?php echo $category->id?>" class="panel panel-default panel-linklist-category">
 	<div class="panel-heading">
-		<?php echo $category->title; ?>
-		<?php if($editable) {
-			$this->widget('application.widgets.ModalConfirmWidget', array(
-		        'uniqueID' => 'modal_categorydelete_'.$category->id,
-				'class' => 'pull-right" title="Delete Category" style="padding-left:5px;',
-		        'linkOutput' => 'a',
-		        'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> category deleting'),
-		        'message' => Yii::t('LinklistModule.base', 'Do you really want to delete this category? All connected links will be lost!'),
-		        'buttonTrue' => Yii::t('LinklistModule.base', 'Delete'),
-		        'buttonFalse' => Yii::t('LinklistModule.base', 'Cancel'),
-		        'linkContent' => '<i class="fa fa-trash-o"></i> ',
-		        'linkHref' => $this->createUrl("//linklist/spacelinklist/deleteCategory", array('category_id' => $category->id, 'sguid' => $sguid)),
-		        'confirmJS' => 'function() { 
-						$("#category-entry_'.$category->id.'").remove();
-						$("#category-widget-entry_'.$category->id.'").remove(); 
-						if($(".panel-linklist-widget").find(".media").length == 0) {
-							$(".panel-linklist-widget").remove();
-						}
-					}'
-		    ));
-			echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/spacelinklist/editCategory', 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Edit Category', 'class' => 'pull-right', 'style' => 'padding-left:5px;'));
-			echo CHtml::link('<i class="fa fa-plus-square"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => -1, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Add Link', 'class'=>'pull-right', 'style' => 'padding-left:5px;'));
-		} ?>
+		<div class="heading">
+			<?php echo $category->title; ?>
+			<?php if($editable) { ?>
+			<div class="linklist-edit-controls">		 
+			<?php $this->widget('application.widgets.ModalConfirmWidget', array(
+			        'uniqueID' => 'modal_categorydelete_'.$category->id,
+			        'linkOutput' => 'a',
+			        'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> category deleting'),
+			        'message' => Yii::t('LinklistModule.base', 'Do you really want to delete this category? All connected links will be lost!'),
+			        'buttonTrue' => Yii::t('LinklistModule.base', 'Delete'),
+			        'buttonFalse' => Yii::t('LinklistModule.base', 'Cancel'),
+			        'linkContent' => '<i class="fa fa-trash-o"></i> ',
+			        'linkHref' => $this->createUrl("//linklist/spacelinklist/deleteCategory", array('category_id' => $category->id, 'sguid' => $sguid)),
+			        'confirmJS' => 'function() { 
+							$("#linklist-category_'.$category->id.'").remove();
+							$("#linklist-widget-category_'.$category->id.'").remove(); 
+							if($(".panel-linklist-widget").find(".media").length == 0) {
+								$(".panel-linklist-widget").remove();
+							}
+						}'
+			    ));
+				echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/spacelinklist/editCategory', 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Edit Category'));
+				echo CHtml::link('<i class="fa fa-plus-square-o"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => -1, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Add Link')); ?>
+			</div>
+			<?php } ?>
+		</div>
 	</div>
     <div class="panel-body">  
 		<div class="media">
+			<div class="media-heading"><?php echo $category->description; ?></div>
 			<div class="media-body">	
-				<p><?php echo $category->description; ?></p>
 				<ul>
 				<?php foreach($links[$category->id] as $link) { ?>
-					<li id="link-entry_<?php echo $link->id;?>" style="padding-bottom:10px">
+					<li id="linklist-link_<?php echo $link->id;?>" style="padding-bottom:10px">
 						<a href="<?php echo $link->href; ?>" title="<?php echo $link->description; ?>"><?php echo $link->title; ?></a>
-						<?php if($editable) {
-							$this->widget('application.widgets.ModalConfirmWidget', array(
+						
+						<div class="linklist-interaction-controls">	
+						<?php $this->widget('application.modules_core.comment.widgets.CommentLinkWidget', array('object' => $link, 'mode' => 'popup')); ?> &middot;
+                        <?php $this->widget('application.modules_core.like.widgets.LikeLinkWidget', array('object' => $link)); ?>
+						</div>	
+						                                                
+						<?php if($editable) { ?>
+							<div class="linklist-edit-controls">		 
+							<?php $this->widget('application.widgets.ModalConfirmWidget', array(
 						        'uniqueID' => 'modal_linkdelete_'.$link->id,
-								'class' => 'pull-right" title="Delete Link" style="padding-left:5px;',
 						        'linkOutput' => 'a',
 						        'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> link deleting'),
 						        'message' => Yii::t('LinklistModule.base', 'Do you really want to delete this link?'),
@@ -62,18 +69,19 @@ foreach($categories as $category) { ?>
 						        'linkContent' => '<i class="fa fa-trash-o"></i> ',
 						        'linkHref' => $this->createUrl("//linklist/spacelinklist/deleteLink", array('category_id' => $category->id, 'link_id' => $link->id, 'sguid' => $sguid)),
 						        'confirmJS' => 'function() { 
-										$("#link-entry_'.$link->id.'").remove();
-										$("#link-widget-entry_'.$link->id.'").remove(); 
-										if($("#category-widget-entry_'.$category->id.'").find("li").length == 0) {
-											$("#category-widget-entry_'.$category->id.'").remove();
+										$("#linklist-link_'.$link->id.'").remove();
+										$("#linklist-widget-link_'.$link->id.'").remove(); 
+										if($("#linklist-widget-category_'.$category->id.'").find("li").length == 0) {
+											$("#linklist-widget-category_'.$category->id.'").remove();
 										}
 										if($(".panel-linklist-widget").find(".media").length == 0) {
 											$(".panel-linklist-widget").remove();
 										}
 									}'
 						    ));
-							echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => $link->id, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Edit Link', 'class' => 'pull-right'));
-						} ?>
+							echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => $link->id, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Edit Link')); ?>
+						</div>
+						<?php } ?>
 					</li>
 				<?php } ?>
 				</ul>
@@ -81,7 +89,6 @@ foreach($categories as $category) { ?>
 		</div>
     </div>
 </div>
-<?php } ?>
 <?php } ?>
 <?php if($editable) { ?>
 <div><?php echo CHtml::link('Add Category', array('//linklist/spacelinklist/editCategory', 'category_id' => -1, 'sguid' => $sguid), array('class' => 'btn btn-primary'));?></div>
