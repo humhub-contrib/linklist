@@ -6,7 +6,7 @@
  * @uses $container_guid the container may be a space or user object.
  * @uses $categories an array of categories.
  * @uses $links an array of arrays of links, indicated by the category id
- * @uses $editable true if the current user is allowed to edit the links.
+ * @uses $isAdmin true if the current user is allowed to edit the links.
  * 
  */
 ?>
@@ -18,9 +18,10 @@
 	<div class="panel-heading">
 		<div class="heading">
 			<?php echo $category->title; ?>
-			<?php if($editable) { ?>
-			<div class="linklist-edit-controls linklist-editable">		 
-			<?php $this->widget('application.widgets.ModalConfirmWidget', array(
+			<div class="linklist-edit-controls linklist-editable">
+			<?php if($isAdmin) {		 
+				// admins may edit and delete categories
+				$this->widget('application.widgets.ModalConfirmWidget', array(
 			        'uniqueID' => 'modal_categorydelete_'.$category->id,
 			        'linkOutput' => 'a',
 			        'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> category deleting'),
@@ -38,9 +39,10 @@
 						}'
 			    ));
 				echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/spacelinklist/editCategory', 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Edit Category'));
-				echo CHtml::link('<i class="fa fa-plus-square-o"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => -1, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Add Link')); ?>
+			}
+			// all users may add a link to an existing category
+			echo CHtml::link('<i class="fa fa-plus-square-o"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => -1, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Add Link')); ?>
 			</div>
-			<?php } ?>
 		</div>
 	</div>
     <div class="panel-body">  
@@ -58,8 +60,8 @@
 						<?php $this->widget('application.modules_core.comment.widgets.CommentLinkWidget', array('object' => $link, 'mode' => 'popup')); ?> &middot;
                         <?php $this->widget('application.modules_core.like.widgets.LikeLinkWidget', array('object' => $link)); ?>
 						</div>	
-						                                                
-						<?php if($editable) { ?>
+                       	<?php // all admins and users that created the link may edit or delete it ?>                         
+						<?php if($isAdmin || $link->content->created_by == Yii::app()->user->id) { ?>
 							<div class="linklist-edit-controls linklist-editable">		 
 							<?php $this->widget('application.widgets.ModalConfirmWidget', array(
 						        'uniqueID' => 'modal_linkdelete_'.$link->id,
@@ -92,7 +94,9 @@
     </div>
 </div>
 <?php } ?>
-<?php if($editable) { ?>
+<?php if(!empty($categories)) { ?>
 <div class="toggle-view-mode"><a href="#" class="btn btn-primary"><?php echo Yii::t('LinklistModule.base', 'Toggle view mode') ?></a></div>
+<?php } ?>
+<?php if($isAdmin) { ?>
 <div class="linklist-add-category linklist-editable"><?php echo CHtml::link('Add Category', array('//linklist/spacelinklist/editCategory', 'category_id' => -1, 'sguid' => $sguid), array('class' => 'btn btn-primary'));?></div>
 <?php } ?>

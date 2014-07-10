@@ -44,7 +44,7 @@ class SpaceLinklistController extends Controller
 		);
 	}
 	
-	private function isEditable($space) {
+	private function isAdmin($space) {
 		return $space->isAdmin(Yii::app()->user->id) || $space->isOwner(Yii::app()->user->id);
 	}
 	
@@ -65,15 +65,15 @@ class SpaceLinklistController extends Controller
 			'sguid' => $container->guid,
 			'categories' => $categories,
 			'links' => $links,
-			'editable' => $this->isEditable($container),
+			'isAdmin' => $this->isAdmin($container),
 		));
 	}
 	
 	public function actionEditCategory() {
 		
 		$container = $this->getSpace();
-		if(!$this->isEditable($container)) {
-			throw new CHttpException(404, Yii::t('LinklistModule.base', 'Linklist is not editable!'));
+		if(!$this->isAdmin($container)) {
+			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to edit this category!'));
 		}
 	
 		$category_id = (int) Yii::app()->request->getQuery('category_id');
@@ -109,8 +109,8 @@ class SpaceLinklistController extends Controller
 	public function actionDeleteCategory() {
 	
 		$container = $this->getSpace();
-		if(!$this->isEditable($container)) {
-			throw new CHttpException(404, Yii::t('LinklistModule.base', 'Linklist is not editable!'));
+		if(!$this->isAdmin($container)) {
+			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to delete this category!'));
 		}
 	
 		$category_id = (int) Yii::app()->request->getQuery('category_id');
@@ -131,10 +131,6 @@ class SpaceLinklistController extends Controller
 	public function actionEditLink() {
 		
 		$container = $this->getSpace();
-		if(!$this->isEditable($container)) {
-			throw new CHttpException(404, Yii::t('LinklistModule.base', 'Linklist is not editable!'));
-		}
-		
 		$link_id = (int) Yii::app()->request->getQuery('link_id');
 		$category_id = (int) Yii::app()->request->getQuery('category_id');
 		$link = Link::model()->findByAttributes(array('id' => $link_id));
@@ -144,6 +140,9 @@ class SpaceLinklistController extends Controller
 			$link = new Link();
 			$link->category_id = $category_id;
 			$isCreated = true;
+		}
+		else if(!($this->isAdmin($container) || $link->content->created_by == Yii::app()->user->id)) {
+			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to edit this link!'));
 		}
 		
 		if (isset($_POST['Link'])) {
@@ -169,17 +168,16 @@ class SpaceLinklistController extends Controller
 	
 	public function actionDeleteLink() {
 	
-		$container = $this->getSpace();
-		if(!$this->isEditable($container)) {
-			throw new CHttpException(404, Yii::t('LinklistModule.base', 'Linklist is not editable!'));
-		}
-	
+		$container = $this->getSpace();	
 		$link_id = (int) Yii::app()->request->getQuery('link_id');
 		$link = Link::model()->findByAttributes(array('id' => $link_id));
-	
+		
 		if ($link == null) {
 			throw new CHttpException(404, Yii::t('LinklistModule.base', 'Requested link could not be found.'));
 		}
+		if(!($this->isAdmin($container) || $link->content->created_by == Yii::app()->user->id)) {
+			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to delete this link!'));
+		}	
 	
 		$link->delete();
 	
