@@ -45,7 +45,7 @@ class SpaceLinklistController extends Controller
 	}
 	
 	private function isAdmin($space) {
-		return $space->isAdmin(Yii::app()->user->id) || $space->isOwner(Yii::app()->user->id);
+		return $space->isAdmin(Yii::app()->user->id);
 	}
 	
 	public function actionShowLinklist() {
