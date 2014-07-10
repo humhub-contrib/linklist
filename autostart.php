@@ -7,6 +7,7 @@ Yii::app()->moduleManager->register(array(
         'application.modules.linklist.models.*',
         'application.modules.linklist.views.*',
         'application.modules.linklist.controllers.*',
+        'application.modules.linklist.components.*',
     ),
     // Events to Catch 
     'events' => array(

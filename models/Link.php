@@ -58,20 +58,19 @@ class Link extends HActiveRecordContent
 	 */
 	public function rules()
 	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
 		return array(
 			array('category_id', 'required'),
 			array('category_id, sort_order', 'numerical', 'integerOnly'=>true),
 			array('href, title, description', 'safe'),
 			array('href, title', 'required'),
 			array('href', 'url'),
+			array('href', 'DeadLinkValidator', 'type'=>'GET', 'timeout' => 5),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, category_id, href, title, description, sort_order', 'safe', 'on'=>'search'),
 		);
 	}
-
+	
 	/**
 	 * @return array relational rules.
 	 */
@@ -92,7 +91,7 @@ class Link extends HActiveRecordContent
 		return array(
 			'id' => 'ID',
 			'category_id' => 'Category',
-			'href' => 'Href',
+			'href' => 'URL',
 			'title' => 'Title',
 			'description' => 'Description',
 			'sort_order' => 'Sort Order',

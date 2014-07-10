@@ -17,6 +17,24 @@ class LinklistModule extends HWebModule {
 			), 
 		);
 	}
+	
+	public function getConfigUrl()
+	{
+		return Yii::app()->createUrl('//linklist/config/config');
+	}
+	
+	/**
+	 * Returns module config url for spaces of your module.
+	 * You may want to overwrite it in your module.
+	 *
+	 * @return String
+	 */
+	public function getSpaceModuleConfigUrl(Space $space)
+	{
+		return Yii::app()->createUrl('//linklist/spacelinklist/config', array(
+			'sguid' => $space->guid,
+		));
+	}
 
 	/**
 	 * Defines what to do if a spaces sidebar is initialzed.

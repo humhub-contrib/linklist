@@ -186,6 +186,47 @@ class SpaceLinklistController extends Controller
 			)
 		));
 	}
+	
+	/**
+	 * Space Configuration Action for Admins
+	 */
+	public function actionConfig() {
+		 
+		Yii::import('linklist.forms.*');
+	
+		$form = new LinklistConfigureForm();
+		$space = Yii::app()->getController()->getSpace();
+	
+// 		uncomment the following code to enable ajax-based validation
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'linklist-configure-form') {
+            echo CActiveForm::validate($form);
+            Yii::app()->end();
+        }
+	
+		if (isset($_POST['LinklistConfigureForm'])) {
+			$_POST['LinklistConfigureForm'] = Yii::app()->input->stripClean($_POST['LinklistConfigureForm']);
+			$form->attributes = $_POST['LinklistConfigureForm'];
+	
+			if ($form->validate()) {
+				$space->setSetting('enableDeadLinkValidation', $form->enableDeadLinkValidation, 'linklist');
+				$this->redirect(Yii::app()->createUrl('linklist/spacelinklist/config', array (
+					'sguid' => $space->guid,
+				)));
+			}
+		} else {
+			$form->enableDeadLinkValidation = $space->getSetting('enableDeadLinkValidation', 'linklist');
+			// check global settings if space setting empty
+			if($form->enableDeadLinkValidation == '' || $form->enableDeadLinkValidation == null) {
+				$form->enableDeadLinkValidation = HSetting::Get('enableDeadLinkValidation', 'linklist');
+			}
+			// set default if global setting empty
+			if($form->enableDeadLinkValidation == '') {
+				$form->enableDeadLinkValidation = 0;
+			}
+		}
+	
+		$this->render('config', array('model' => $form));
+	}
 }
 
 ?>
