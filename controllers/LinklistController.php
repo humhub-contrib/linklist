@@ -68,6 +68,8 @@ class LinklistController extends ContentContainerController
 	
 	public function actionShowLinklist() {
 		
+		$this->checkContainerAccess();
+		
 		$categoryBuffer = Category::model()->contentContainer($this->contentContainer)->findAll(array('order' => 'sort_order ASC'));
 		
 		$categories = array();
@@ -87,6 +89,8 @@ class LinklistController extends ContentContainerController
 	}
 	
 	public function actionEditCategory() {
+		
+		$this->checkContainerAccess();
 		
 		if($this->accessLevel == 0 || $this->accessLevel == 1) {
 			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to edit this category!'));
@@ -120,7 +124,9 @@ class LinklistController extends ContentContainerController
 	}
 	
 	public function actionDeleteCategory() {
-	
+		
+		$this->checkContainerAccess();
+		
 		if($this->accessLevel == 0 || $this->accessLevel == 1) {
 			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to delete this category!'));
 		}
@@ -142,6 +148,8 @@ class LinklistController extends ContentContainerController
 	
 	public function actionEditLink() {
 		
+		$this->checkContainerAccess();
+		
 		$link_id = (int) Yii::app()->request->getQuery('link_id');
 		$category_id = (int) Yii::app()->request->getQuery('category_id');
 		$link = Link::model()->findByAttributes(array('id' => $link_id));
@@ -149,7 +157,7 @@ class LinklistController extends ContentContainerController
 		
 		// access level 0 may neither create nor edit
 		if($this->accessLevel == 0) {
-			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to edit this link!'));
+			throw new CHttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to add/edit links!'));
 		}
 		// access level 1 + 2 may create
 		else if ($link == null) {
@@ -181,7 +189,9 @@ class LinklistController extends ContentContainerController
 	}
 	
 	public function actionDeleteLink() {
-	
+		
+		$this->checkContainerAccess();
+		
 		$link_id = (int) Yii::app()->request->getQuery('link_id');
 		$link = Link::model()->findByAttributes(array('id' => $link_id));
 		

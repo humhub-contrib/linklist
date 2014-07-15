@@ -18,8 +18,9 @@
 	<div class="panel-heading">
 		<div class="heading">
 			<?php echo $category->title; ?>
+			<?php if(Yii::app()->getController()->accessLevel != 0) { ?>
 			<div class="linklist-edit-controls linklist-editable">
-			<?php if(Yii::app()->getController()->accessLevel == 2) {		 
+				<?php if(Yii::app()->getController()->accessLevel == 2) {		 
 				// admins may edit and delete categories
 				$this->widget('application.widgets.ModalConfirmWidget', array(
 			        'uniqueID' => 'modal_categorydelete_'.$category->id,
@@ -40,10 +41,11 @@
 						}'
 			    ));
 				echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/linklist/editCategory', 'category_id' => $category->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('title'=>'Edit Category'));
-			}
-			// all users may add a link to an existing category
-			echo CHtml::link('<i class="fa fa-plus-square-o"></i>', array('//linklist/linklist/editLink', 'link_id' => -1, 'category_id' => $category->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('title'=>'Add Link')); ?>
+				}
+				// all users may add a link to an existing category
+				echo CHtml::link('<i class="fa fa-plus-square-o"></i>', array('//linklist/linklist/editLink', 'link_id' => -1, 'category_id' => $category->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('title'=>'Add Link')); ?>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
     <div class="panel-body">  
@@ -96,9 +98,11 @@
     </div>
 </div>
 <?php } ?>
+<?php if(Yii::app()->getController()->accessLevel != 0) { ?>
 <?php if(!empty($categories)) { ?>
 <div class="toggle-view-mode"><a href="#" class="btn btn-primary"><?php echo Yii::t('LinklistModule.base', 'Toggle view mode') ?></a></div>
 <?php } ?>
 <?php if(Yii::app()->getController()->accessLevel == 2) { ?>
 <div class="linklist-add-category linklist-editable"><?php echo CHtml::link('Add Category', array('//linklist/linklist/editCategory', 'category_id' => -1, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('class' => 'btn btn-primary'));?></div>
+<?php } ?>
 <?php } ?>
