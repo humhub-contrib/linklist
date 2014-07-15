@@ -1,11 +1,9 @@
 
 <div class="panel panel-default">
-    <div class="panel-heading"><?php echo Yii::t('LinklistModule.base', 'Global Linklist Module Configuration'); ?></div>
+    <div class="panel-heading"><?php echo Yii::t('LinklistModule.base', 'Linklist Module Configuration'); ?></div>
     <div class="panel-body">
 
-
-        <p><?php echo Yii::t('LinklistModule.base', 'You can enable the extended global validation of links.'); ?><br />
-        <?php echo Yii::t('LinklistModule.base', 'It may be overwritten by space and user specific settings..'); ?></p>
+        <p><?php echo Yii::t('LinklistModule.base', 'You can enable the extended validation of links for a space or user.'); ?></p>
         <br/>
 
         <?php
@@ -25,8 +23,7 @@
 
         <hr>
         <?php echo CHtml::submitButton(Yii::t('LinklistModule.base', 'Save'), array('class' => 'btn btn-primary')); ?>
-        <a class="btn btn-default" href="<?php echo $this->createUrl('//admin/module'); ?>"><?php echo Yii::t('AdminModule.base', 'Back to modules'); ?></a>
-
+        <a class="btn btn-default" href="<?php echo Yii::app()->getController()->modulesUrl?>"><?php echo Yii::t('AdminModule.base', 'Back to modules'); ?></a>
         <?php $this->endWidget(); ?>
     </div>
 </div>

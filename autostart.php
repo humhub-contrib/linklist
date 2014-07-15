@@ -12,9 +12,9 @@ Yii::app()->moduleManager->register(array(
     // Events to Catch 
     'events' => array(
     	array('class' => 'SpaceMenuWidget', 'event' => 'onInit', 'callback' => array('LinklistModule', 'onSpaceMenuInit')),
-    	// array('class' => 'ProfileMenuWidget', 'event' => 'onInit', 'callback' => array('LinklistModule', 'onUserMenuInit')),
+    	array('class' => 'ProfileMenuWidget', 'event' => 'onInit', 'callback' => array('LinklistModule', 'onProfileMenuInit')),
         array('class' => 'SpaceSidebarWidget', 'event' => 'onInit', 'callback' => array('LinklistModule', 'onSpaceSidebarInit')),
-        // array('class' => 'ProfileSidebarWidget', 'event' => 'onInit', 'callback' => array('LinklistModule', 'onUserSidebarInit')),
+        array('class' => 'ProfileSidebarWidget', 'event' => 'onInit', 'callback' => array('LinklistModule', 'onProfileSidebarInit')),
     ),
 ));
 ?>

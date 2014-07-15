@@ -10,9 +10,17 @@
  */
 class LinklistSidebarWidget extends HWidget {
 	
+	public function behaviors() {
+		return array(
+				'ContentContainerController' => array(
+						'class' => 'application.components.ContentContainerController',
+				)
+			);
+	}
+				
 	public function run() {
 		
-		$container = Yii::app()->getController()->getSpace();
+		$container = $this->getContainer();
 		$categoryBuffer = Category::model()->contentContainer($container)->findAll(array('order' => 'sort_order ASC'));
 		
 		$categories = array();
@@ -38,6 +46,33 @@ class LinklistSidebarWidget extends HWidget {
 			$this->render ( 'linklistPanel', array ('container' => $container, 'categories' => $categories, 'links' => $links));
 		}
 	}	
+	
+	public function getContainer() {
+		
+		$container = null;
+		
+		$spaceGuid = Yii::app()->request->getQuery('sguid');
+		$userGuid = Yii::app()->request->getQuery('uguid');
+		
+		if ($spaceGuid != "") {
+		
+			$container = Space::model()->findByAttributes(array('guid' => $spaceGuid));
+		
+			if ($container == null) {
+				throw new CHttpException(404, Yii::t('SpaceModule.base', 'Space not found!'));
+			}
+		} elseif ($userGuid != "") {
+		
+			$container = User::model()->findByAttributes(array('guid' => $userGuid));
+		
+			if ($container == null) {
+				throw new CHttpException(404, Yii::t('UserModule.base', 'Space not found!'));
+			}
+		} else {
+			throw new CHttpException(500, Yii::t('base', 'Could not determine content container!'));
+		}
+		return $container;
+	}
 }
 
 

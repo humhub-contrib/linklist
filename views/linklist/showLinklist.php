@@ -19,17 +19,18 @@
 		<div class="heading">
 			<?php echo $category->title; ?>
 			<div class="linklist-edit-controls linklist-editable">
-			<?php if($isAdmin) {		 
+			<?php if(Yii::app()->getController()->accessLevel == 2) {		 
 				// admins may edit and delete categories
 				$this->widget('application.widgets.ModalConfirmWidget', array(
 			        'uniqueID' => 'modal_categorydelete_'.$category->id,
 			        'linkOutput' => 'a',
+					'class' => 'deleteButton" title="'.Yii::t('LinklistModule.base', 'Delete category'),
 			        'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> category deleting'),
 			        'message' => Yii::t('LinklistModule.base', 'Do you really want to delete this category? All connected links will be lost!'),
 			        'buttonTrue' => Yii::t('LinklistModule.base', 'Delete'),
 			        'buttonFalse' => Yii::t('LinklistModule.base', 'Cancel'),
 			        'linkContent' => '<i class="fa fa-trash-o"></i> ',
-			        'linkHref' => $this->createUrl("//linklist/spacelinklist/deleteCategory", array('category_id' => $category->id, 'sguid' => $sguid)),
+			        'linkHref' => $this->createUrl("//linklist/linklist/deleteCategory", array('category_id' => $category->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid)),
 			        'confirmJS' => 'function() { 
 							$("#linklist-category_'.$category->id.'").remove();
 							$("#linklist-widget-category_'.$category->id.'").remove(); 
@@ -38,10 +39,10 @@
 							}
 						}'
 			    ));
-				echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/spacelinklist/editCategory', 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Edit Category'));
+				echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/linklist/editCategory', 'category_id' => $category->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('title'=>'Edit Category'));
 			}
 			// all users may add a link to an existing category
-			echo CHtml::link('<i class="fa fa-plus-square-o"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => -1, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Add Link')); ?>
+			echo CHtml::link('<i class="fa fa-plus-square-o"></i>', array('//linklist/linklist/editLink', 'link_id' => -1, 'category_id' => $category->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('title'=>'Add Link')); ?>
 			</div>
 		</div>
 	</div>
@@ -61,17 +62,18 @@
                         <?php $this->widget('application.modules_core.like.widgets.LikeLinkWidget', array('object' => $link)); ?>
 						</div>	
                        	<?php // all admins and users that created the link may edit or delete it ?>                         
-						<?php if($isAdmin || $link->content->created_by == Yii::app()->user->id) { ?>
+						<?php if(Yii::app()->getController()->accessLevel == 2 || Yii::app()->getController()->accessLevel == 1 && $link->content->created_by == Yii::app()->user->id) { ?>
 							<div class="linklist-edit-controls linklist-editable">		 
 							<?php $this->widget('application.widgets.ModalConfirmWidget', array(
 						        'uniqueID' => 'modal_linkdelete_'.$link->id,
 						        'linkOutput' => 'a',
+								'class' => 'deleteButton" title="'.Yii::t('LinklistModule.base', 'Delete link'),
 						        'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> link deleting'),
 						        'message' => Yii::t('LinklistModule.base', 'Do you really want to delete this link?'),
 						        'buttonTrue' => Yii::t('LinklistModule.base', 'Delete'),
 						        'buttonFalse' => Yii::t('LinklistModule.base', 'Cancel'),
 						        'linkContent' => '<i class="fa fa-trash-o"></i> ',
-						        'linkHref' => $this->createUrl("//linklist/spacelinklist/deleteLink", array('category_id' => $category->id, 'link_id' => $link->id, 'sguid' => $sguid)),
+						        'linkHref' => $this->createUrl("//linklist/linklist/deleteLink", array('category_id' => $category->id, 'link_id' => $link->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid)),
 						        'confirmJS' => 'function() { 
 										$("#linklist-link_'.$link->id.'").remove();
 										$("#linklist-widget-link_'.$link->id.'").remove(); 
@@ -83,7 +85,7 @@
 										}
 									}'
 						    ));
-							echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/spacelinklist/editLink', 'link_id' => $link->id, 'category_id' => $category->id, 'sguid' => $sguid), array('title'=>'Edit Link')); ?>
+							echo CHtml::link('<i class="fa fa-pencil-square-o"></i>', array('//linklist/linklist/editLink', 'link_id' => $link->id, 'category_id' => $category->id, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('title'=>'Edit Link')); ?>
 						</div>
 						<?php } ?>
 					</li>
@@ -97,6 +99,6 @@
 <?php if(!empty($categories)) { ?>
 <div class="toggle-view-mode"><a href="#" class="btn btn-primary"><?php echo Yii::t('LinklistModule.base', 'Toggle view mode') ?></a></div>
 <?php } ?>
-<?php if($isAdmin) { ?>
-<div class="linklist-add-category linklist-editable"><?php echo CHtml::link('Add Category', array('//linklist/spacelinklist/editCategory', 'category_id' => -1, 'sguid' => $sguid), array('class' => 'btn btn-primary'));?></div>
+<?php if(Yii::app()->getController()->accessLevel == 2) { ?>
+<div class="linklist-add-category linklist-editable"><?php echo CHtml::link('Add Category', array('//linklist/linklist/editCategory', 'category_id' => -1, Yii::app()->getController()->guidParamName => Yii::app()->getController()->contentContainer->guid), array('class' => 'btn btn-primary'));?></div>
 <?php } ?>

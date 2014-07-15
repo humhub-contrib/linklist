@@ -14,7 +14,8 @@ class LinklistConfigureForm extends CFormModel {
      */
     public function rules() {
         return array(
-        		array('enableDeadLinkValidation', 'required'),
+        		// why do i nee a rule if if i dont haveobne, the value is not saved at all!
+        		array('enableDeadLinkValidation', 'boolean', 'falseValue' => 0, 'trueValue' => 1),
         );
     }
 
@@ -25,7 +26,7 @@ class LinklistConfigureForm extends CFormModel {
      */
     public function attributeLabels() {
         return array(
-            'enableDeadLinkValidation' => Yii::t('LinklistModule.base', 'If enabled, entering links that cannot be connected to, will not be accepted.'),
+            'enableDeadLinkValidation' => Yii::t('LinklistModule.base', 'Extend link validation by a connection test.'),
         );
     }
 

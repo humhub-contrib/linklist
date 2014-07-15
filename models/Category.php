@@ -63,7 +63,6 @@ class Category extends HActiveRecordContent
 
 	public function afterDelete()
 	{
-		print_r($this->links);
 		foreach($this->links as $link) {
 			$link->delete();
 		}
