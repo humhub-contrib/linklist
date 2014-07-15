@@ -1,10 +1,17 @@
 <?php
-
+/**
+ * Description of LinklistController.
+ *
+ * @package humhub.modules.linklist.controllers
+ * @author Sebastian Stumpf
+ */
 class LinklistController extends ContentContainerController
 {
-		
+	/** access level of the user currently logged in. 0 -> no write access / 1 -> create links and edit own links / 2 -> full write access. **/	
 	public $accessLevel = 0;
+	/** url parameter name for the guid. space -> sguid / user -> uguid. **/
 	public $guidParamName = '';
+	/** the url back to the modules, used in the config view. **/
 	public $modulesUrl = '';
 	
 	/**
@@ -35,6 +42,10 @@ class LinklistController extends ContentContainerController
 		}
 	}
 	
+	/**
+	 * Get the url back to the modules, used in the config view.
+	 * @return string
+	 */
 	private function getModulesUrl() {
 		if($this->contentContainer instanceof User) {
 			return $this->createContainerUrl('//user/account/editModules');
@@ -43,7 +54,11 @@ class LinklistController extends ContentContainerController
 			return $this->createContainerUrl('//space/admin/modules');
 		}
 	}
-	
+
+	/**
+	 * Get the sublayout for the config view.
+	 * @return string the url.
+	 */
 	private function getConfigSubLayout() {
 		if($this->contentContainer instanceof User) {
 			return "application.modules_core.user.views.account._layout";
@@ -66,6 +81,10 @@ class LinklistController extends ContentContainerController
 		}
 	}
 	
+	/**
+	 * Action that renders the list view.
+	 * @see views/linklist/showLinklist.php
+	 */
 	public function actionShowLinklist() {
 		
 		$this->checkContainerAccess();
@@ -88,6 +107,12 @@ class LinklistController extends ContentContainerController
 		));
 	}
 	
+	/**
+	 * Action that renders the view to add or edit a category.<br />
+	 * The request has to provide the id of the category to edit in the url parameter 'category_id'.
+	 * @see views/linklist/editCategory.php
+	 * @throws CHttpException 404, if the logged in User misses the rights to access this view.
+	 */
 	public function actionEditCategory() {
 		
 		$this->checkContainerAccess();
@@ -123,6 +148,11 @@ class LinklistController extends ContentContainerController
 		));
 	}
 	
+	/**
+	 * Action that deletes a given category.<br />
+	 * The request has to provide the id of the category to delete in the url parameter 'category_id'. 
+	 * @throws CHttpException 404, if the logged in User misses the rights to access this view.
+	 */
 	public function actionDeleteCategory() {
 		
 		$this->checkContainerAccess();
@@ -146,6 +176,13 @@ class LinklistController extends ContentContainerController
 		));
 	}
 	
+	/**
+	 * Action that renders the view to add or edit a category.<br />
+	 * The request has to provide the id of the category the link should be created in, in the url parameter 'category_id'.<br />
+	 * If an existing ling should be edited, the link's id has to be given in 'link_id'.<br />
+	 * @see views/linklist/editCategory.php
+	 * @throws CHttpException 404, if the logged in User misses the rights to access this view.
+	 */
 	public function actionEditLink() {
 		
 		$this->checkContainerAccess();
@@ -162,6 +199,9 @@ class LinklistController extends ContentContainerController
 		// access level 1 + 2 may create
 		else if ($link == null) {
 			$link = new Link();
+			if(Category::model()->findByAttributes(array('id' => $category_id)) == null) {
+				throw new CHttpException(404, Yii::t('LinklistModule.base', 'The category you want to create your link in could not be found!'));
+			}
 			$link->category_id = $category_id;
 			$isCreated = true;
 		}
@@ -188,6 +228,11 @@ class LinklistController extends ContentContainerController
 		));
 	}
 	
+	/**
+	 * Action that deletes a given category.<br />
+	 * The request has to provide the id of the link to delete in the url parameter 'link_id'.
+	 * @throws CHttpException 404, if the logged in User misses the rights to access this view.
+	 */
 	public function actionDeleteLink() {
 		
 		$this->checkContainerAccess();

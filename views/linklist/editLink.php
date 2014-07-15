@@ -5,6 +5,8 @@
  * @uses $link the link object.
  * @uses $isCreated true if the link is first created, false if an existing link is edited
  * 
+ * @author Sebastian Stumpf
+ * 
  */
 ?>
 

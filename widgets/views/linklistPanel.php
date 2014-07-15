@@ -1,9 +1,10 @@
-<?php
+<?php 
 /**
- * View File for the SpacelinksSidebarWidget
- *
- *
- * @package humhub.modules.spacelinks.widgets.views
+ * Sidebar widget view to list all categories and their links.
+ * 
+ * @uses $categories an array of the categories to show.
+ * @uses $links an array of arrays of the links to show, indicated by the category id.
+ * 
  * @author Sebastian Stumpf
  */
 ?>

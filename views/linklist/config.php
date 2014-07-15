@@ -1,3 +1,13 @@
+<?php 
+/**
+ * Linklist configuration view.
+ * 
+ * @uses $form the form with the formular fields.
+ * 
+ * @author Sebastian Stumpf
+ * 
+ */
+?>
 
 <div class="panel panel-default">
     <div class="panel-heading"><?php echo Yii::t('LinklistModule.base', 'Linklist Module Configuration'); ?></div>

@@ -3,21 +3,13 @@
 /**
  * LinklistSidebarWidget displaying a list of links.
  *
- * It is attached to the sidebar.
+ * It is attached to the sidebar of the space/user, if the module is enabled in the settings.
  *
  * @package humhub.modules.linklist.widgets
  * @author Sebastian Stumpf
  */
 class LinklistSidebarWidget extends HWidget {
-	
-	public function behaviors() {
-		return array(
-				'ContentContainerController' => array(
-						'class' => 'application.components.ContentContainerController',
-				)
-			);
-	}
-				
+
 	public function run() {
 		
 		$container = $this->getContainer();
@@ -47,6 +39,11 @@ class LinklistSidebarWidget extends HWidget {
 		}
 	}	
 	
+	/**
+	 * Get the Container this widget is embedded in.
+	 * @throws CHttpException if the container could not be found.
+	 * @return Either the User or the Space container.
+	 */
 	public function getContainer() {
 		
 		$container = null;
@@ -74,7 +71,5 @@ class LinklistSidebarWidget extends HWidget {
 		return $container;
 	}
 }
-
-
 
 ?>

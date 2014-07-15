@@ -1,13 +1,12 @@
 <?php 
 /**
- * View to edit a link category.
+ * View to list all categories and their links.
  * 
- * @uses $container_type an identifier for the container.
- * @uses $container_guid the container may be a space or user object.
- * @uses $categories an array of categories.
- * @uses $links an array of arrays of links, indicated by the category id
- * @uses $isAdmin true if the current user is allowed to edit the links.
+ * @uses $categories an array of the categories to show.
+ * @uses $links an array of arrays of the links to show, indicated by the category id.
+ * @uses $accesslevel the access level of the user currently logged in.
  * 
+ * @author Sebastian Stumpf
  */
 ?>
 

@@ -1,3 +1,13 @@
+<?php 
+/**
+ * View for the wall entry widget. Displays the content shown on the wall if a link is added.
+ * 
+ * @uses $link the link added to the wall.
+ * 
+ * @author Sebastian Stumpf
+ */
+?>
+
 <div class="panel panel-default">
     <div class="panel-body">
 

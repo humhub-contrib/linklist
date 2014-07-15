@@ -2,7 +2,8 @@
 
 /**
  * This is the model class for table "linklist_link".
- *
+ * 
+ * @package humhub.modules.linklist.models
  * The followings are the available columns in table 'linklist_link':
  * @property integer $id
  * @property integer $category_id

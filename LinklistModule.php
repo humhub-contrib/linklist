@@ -1,4 +1,13 @@
 <?php
+/**
+ * PollsModule is the WebModule for the linklists.
+ *
+ * This class is also used to process events catched by the autostart.php listeners.
+ *
+ * @package humhub.modules.linklist
+ * @since 1.0
+ * @author Sebastian Stumpf
+ */
 class LinklistModule extends HWebModule {
 	
 	public function init() {
@@ -21,14 +30,8 @@ class LinklistModule extends HWebModule {
         );
     }
 	
-	public function getConfigUrl()
-	{
-		return Yii::app()->createUrl('//linklist/config/config');
-	}
-	
 	/**
-	 * Returns module config url for spaces of your module.
-	 * You may want to overwrite it in your module.
+	 * Returns space module config url.
 	 *
 	 * @return String
 	 */
@@ -40,8 +43,7 @@ class LinklistModule extends HWebModule {
 	}
 	
 	/**
-	 * Returns module config url for spaces of your module.
-	 * You may want to overwrite it in your module.
+	 * Returns the user module config url.
 	 *
 	 * @return String
 	 */

@@ -5,6 +5,8 @@
  * @uses $category the category object.
  * @uses $isCreated true if the category is first created, false if an existing category is edited.
  * 
+ * @author Sebastian Stumpf
+ * 
  */
 ?>
 
