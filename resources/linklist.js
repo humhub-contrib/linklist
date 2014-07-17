@@ -12,7 +12,19 @@ $(document).ready(function() {
     
     $(".toggle-view-mode a").on("click", function(e) {
     	e.preventDefault();
-    	$(".linklist-editable").toggle();
+    	console.log(jQuery(this));
+    	if(jQuery(this).data('enabled')) {
+    		jQuery(this).data('enabled', false);
+    		$(".linklist-editable").hide();
+    		$(".linklist-categories").sortable('disable');
+    		$(".linklist-links").sortable('disable');
+    	}
+    	else {
+    		jQuery(this).data('enabled', true);
+    		$(".linklist-editable").show();
+    		$(".linklist-categories").sortable('enable');
+    		$(".linklist-links").sortable('enable');
+    	}
     });
     
 });

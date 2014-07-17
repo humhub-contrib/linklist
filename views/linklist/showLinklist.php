@@ -101,7 +101,7 @@
 </div>
 <?php if(Yii::app()->getController()->accessLevel != 0) { ?>
 <?php if(!empty($categories)) { ?>
-<div class="toggle-view-mode"><a href="#" class="btn btn-primary"><?php echo Yii::t('LinklistModule.base', 'Toggle view mode') ?></a></div>
+<div class="toggle-view-mode"><a href="#" data-enabled="true" class="btn btn-primary"><?php echo Yii::t('LinklistModule.base', 'Toggle view mode') ?></a></div>
 <?php } ?>
 <?php if(Yii::app()->getController()->accessLevel == 2) { 
 // enable reordering per drag and drop for users with full access
