@@ -14,6 +14,39 @@ class LinklistController extends ContentContainerController
 	/** the url back to the modules, used in the config view. **/
 	public $modulesUrl = '';
 	
+	public function behaviors() {
+		return array(
+				'HReorderContentBehavior' => array(
+						'class' => 'application.behaviors.HReorderContentBehavior',
+				)
+		);
+	}
+	
+	/**
+	 * @return array action filters
+	 */
+	public function filters() {
+		return array(
+				'accessControl', // perform access control for CRUD operations -> redirect to login if access denied
+		);
+	}
+	
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules() {
+		return array(
+				array('allow', // allow authenticated user to perform 'create' and 'update' actions
+						'users' => array('@'),
+				),
+				array('deny', // deny all users
+						'users' => array('*'),
+				),
+		);
+	}
+	
 	/**
 	 * Automatically loads the underlying contentContainer (User/Space) by using
 	 * the uguid/sguid request parameter
@@ -23,7 +56,6 @@ class LinklistController extends ContentContainerController
 	public function init() {
 		$retVal = parent::init(); 
 		$this->accessLevel = $this->getAccessLevel(); 
-		//echo '<script>alert("access level : '.$this->getAccessLevel().'")</script>';
 		$this->guidParamName = $this->getGuidParamName();
 		$this->modulesUrl = $this->getModulesUrl();
 		return $retVal;
@@ -286,6 +318,44 @@ class LinklistController extends ContentContainerController
 		}
 	
 		$this->render('config', array('model' => $form, $this->guidParamName => $this->contentContainer->guid));
+	}
+	
+	/**
+	 * Reorder Links action.
+	 * @uses behaviors.ReorderContentBehavior
+	 */
+	public function actionReorderLinks() {
+		// validation
+		try {
+			$this->checkContainerAccess();
+			if($this->accessLevel != 2) {
+				throw new CHttpException(403, Yii::t('LinklistModule.base', 'You miss the rights to reorder categories.!'));
+			}
+		} catch (CHttpException $e) {
+			echo json_encode($this->reorderContent('Link', $e->statusCode, $e->getMessage()));
+			return;
+		}
+		// generate json response
+		echo json_encode($this->reorderContent('Link', 200, 'The item order was successfully changed.'));
+	}
+	
+	/**
+	 * Reorder Categories action.
+	 * @uses behaviors.ReorderContentBehavior
+	 */
+	public function actionReorderCategories() {
+		// validation
+		try {
+			$this->checkContainerAccess();
+			if($this->accessLevel != 2) {
+				throw new CHttpException(403, Yii::t('LinklistModule.base', 'You miss the rights to reorder categories.!'));
+			}
+		} catch (CHttpException $e) {
+			echo json_encode($this->reorderContent('Category', $e->statusCode, $e->getMessage()));
+			return;
+		}
+		// generate json response
+		echo json_encode($this->reorderContent('Category', 200, 'The item order was successfully changed.'));
 	}
 }
 

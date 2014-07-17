@@ -1,4 +1,4 @@
-/* css for the linklist module site */
+/* js for the linklist module site */
 $(document).ready(function() {
     // set niceScroll to linklist
     $(".panel-linklist-widget .linklist-body .scrollable-content-container").niceScroll({
