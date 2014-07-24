@@ -355,7 +355,7 @@ class LinklistController extends ContentContainerController
 			return;
 		}
 		// generate json response
-		echo json_encode($this->reorderContent('Category', 200, 'The item order was successfully changed.'));
+		echo json_encode($this->reorderContent('Category', 200, Yii::t('LinklistModule.base', 'The item order was successfully changed.')));
 	}
 }
 
