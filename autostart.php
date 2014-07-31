@@ -1,4 +1,4 @@
- <?php 
+<?php 
 Yii::app()->moduleManager->register(array(
     'id' => 'linklist',
     'class' => 'application.modules.linklist.LinklistModule',
