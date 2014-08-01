@@ -12,9 +12,9 @@
 
 
 <div class="panel panel-default">
+    <div class="panel-heading"><strong>Create</strong> new Category</div>
     <div class="panel-body">
     	<?php if($isCreated) { ?>
-    	<p>Create new Category</p>
     	<?php } else { ?>
     	<p>Edit Category</p>	
 		<?php }
@@ -32,7 +32,7 @@
 	    
 	    <div class="form-group">
 	        <?php echo $form->labelEx($category, 'description'); ?>
-	        <?php echo $form->textField($category, 'description', array('class' => 'form-control')); ?>
+	        <?php echo $form->textArea($category, 'description', array('class' => 'form-control', 'rows' => 3)); ?>
 	        <?php echo $form->error($category, 'description'); ?>
 	    </div>
 	    

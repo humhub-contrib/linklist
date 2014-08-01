@@ -132,7 +132,7 @@ class LinklistModule extends HWebModule {
 			$event->sender->addItem ( array (
 					'label' => Yii::t ( 'LinklistModule.base', 'Linklist' ),
 					'url' => Yii::app ()->createUrl ( '/linklist/linklist/showLinklist', array ('sguid' => $space->guid) ),
-					'icon' => '<i class="fa fa-external-link-square"></i>',
+					'icon' => '<i class="fa fa-link"></i>',
 					'isActive' => (Yii::app ()->controller->module && Yii::app ()->controller->module->id == 'linklist') 
 			) );
 		}

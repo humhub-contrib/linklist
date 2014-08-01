@@ -32,7 +32,7 @@
 	    
 	    <div class="form-group">
 	        <?php echo $form->labelEx($link, 'description'); ?>
-	        <?php echo $form->textField($link, 'description', array('class' => 'form-control')); ?>
+	        <?php echo $form->textArea($link, 'description', array('class' => 'form-control', 'rows' => '2')); ?>
 	        <?php echo $form->error($link, 'description'); ?>
 	    </div>
 	    

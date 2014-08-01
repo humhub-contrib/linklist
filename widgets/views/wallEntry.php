@@ -13,7 +13,7 @@
 
         <?php $this->beginContent('application.modules_core.wall.views.wallLayout', array('object' => $link)); ?>
 
-            <?php echo Yii::t('LinkListModule.base', 'Added a new link '. HHtml::link($link->title, $link->href). ' to category "'. $link->category->title.'".'); ?> <br />
+            <?php echo Yii::t('LinkListModule.base', 'Added a new link %link% to category "%category%".', array('%link%' => HHtml::link($link->title, $link->href, array('target' => '_blank')), '%category%' => $link->category->title)); ?> <br />
             <small><?php echo $link->description; ?></small>
 
         <?php $this->endContent(); ?>

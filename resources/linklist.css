@@ -5,11 +5,6 @@
 	padding-bottom:20px;
 }
 
-.linklist-add-category {
-	padding-bottom:20px;	
-	float:right;
-}
-
 .toggle-view-mode {
 	padding-bottom:20px;
 	float:left;
@@ -71,8 +66,22 @@
 	right:0;
 }
 
+.panel-linklist-category .btn-xs.btn-danger, .panel-linklist-category .btn-xs.btn-primary {
+    opacity: 0.4;
+}
+
+.panel-linklist-category .btn-xs.btn-danger:hover, .panel-linklist-category .btn-xs.btn-primary:hover {
+    opacity: 1;
+}
+
+
 .panel-linklist-category .linklist-edit-controls a {
 	padding-left:4px;
+}
+
+.panel-linklist-category .fa {
+    font-size: 14px;
+    /*width: 16px;*/
 }
 
 /* css for the linklist module widget */
@@ -123,6 +132,29 @@
 	padding:2px 10px 2px 20px;
 	margin-left:-10px;
 	margin-right:-10px;
+}
+
+ul.linklist-links {
+    padding-left:40px; list-style:none;
+}
+
+ul.linklist-links li { margin-bottom:10px; }
+ul.linklist-links li:before {
+    font-family: 'FontAwesome';
+    font-size: 14px;
+    content: '\f0c1';
+    margin: 0 6px 0 -22px;
+}
+
+.linklist-link .title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.linklist-links .link-description {
+    margin-bottom: 5px;
+    font-size: 12px;
 }
 
 /* css for the linklist wall-entry widget */

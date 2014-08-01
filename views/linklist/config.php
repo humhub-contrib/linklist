@@ -14,7 +14,6 @@
     <div class="panel-body">
 
         <p><?php echo Yii::t('LinklistModule.base', 'You can enable the extended validation of links for a space or user.'); ?></p>
-        <br/>
 
         <?php
         $form = $this->beginWidget('CActiveForm', array(
@@ -26,10 +25,14 @@
         <?php echo $form->errorSummary($model); ?>
 
         <div class="form-group">
-        	<?php echo $form->checkBox($model, 'enableDeadLinkValidation'); ?>&nbsp;&nbsp;
-            <?php echo $form->labelEx($model, 'enableDeadLinkValidation'); ?>
-            <?php echo $form->error($model, 'enableDeadLinkValidation'); ?>
+            <div class="checkbox">
+                <label>
+                    <?php echo $form->checkBox($model, 'enableDeadLinkValidation'); ?> <?php echo $model->getAttributeLabel('enableDeadLinkValidation'); ?>
+                </label>
+            </div>
         </div>
+
+        <?php echo $form->error($model, 'enableDeadLinkValidation'); ?>
 
         <hr>
         <?php echo CHtml::submitButton(Yii::t('LinklistModule.base', 'Save'), array('class' => 'btn btn-primary')); ?>
