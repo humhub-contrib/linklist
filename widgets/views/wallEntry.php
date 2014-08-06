@@ -13,8 +13,27 @@
 
         <?php $this->beginContent('application.modules_core.wall.views.wallLayout', array('object' => $link)); ?>
 
-            <?php echo Yii::t('LinkListModule.base', 'Added a new link %link% to category "%category%".', array('%link%' => HHtml::link($link->title, $link->href, array('target' => '_blank')), '%category%' => $link->category->title)); ?> <br />
-            <small><?php echo $link->description; ?></small>
+        <div class="media">
+            <div class="pull-left">
+
+            </div>
+            <a class="pull-left" href="<?php echo $link->href; ?>" target="_blank" style="font-size: 26px; color: #555 !important;">
+                <i class="fa fa-link"></i>
+                </a>
+
+            <div class="media-body">
+                <h4 class="media-heading"><?php echo Yii::t('LinkListModule.base', 'Added a new link %link% to category "%category%".', array('%link%' => HHtml::link($link->title, $link->href, array('target' => '_blank')), '%category%' => $link->category->title)); ?></h4>
+                <?php
+                if ($link->description == null || $link->description == "") {
+                    echo "<em>(". Yii::t('LinkListModule.base', 'No description available.') .")</em>";
+                } else {
+                    echo $link->description;
+                }
+                ?>
+            </div>
+        </div>
+
+
 
         <?php $this->endContent(); ?>
 
