@@ -5,6 +5,6 @@
     "keywords": ["user", "space", "links", "directory"],
     "version": "0.4",
     "humhub": {
-        "minVersion": "0.6"
+        "minVersion": "0.8.0"
     }
 }
