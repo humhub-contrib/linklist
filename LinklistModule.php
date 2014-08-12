@@ -73,6 +73,39 @@ class LinklistModule extends HWebModule {
 	}
 	
 	/**
+	 * Enables this module for a Space.
+	 */
+	public function enableSpaceModule(Space $space)
+	{
+		if (!$this->isEnabled()) {
+			// set default config values
+			$this->setDefaultValues($space->container);
+		}
+		parent::enableSpaceModule($space);
+	}
+	
+	/**
+	 * Enables this module for a Space.
+	 */
+	public function enableUserModule(User $user)
+	{
+		if (!$this->isEnabled()) {
+			// set default config values
+			$this->setDefaultValues($user->container);
+		}
+		parent::enableUserModule($user);
+	}
+	
+	/**
+	 * Initialize Default Settings for a Container.
+	 * @param HActiveRecordContentContainer $container
+	 */
+	private function setDefaultValues(HActiveRecordContentContainer $container) {
+		$container->setSetting('enableDeadLinkValidation', 0, 'linklist');
+		$container->setSetting('enableWidget', 0, 'linklist');
+	}
+	
+	/**
 	 * On disabling this module on a space, deleted all module -> space related content/data.
 	 * Method stub is provided by "SpaceModuleBehavior"
 	 *

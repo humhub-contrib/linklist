@@ -307,14 +307,12 @@ class LinklistController extends ContentContainerController
 	
 			if ($form->validate()) {
 				$this->contentContainer->setSetting('enableDeadLinkValidation', $form->enableDeadLinkValidation, 'linklist');
+				$this->contentContainer->setSetting('enableWidget', $form->enableWidget, 'linklist');
 				$this->redirect(Yii::app()->createUrl('linklist/linklist/config', array ($this->guidParamName => $this->contentContainer->guid)));
 			}
 		} else {
 			$form->enableDeadLinkValidation = $this->contentContainer->getSetting('enableDeadLinkValidation', 'linklist');
-			// set default if global setting empty
-			if($form->enableDeadLinkValidation == '') {
-				$form->enableDeadLinkValidation = 0;
-			}
+			$form->enableWidget = $this->contentContainer->getSetting('enableWidget', 'linklist');
 		}
 	
 		$this->render('config', array('model' => $form, $this->guidParamName => $this->contentContainer->guid));

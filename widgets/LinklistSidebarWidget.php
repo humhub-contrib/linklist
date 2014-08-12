@@ -13,8 +13,10 @@ class LinklistSidebarWidget extends HWidget {
 	public function run() {
 		
 		$container = $this->getContainer();
+		if(!$container->getSetting('enableWidget', 'linklist')) {
+			return;
+		}
 		$categoryBuffer = Category::model()->contentContainer($container)->findAll(array('order' => 'sort_order ASC'));
-		
 		$categories = array();
 		$links = array();		
 		$render = false;

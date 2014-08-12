@@ -13,7 +13,7 @@
     <div class="panel-heading"><?php echo Yii::t('LinklistModule.base', 'Linklist Module Configuration'); ?></div>
     <div class="panel-body">
 
-        <p><?php echo Yii::t('LinklistModule.base', 'You can enable the extended validation of links for a space or user.'); ?></p>
+        <p><?php echo Yii::t('LinklistModule.base', 'You can enable the extended validation of links for a space or user.'); ?></p><br />
 
         <?php
         $form = $this->beginWidget('CActiveForm', array(
@@ -31,9 +31,17 @@
                 </label>
             </div>
         </div>
-
         <?php echo $form->error($model, 'enableDeadLinkValidation'); ?>
-
+        
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <?php echo $form->checkBox($model, 'enableWidget'); ?> <?php echo $model->getAttributeLabel('enableWidget'); ?>
+                </label>
+            </div>
+        </div>
+		<?php echo $form->error($model, 'enableWidget'); ?>
+        
         <hr>
         <?php echo CHtml::submitButton(Yii::t('LinklistModule.base', 'Save'), array('class' => 'btn btn-primary')); ?>
         <a class="btn btn-default" href="<?php echo Yii::app()->getController()->modulesUrl?>"><?php echo Yii::t('AdminModule.base', 'Back to modules'); ?></a>
