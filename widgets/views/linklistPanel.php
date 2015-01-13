@@ -17,7 +17,7 @@
 	    		<div class="media-heading"><?php echo $category->title; ?></div>
 				<ul class="media-list">
 					<?php foreach($links[$category->id] as $link) { ?>
-						<li id="linklist-widget-link_<?php echo $link->id;?>"><a href="<?php echo $link->href; ?>" title="<?php echo $link->description; ?>"><?php echo $link->title; ?></a></li>
+						<li id="linklist-widget-link_<?php echo $link->id;?>"><a href="<?php echo $link->href; ?>" target="_blank" title="<?php echo $link->description; ?>"><?php echo $link->title; ?></a></li>
 					<?php } ?>
 				</ul>
 			</div>
