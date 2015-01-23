@@ -20,7 +20,7 @@
                      class="panel panel-default panel-linklist-category" data-id="<?php echo $category->id ?>">
                     <div class="panel-heading">
                         <div class="heading">
-                            <?php echo $category->title; ?>
+                            <?php echo CHtml::encode($category->title); ?>
                             <?php if (Yii::app()->getController()->accessLevel != 0) { ?>
                                 <div class="linklist-edit-controls linklist-editable">
                                     <?php if (Yii::app()->getController()->accessLevel == 2) {
@@ -54,7 +54,7 @@
                     <div class="panel-body">
                         <div class="media">
                             <?php if (!($category->description == NULL || $category->description == "")) { ?>
-                                <div class="media-heading"><?php echo $category->description; ?></div>
+                                <div class="media-heading"><?php echo CHtml::encode($category->description); ?></div>
                             <?php } ?>
                             <div class="media-body">
                                 <ul class="linklist-links">
@@ -62,7 +62,7 @@
                                         <li class="linklist-link" id="linklist-link_<?php echo $link->id; ?>"
                                             data-id="<?php echo $link->id; ?>">
                                             <a href="<?php echo $link->href; ?>" target="_blank"
-                                               title=""><span class="title"><?php echo $link->title; ?></span><div class="link-description"><?php echo $link->description; ?></div></a>
+                                               title=""><span class="title"><?php echo CHtml::encode($link->title); ?></span><div class="link-description"><?php echo CHtml::encode($link->description); ?></div></a>
 
                                             <div class="linklist-interaction-controls">
                                                 <?php $this->widget('application.modules_core.comment.widgets.CommentLinkWidget', array('object' => $link, 'mode' => 'popup')); ?> &middot;

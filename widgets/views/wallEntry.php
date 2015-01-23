@@ -22,12 +22,12 @@
                 </a>
 
             <div class="media-body">
-                <h4 class="media-heading"><?php echo Yii::t('LinkListModule.base', 'Added a new link %link% to category "%category%".', array('%link%' => HHtml::link($link->title, $link->href, array('target' => '_blank')), '%category%' => $link->category->title)); ?></h4>
+                <h4 class="media-heading"><?php echo Yii::t('LinkListModule.base', 'Added a new link %link% to category "%category%".', array('%link%' => HHtml::link(CHtml::encode($link->title), $link->href, array('target' => '_blank')), '%category%' => CHtml::encode($link->category->title))); ?></h4>
                 <?php
                 if ($link->description == null || $link->description == "") {
                     echo "<em>(". Yii::t('LinkListModule.base', 'No description available.') .")</em>";
                 } else {
-                    echo $link->description;
+                    echo CHtml::encode($link->description);
                 }
                 ?>
             </div>
