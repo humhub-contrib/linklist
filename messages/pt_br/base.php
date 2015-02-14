@@ -9,7 +9,7 @@ return array (
   'Do you really want to delete this category? All connected links will be lost!' => 'Você realmente quer apagar esta categoria? Todos os links relacionados serão perdidos!',
   'Do you really want to delete this link?' => 'Você realmente quer apagar este link?',
   'Extend link validation by a connection test.' => 'Estender validação de link por um teste de conexão.',
-  'Link' => '',
+  'Link' => 'Link',
   'Linklist' => '',
   'Linklist Module Configuration' => 'Linklist Módulo de Configuração',
   'Requested category could not be found.' => 'Categoria solicitada não pôde ser encontrada.',
