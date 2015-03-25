@@ -2,7 +2,9 @@
 return array (
   '<strong>Confirm</strong> category deleting' => '<strong>Potvrzení</strong> smazání kategorie',
   '<strong>Confirm</strong> link deleting' => '<strong>Potvrzení</strong> smazání odkazu',
+  'Back to modules' => 'Zpět na přehled modulů',
   'Cancel' => 'Zrušit',
+  'Could not determine content container!' => 'Nebylo možné zvolit obsahový kontejner.',
   'Delete' => 'Smazat',
   'Delete category' => 'Smazat kategorii',
   'Delete link' => 'Smazat odkaz',
@@ -16,6 +18,7 @@ return array (
   'Requested link could not be found.' => 'Požadovaný odkaz nebyl nalezen.',
   'Save' => 'Uložit',
   'Show the links as a widget on the right.' => 'Zobrazit odkazy jako widget v pravém bočním menu.',
+  'Space not found!' => 'Prostor nebyl nalezen!',
   'The category you want to create your link in could not be found!' => 'Kategorie, do které chcete přidat odkaz, nebyla nalezena.',
   'The item order was successfully changed.' => 'Pořadí položek bylo úspěšně změněno.',
   'There have been no links or categories added to this space yet.' => 'Do tohoto prostoru nebyly přidány ještě žádné kategorie ani odkazy.',

@@ -2,7 +2,9 @@
 return array (
   '<strong>Confirm</strong> category deleting' => '<strong>Подтвердить</strong> удаление категории',
   '<strong>Confirm</strong> link deleting' => '<strong>Подтвердить</strong> удаление ссылки',
+  'Back to modules' => 'Назад к модулям',
   'Cancel' => 'Отменить',
+  'Could not determine content container!' => 'Не удалось определить оболочку контента!',
   'Delete' => 'Удалить',
   'Delete category' => 'Удалить категорию',
   'Delete link' => 'Удалить ссылку',
@@ -16,6 +18,7 @@ return array (
   'Requested link could not be found.' => 'Запрашиваемая ссылка не может быть найдена.',
   'Save' => 'Сохранить',
   'Show the links as a widget on the right.' => 'Показать ссылки в качестве виджета справа.',
+  'Space not found!' => 'Пространство не найдено!',
   'The category you want to create your link in could not be found!' => 'Категория где вы хотите создать ссылку не может быть найдена!',
   'The item order was successfully changed.' => 'Порядок элементов успешно изменен.',
   'There have been no links or categories added to this space yet.' => 'Никаких ссылок или категорий, добавленных в это пространство пока нет.',

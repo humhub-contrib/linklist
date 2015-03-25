@@ -1,11 +1,11 @@
-<?php 
+<?php
 /**
  * Linklist configuration view.
- * 
+ *
  * @uses $form the form with the formular fields.
- * 
+ *
  * @author Sebastian Stumpf
- * 
+ *
  */
 ?>
 
@@ -32,7 +32,7 @@
             </div>
         </div>
         <?php echo $form->error($model, 'enableDeadLinkValidation'); ?>
-        
+
         <div class="form-group">
             <div class="checkbox">
                 <label>
@@ -41,10 +41,10 @@
             </div>
         </div>
 		<?php echo $form->error($model, 'enableWidget'); ?>
-        
+
         <hr>
         <?php echo CHtml::submitButton(Yii::t('LinklistModule.base', 'Save'), array('class' => 'btn btn-primary')); ?>
-        <a class="btn btn-default" href="<?php echo Yii::app()->getController()->modulesUrl?>"><?php echo Yii::t('AdminModule.base', 'Back to modules'); ?></a>
+        <a class="btn btn-default" href="<?php echo Yii::app()->getController()->modulesUrl?>"><?php echo Yii::t('LinklistModule.base', 'Back to modules'); ?></a>
         <?php $this->endWidget(); ?>
     </div>
 </div>

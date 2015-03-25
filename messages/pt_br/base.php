@@ -2,7 +2,9 @@
 return array (
   '<strong>Confirm</strong> category deleting' => '<strong>Confirmar</strong> exclusão de categoria',
   '<strong>Confirm</strong> link deleting' => '<strong>Confirmar</strong> exclusão de link',
+  'Back to modules' => 'Voltar aos módulos',
   'Cancel' => 'Cancelar',
+  'Could not determine content container!' => 'Não foi possível determinar o conteúdo!',
   'Delete' => 'Excluir',
   'Delete category' => 'Excluir categoria',
   'Delete link' => 'Excluir link',
@@ -16,6 +18,7 @@ return array (
   'Requested link could not be found.' => 'Link solicitado não pôde ser encontrado.',
   'Save' => 'Salvar',
   'Show the links as a widget on the right.' => 'Mostrar os links como um widget na direita.',
+  'Space not found!' => 'Espaço não encontrado!',
   'The category you want to create your link in could not be found!' => 'A categoria que você deseja criar o seu link não foi encontrada!',
   'The item order was successfully changed.' => 'A ordem do item foi alterada com sucesso.',
   'There have been no links or categories added to this space yet.' => 'Ainda não há links ou categorias adicionadas a este espaço.',

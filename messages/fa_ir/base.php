@@ -2,7 +2,9 @@
 return array (
   '<strong>Confirm</strong> category deleting' => '<strong>تأیید</strong> حذف گروه',
   '<strong>Confirm</strong> link deleting' => '<strong>تأیید</strong> حذف پیوند',
+  'Back to modules' => 'بازگشت‌ به ماژول‌‌ها',
   'Cancel' => 'انصراف',
+  'Could not determine content container!' => 'نگهدارنده‌ی محتوا قابل شناسایی نیست!',
   'Delete' => 'پاک کردن',
   'Delete category' => 'پاک کردن گروه',
   'Delete link' => 'پیوند را پاک کن',
@@ -16,6 +18,7 @@ return array (
   'Requested link could not be found.' => 'پیوند درخواست‌شده یافت نشد.',
   'Save' => 'ذخیره',
   'Show the links as a widget on the right.' => 'پیوندها را به صورت ابزارک در سمت راست نمایش بده.',
+  'Space not found!' => 'انجمن یافت نشد!',
   'The category you want to create your link in could not be found!' => 'گروهی که می‌خواهید پیوندتان را در آن بسازید یافت نشد! ',
   'The item order was successfully changed.' => 'ترتیب موارد با موفقیت تغییر‌کرد.',
   'There have been no links or categories added to this space yet.' => 'هنوز پیوند یا گروهی به این انجمن اضافه نشده‌است.',
