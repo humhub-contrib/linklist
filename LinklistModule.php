@@ -171,7 +171,7 @@ class LinklistModule extends HWebModule
     {
 
         $space = Yii::app()->getController()->getSpace();
-        if ($space->isModuleEnabled('linklist')) {
+        if ($space->isModuleEnabled('linklist') && $space->isMember()) {
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
                 'url' => Yii::app()->createUrl('/linklist/linklist/showLinklist', array('sguid' => $space->guid)),
@@ -193,7 +193,7 @@ class LinklistModule extends HWebModule
         $user = Yii::app()->getController()->getUser();
 
         // Is Module enabled on this workspace?
-        if ($user->isModuleEnabled('linklist')) {
+        if ($user->isModuleEnabled('linklist') && !Yii::app()->user->isGuest && $user->id == Yii::app()->user->id) {
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
                 'url' => Yii::app()->createUrl('/linklist/linklist/showLinklist', array('uguid' => $user->guid)),
