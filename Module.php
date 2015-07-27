@@ -1,40 +1,22 @@
 <?php
 
-/**
- * PollsModule is the WebModule for the linklists.
- *
- * This class is also used to process events catched by the autostart.php listeners.
- *
- * @package humhub.modules.linklist
- * @since 1.0
- * @author Sebastian Stumpf
- */
-class LinklistModule extends HWebModule
+namespace humhub\modules\linklist;
+
+use Yii;
+use humhub\modules\linklist\models\Category;
+use humhub\modules\space\models\Space;
+use humhub\modules\user\models\User;
+use humhub\modules\content\components\ContentContainerActiveRecord;
+
+class Module extends \humhub\components\Module
 {
-
-    public function init()
-    {
-
-        if (!Yii::app() instanceof CConsoleApplication) {
-            // this method is called when the module is being created
-            // you may place code here to customize the module or the application
-            // register script and css files
-            $assetPrefix = Yii::app()->assetManager->publish(dirname(__FILE__) . '/resources', true, 0, defined('YII_DEBUG'));
-            Yii::app()->clientScript->registerScriptFile($assetPrefix . '/linklist.js');
-            Yii::app()->clientScript->registerCssFile($assetPrefix . '/linklist.css');
-        }
-    }
 
     public function behaviors()
     {
-        return array(
-            'SpaceModuleBehavior' => array(
-                'class' => 'application.modules_core.space.behaviors.SpaceModuleBehavior',
-            ),
-            'UserModuleBehavior' => array(
-                'class' => 'application.modules_core.user.behaviors.UserModuleBehavior',
-            ),
-        );
+        return [
+            \humhub\modules\user\behaviors\UserModule::className(),
+            \humhub\modules\space\behaviors\SpaceModule::className(),
+        ];
     }
 
     /**
@@ -44,9 +26,7 @@ class LinklistModule extends HWebModule
      */
     public function getSpaceModuleConfigUrl(Space $space)
     {
-        return Yii::app()->createUrl('//linklist/linklist/config', array(
-                    'sguid' => $space->guid,
-        ));
+        return $space->createUrl('/linklist/linklist/config');
     }
 
     /**
@@ -56,9 +36,7 @@ class LinklistModule extends HWebModule
      */
     public function getUserModuleConfigUrl(User $user)
     {
-        return Yii::app()->createUrl('//linklist/linklist/config', array(
-                    'uguid' => $user->guid,
-        ));
+        return $user->createUrl('/linklist/linklist/config');
     }
 
     /**
@@ -67,11 +45,8 @@ class LinklistModule extends HWebModule
     public function disable()
     {
         if (parent::disable()) {
-            throw new CHttpException(404);
-            foreach (Content::model()->findAll(array(
-                'condition' => 'object_model=:cat OR object_model=:link',
-                'params' => array(':cat' => 'Category', ':link' => 'Link'))) as $content) {
-                $content->delete();
+            foreach (Category::find()->all() as $category) {
+                $category->delete();
             }
             return true;
         }
@@ -84,10 +59,8 @@ class LinklistModule extends HWebModule
      */
     public function enableSpaceModule(Space $space)
     {
-        if (!$this->isEnabled()) {
-            // set default config values
-            $this->setDefaultValues($space->container);
-        }
+        // set default config values
+        $this->setDefaultValues($space->container);
         parent::enableSpaceModule($space);
     }
 
@@ -96,10 +69,8 @@ class LinklistModule extends HWebModule
      */
     public function enableUserModule(User $user)
     {
-        if (!$this->isEnabled()) {
-            // set default config values
-            $this->setDefaultValues($user->container);
-        }
+        // set default config values
+        $this->setDefaultValues($user->container);
         parent::enableUserModule($user);
     }
 
@@ -107,7 +78,7 @@ class LinklistModule extends HWebModule
      * Initialize Default Settings for a Container.
      * @param HActiveRecordContentContainer $container
      */
-    private function setDefaultValues(HActiveRecordContentContainer $container)
+    private function setDefaultValues(ContentContainerActiveRecord $container)
     {
         $container->setSetting('enableDeadLinkValidation', 0, 'linklist');
         $container->setSetting('enableWidget', 0, 'linklist');
@@ -153,9 +124,9 @@ class LinklistModule extends HWebModule
     public static function onSpaceSidebarInit($event)
     {
 
-        $space = Yii::app()->getController()->getSpace();
+        $space = $event->sender->space;
         if ($space->isModuleEnabled('linklist')) {
-            $event->sender->addWidget('application.modules.linklist.widgets.LinklistSidebarWidget', array(), array(
+            $event->sender->addWidget(widgets\Sidebar::className(), array('contentContainer' => $space), array(
                 'sortOrder' => 200,
             ));
         }
@@ -170,13 +141,13 @@ class LinklistModule extends HWebModule
     public static function onSpaceMenuInit($event)
     {
 
-        $space = Yii::app()->getController()->getSpace();
+        $space = $event->sender->space;
         if ($space->isModuleEnabled('linklist') && $space->isMember()) {
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
-                'url' => Yii::app()->createUrl('/linklist/linklist/showLinklist', array('sguid' => $space->guid)),
+                'url' => $space->createUrl('/linklist/linklist'),
                 'icon' => '<i class="fa fa-link"></i>',
-                'isActive' => (Yii::app()->controller->module && Yii::app()->controller->module->id == 'linklist')
+                'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist')
             ));
         }
     }
@@ -189,15 +160,14 @@ class LinklistModule extends HWebModule
      */
     public static function onProfileMenuInit($event)
     {
-
-        $user = Yii::app()->getController()->getUser();
+        $user = $event->sender->user;
 
         // Is Module enabled on this workspace?
-        if ($user->isModuleEnabled('linklist') && !Yii::app()->user->isGuest && $user->id == Yii::app()->user->id) {
+        if ($user->isModuleEnabled('linklist') && !Yii::$app->user->isGuest && $user->id == Yii::$app->user->id) {
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
-                'url' => Yii::app()->createUrl('/linklist/linklist/showLinklist', array('uguid' => $user->guid)),
-                'isActive' => (Yii::app()->controller->module && Yii::app()->controller->module->id == 'linklist'),
+                'url' => $user->createUrl('/linklist/linklist'),
+                'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist'),
             ));
         }
     }
@@ -209,10 +179,10 @@ class LinklistModule extends HWebModule
      */
     public static function onProfileSidebarInit($event)
     {
+        $user = $event->sender->user;
 
-        $user = Yii::app()->getController()->getUser();
         if ($user->isModuleEnabled('linklist')) {
-            $event->sender->addWidget('application.modules.linklist.widgets.LinklistSidebarWidget', array(), array(
+            $event->sender->addWidget(widgets\Sidebar::className(), array('contentContainer' => $user), array(
                 'sortOrder' => 200,
             ));
         }

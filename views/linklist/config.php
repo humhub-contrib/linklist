@@ -7,6 +7,7 @@
  * @author Sebastian Stumpf
  *
  */
+humhub\modules\linklist\Assets::register($this);
 ?>
 
 <div class="panel panel-default">
@@ -40,11 +41,11 @@
                 </label>
             </div>
         </div>
-		<?php echo $form->error($model, 'enableWidget'); ?>
+        <?php echo $form->error($model, 'enableWidget'); ?>
 
         <hr>
         <?php echo CHtml::submitButton(Yii::t('LinklistModule.base', 'Save'), array('class' => 'btn btn-primary')); ?>
-        <a class="btn btn-default" href="<?php echo Yii::app()->getController()->modulesUrl?>"><?php echo Yii::t('LinklistModule.base', 'Back to modules'); ?></a>
+        <a class="btn btn-default" href="<?php echo Yii::app()->getController()->modulesUrl ?>"><?php echo Yii::t('LinklistModule.base', 'Back to modules'); ?></a>
         <?php $this->endWidget(); ?>
     </div>
 </div>
