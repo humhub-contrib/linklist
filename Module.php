@@ -7,111 +7,63 @@ use humhub\modules\linklist\models\Category;
 use humhub\modules\space\models\Space;
 use humhub\modules\user\models\User;
 use humhub\modules\content\components\ContentContainerActiveRecord;
+use humhub\modules\content\components\ContentContainerModule;
 
-class Module extends \humhub\components\Module
+class Module extends ContentContainerModule
 {
 
-    public function behaviors()
+    /**
+     * @inheritdoc
+     */
+    public function getContentContainerTypes()
     {
         return [
-            \humhub\modules\user\behaviors\UserModule::className(),
-            \humhub\modules\space\behaviors\SpaceModule::className(),
+            User::className(),
+            Space::className(),
         ];
     }
 
     /**
-     * Returns space module config url.
-     *
-     * @return String
+     * @inheritdoc
      */
-    public function getSpaceModuleConfigUrl(Space $space)
+    public function getContentContainerConfigUrl(ContentContainerActiveRecord $container)
     {
-        return $space->createUrl('/linklist/linklist/config');
+        return $container->createUrl('/linklist/linklist/config');
     }
 
     /**
-     * Returns the user module config url.
-     *
-     * @return String
-     */
-    public function getUserModuleConfigUrl(User $user)
-    {
-        return $user->createUrl('/linklist/linklist/config');
-    }
-
-    /**
-     * On global module disable, delete all created content
+     * @inheritdoc
      */
     public function disable()
     {
-        if (parent::disable()) {
-            foreach (Category::find()->all() as $category) {
-                $category->delete();
-            }
-            return true;
+        parent::disable();
+
+        foreach (Category::find()->all() as $category) {
+            $category->delete();
         }
-
-        return false;
     }
 
     /**
-     * Enables this module for a Space.
+     * @inheritdoc
      */
-    public function enableSpaceModule(Space $space)
-    {
-        // set default config values
-        $this->setDefaultValues($space->container);
-        parent::enableSpaceModule($space);
-    }
-
-    /**
-     * Enables this module for a Space.
-     */
-    public function enableUserModule(User $user)
-    {
-        // set default config values
-        $this->setDefaultValues($user->container);
-        parent::enableUserModule($user);
-    }
-
-    /**
-     * Initialize Default Settings for a Container.
-     * @param HActiveRecordContentContainer $container
-     */
-    private function setDefaultValues(ContentContainerActiveRecord $container)
+    public function enableContentContainer(ContentContainerActiveRecord $container)
     {
         $container->setSetting('enableDeadLinkValidation', 0, 'linklist');
         $container->setSetting('enableWidget', 0, 'linklist');
+        parent::enableContentContainer($container);
     }
 
     /**
-     * On disabling this module on a space, deleted all module -> space related content/data.
-     * Method stub is provided by "SpaceModuleBehavior"
-     *
-     * @param Space $space
+     * @inheritdoc
      */
-    public function disableSpaceModule(Space $space)
+    public function disableContentContainer(ContentContainerActiveRecord $container)
     {
-        foreach (Category::model()->contentContainer($space)->findAll() as $content) {
-            $content->delete();
-        }
-        foreach (Link::model()->contentContainer($space)->findAll() as $content) {
-            $content->delete();
-        }
-    }
+        parent::disableContentContainer($container);
 
-    /**
-     * On disabling this module on a space, deleted all module -> user related content/data.
-     * Method stub is provided by "UserModuleBehavior"
-     *
-     * @param User $user
-     */
-    public function disableUserModule(User $user)
-    {
-        foreach (Category::model()->contentContainer($user)->findAll() as $content) {
+        foreach (Category::model()->contentContainer($container)->findAll() as $content) {
             $content->delete();
         }
-        foreach (Link::model()->contentContainer($user)->findAll() as $content) {
+        foreach (Link::model()->contentContainer($container)->findAll() as $content) {
             $content->delete();
         }
     }
