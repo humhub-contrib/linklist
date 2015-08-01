@@ -36,11 +36,11 @@ class Module extends ContentContainerModule
      */
     public function disable()
     {
-        parent::disable();
-
         foreach (Category::find()->all() as $category) {
             $category->delete();
         }
+        
+        parent::disable();
     }
 
     /**
