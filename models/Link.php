@@ -20,25 +20,16 @@ class Link extends \humhub\modules\content\components\ContentActiveRecord
 {
 
     public $autoAddToWall = true;
+    public $wallEntryClass = "humhub\modules\linklist\widgets\WallEntry";
 
-    /**
-     * Returns the Wall Output
-     */
-    public function getWallOut()
+    public function getContentName()
     {
-        return \humhub\modules\linklist\widgets\WallEntry::widget(['link' => $this]);
+        return Yii::t('LinklistModule.base', "Link");
     }
 
-    /**
-     * Returns a title/text which identifies this IContent.
-     *
-     * e.g. Post: foo bar 123...
-     *
-     * @return String
-     */
-    public function getContentTitle()
+    public function getContentDescription()
     {
-        return Yii::t('LinklistModule.base', "Link") . " \"" . Helpers::truncateText($this->title, 25) . "\"";
+        return $this->title;
     }
 
     /**

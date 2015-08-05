@@ -9,9 +9,6 @@
  */
 use yii\helpers\Html;
 ?>
-
-<?php $this->beginContent('@humhub/modules/content/views/layouts/wallLayout.php', array('object' => $link)); ?>
-
 <div class="media">
     <div class="pull-left">
 
@@ -31,5 +28,3 @@ use yii\helpers\Html;
         ?>
     </div>
 </div>
-
-<?php $this->endContent(); ?>
