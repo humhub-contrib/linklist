@@ -16,7 +16,7 @@ use Yii;
  * @property string $description
  * @property integer $sort_order
  */
-class Link extends \humhub\modules\content\components\ContentActiveRecord
+class Link extends \humhub\modules\content\components\ContentActiveRecord implements \humhub\modules\search\interfaces\Searchable
 {
 
     public $autoAddToWall = true;
@@ -72,6 +72,18 @@ class Link extends \humhub\modules\content\components\ContentActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'sort_order' => 'Sort Order',
+        );
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSearchAttributes()
+    {
+        return array(
+            'title' => $this->title,
+            'description' => $this->description,
+            'href' => $this->href,
         );
     }
 
