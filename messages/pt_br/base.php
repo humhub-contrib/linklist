@@ -12,7 +12,7 @@ return array (
   'Do you really want to delete this link?' => 'Você realmente quer apagar este link?',
   'Extend link validation by a connection test.' => 'Estender validação de link por um teste de conexão.',
   'Link' => 'Link',
-  'Linklist' => '',
+  'Linklist' => 'Links úteis',
   'Linklist Module Configuration' => 'Linklist Módulo de Configuração',
   'Requested category could not be found.' => 'Categoria solicitada não pôde ser encontrada.',
   'Requested link could not be found.' => 'Link solicitado não pôde ser encontrado.',
