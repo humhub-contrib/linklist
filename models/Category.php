@@ -51,6 +51,21 @@ class Category extends \humhub\modules\content\components\ContentActiveRecord
         parent::afterDelete();
     }
 
+    public function getUrl()
+    {
+        return $this->content->container->createUrl('linklist/linklist');
+    }
+
+    public function getContentName()
+    {
+        return 'Link Category';
+    }
+    
+    public function getContentDescription()
+    {
+        return $this->title;
+    }    
+
     /**
      * @return array customized attribute labels (name=>label)
      */
