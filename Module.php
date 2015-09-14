@@ -3,6 +3,8 @@
 namespace humhub\modules\linklist;
 
 use Yii;
+
+use humhub\modules\linklist\models\Link;
 use humhub\modules\linklist\models\Category;
 use humhub\modules\space\models\Space;
 use humhub\modules\user\models\User;
@@ -60,10 +62,10 @@ class Module extends ContentContainerModule
     {
         parent::disableContentContainer($container);
 
-        foreach (Category::model()->contentContainer($container)->findAll() as $content) {
+        foreach (Category::find()->contentContainer($container)->all() as $content) {
             $content->delete();
         }
-        foreach (Link::model()->contentContainer($container)->findAll() as $content) {
+        foreach (Link::find()->contentContainer($container)->all() as $content) {
             $content->delete();
         }
     }

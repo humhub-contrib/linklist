@@ -22,6 +22,17 @@ class Link extends \humhub\modules\content\components\ContentActiveRecord implem
     public $autoAddToWall = true;
     public $wallEntryClass = "humhub\modules\linklist\widgets\WallEntry";
 
+    
+    public function beforeSave($insert)
+    {
+        
+        if ($this->sort_order == "") {
+            $this->sort_order = 0;
+        }
+        
+        return parent::beforeSave($insert);
+    }
+    
     public function getContentName()
     {
         return Yii::t('LinklistModule.base', "Link");
