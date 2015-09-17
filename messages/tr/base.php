@@ -12,7 +12,7 @@ return array (
   'Do you really want to delete this link?' => '',
   'Extend link validation by a connection test.' => '',
   'Link' => 'Bağlantı',
-  'Linklist' => 'Bağlantı listesi',
+  'Linklist' => 'Bağlantılar',
   'Linklist Module Configuration' => '',
   'Requested category could not be found.' => '',
   'Requested link could not be found.' => 'Bağlantı bulunamadı.',
