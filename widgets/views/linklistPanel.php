@@ -7,6 +7,8 @@
  * 
  * @author Sebastian Stumpf
  */
+use \humhub\compat\CHtml;
+
 humhub\modules\linklist\Assets::register($this);
 ?>
 <div class="panel panel-default panel-linklist-widget">
