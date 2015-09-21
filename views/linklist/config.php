@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Linklist configuration view.
  *
@@ -7,6 +8,9 @@
  * @author Sebastian Stumpf
  *
  */
+use humhub\compat\CActiveForm;
+use yii\helpers\Html;
+
 humhub\modules\linklist\Assets::register($this);
 ?>
 
@@ -17,10 +21,7 @@ humhub\modules\linklist\Assets::register($this);
         <p><?php echo Yii::t('LinklistModule.base', 'You can enable the extended validation of links for a space or user.'); ?></p><br />
 
         <?php
-        $form = $this->beginWidget('CActiveForm', array(
-            'id' => 'linklist-configure-form',
-            'enableAjaxValidation' => false,
-        ));
+        $form = CActiveForm::begin();
         ?>
 
         <?php echo $form->errorSummary($model); ?>
@@ -44,8 +45,7 @@ humhub\modules\linklist\Assets::register($this);
         <?php echo $form->error($model, 'enableWidget'); ?>
 
         <hr>
-        <?php echo CHtml::submitButton(Yii::t('LinklistModule.base', 'Save'), array('class' => 'btn btn-primary')); ?>
-        <a class="btn btn-default" href="<?php echo Yii::app()->getController()->modulesUrl ?>"><?php echo Yii::t('LinklistModule.base', 'Back to modules'); ?></a>
-        <?php $this->endWidget(); ?>
+        <?php echo Html::submitButton(Yii::t('LinklistModule.base', 'Save'), array('class' => 'btn btn-primary')); ?>
+        <?php CActiveForm::end(); ?>
     </div>
 </div>
