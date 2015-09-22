@@ -12,7 +12,7 @@ use \humhub\compat\CHtml;
 humhub\modules\linklist\Assets::register($this);
 ?>
 <div class="panel panel-default panel-linklist-widget">
-    <div class="panel-heading"><strong><?php echo Yii::t('SpacelinksModule.base', 'Link'); ?></strong> <?php echo Yii::t('SpacelinksModule.base', 'list'); ?></div>
+    <div class="panel-heading"><strong><?php echo Yii::t('LinklistModule.base', 'Link'); ?></strong> <?php echo Yii::t('LinklistModule.base', 'list'); ?></div>
     <div class="linklist-body">
         <div class="scrollable-content-container">
             <?php foreach ($categories as $category) { ?>
