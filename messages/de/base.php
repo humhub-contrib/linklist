@@ -19,6 +19,8 @@
 return [
     'Added a new link %link% to category "%category%".' => '',
     'No description available.' => '',
+    'list' => '',
+    'Back to modules' => 'Zurück zu den Modulen',
     'Could not determine content container!' => 'Kann Content Container nicht finden.',
     'Space not found!' => 'Space nicht gefunden!',
     'The item order was successfully changed.' => 'Die Reihenfolge der Einträge wurde erfolgreich geändert.',
@@ -26,7 +28,6 @@ return [
     'You miss the rights to reorder categories.!' => 'Du besitzt nicht die Berechtigung, um Kategorie umzusortieren.',
     '<strong>Confirm</strong> category deleting' => '<strong>Löschen</strong> der Kategorie bestätigen',
     '<strong>Confirm</strong> link deleting' => '<strong>Löschen</strong> des Links bestätigen',
-    'Back to modules' => 'Zurück zu den Modulen',
     'Cancel' => 'Abbrechen',
     'Delete' => 'Löschen',
     'Delete category' => 'Kategorie löschen',
