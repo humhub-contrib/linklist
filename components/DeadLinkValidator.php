@@ -48,7 +48,7 @@ class DeadLinkValidator extends CValidator
      */
     private function isEnabled()
     {
-        $validateDeadLinks = Yii::app()->getController()->contentContainer->getSetting('enableDeadLinkValidation', 'linklist');
+        $validateDeadLinks = Yii::$app->getController()->contentContainer->getSetting('enableDeadLinkValidation', 'linklist');
         // set default if setting empty
         if ($validateDeadLinks == '' || $validateDeadLinks == null) {
             $validateDeadLinks = 0;

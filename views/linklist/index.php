@@ -78,7 +78,7 @@ if (empty($categories)) {
                                         <?php echo humhub\modules\like\widgets\LikeLink::widget(array('object' => $link)); ?>
                                     </div>
                                     <?php // all admins and users that created the link may edit or delete it  ?>
-                                    <?php if ($accessLevel == 2 || $accessLevel == 1 && $link->content->created_by == Yii::app()->user->id) { ?>
+                                    <?php if ($accessLevel == 2 || $accessLevel == 1 && $link->content->created_by == Yii::$app->user->id) { ?>
                                         <div class="linklist-edit-controls linklist-editable">
                                             <?php
                                             echo \humhub\widgets\ModalConfirm::widget(array(
