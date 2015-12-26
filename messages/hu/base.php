@@ -43,11 +43,5 @@ return [
     'You miss the rights to edit this category!' => '',
     'You miss the rights to edit this link!' => '',
     'list' => '',
-    'Back to modules' => '@@@@',
-    'Could not determine content container!' => '@@@@',
-    'Space not found!' => '@@@@',
-    'The item order was successfully changed.' => '@@@@',
-    'Toggle view mode' => '@@@@',
-    'You miss the rights to reorder categories.!' => '@@@@',
     'Link' => 'Link',
 ];

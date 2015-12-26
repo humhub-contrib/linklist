@@ -42,12 +42,6 @@ return [
     'You miss the rights to edit this category!' => '',
     'You miss the rights to edit this link!' => '',
     'list' => '',
-    'Back to modules' => 'Voltar para os módulos',
-    'Could not determine content container!' => 'Não é possivel determinar o conteúdo do container (recipiente)!',
-    'Space not found!' => 'Espaço não encontrado!',
-    'The item order was successfully changed.' => '@@@@',
-    'Toggle view mode' => '@@@@',
-    'You miss the rights to reorder categories.!' => '@@@@',
     'Delete' => 'Apagar',
     'Save' => 'Guardar',
 ];
