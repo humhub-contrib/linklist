@@ -73,9 +73,9 @@ class Category extends \humhub\modules\content\components\ContentActiveRecord
     {
         return array(
             'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'sort_order' => 'Sort Order',
+            'title' => Yii::t('LinklistModule.base', 'Title'),
+            'description' => Yii::t('LinklistModule.base', 'Description'),
+            'sort_order' => Yii::t('LinklistModule.base', 'Sort Order'),
         );
     }
 
