@@ -78,11 +78,11 @@ class Link extends \humhub\modules\content\components\ContentActiveRecord implem
     {
         return array(
             'id' => 'ID',
-            'category_id' => 'Category',
+            'category_id' => Yii::t('LinklistModule.models_Link', 'Category'),
             'href' => 'URL',
-            'title' => 'Title',
-            'description' => 'Description',
-            'sort_order' => 'Sort Order',
+            'title' => Yii::t('LinklistModule.models_Link', 'Title'),
+            'description' => Yii::t('LinklistModule.models_Link', 'Description'),
+            'sort_order' => Yii::t('LinklistModule.models_Link', 'Sort Order'),
         );
     }
 
