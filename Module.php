@@ -99,6 +99,7 @@ class Module extends ContentContainerModule
         if ($space->isModuleEnabled('linklist') && $space->isMember()) {
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
+                'group' => 'modules',
                 'url' => $space->createUrl('/linklist/linklist'),
                 'icon' => '<i class="fa fa-link"></i>',
                 'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist')
