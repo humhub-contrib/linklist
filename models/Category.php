@@ -2,6 +2,8 @@
 
 namespace humhub\modules\linklist\models;
 
+use Yii;
+
 /**
  * This is the model class for table "linklist_category".
  * 
