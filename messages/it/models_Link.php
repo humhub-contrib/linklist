@@ -2,6 +2,6 @@
 return array (
   'Category' => 'Categoria',
   'Description' => 'Descrizione',
-  'Sort Order' => '',
+  'Sort Order' => 'Ordinamento',
   'Title' => 'Titolo',
 );
