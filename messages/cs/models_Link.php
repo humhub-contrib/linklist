@@ -1,6 +1,6 @@
 <?php
 return array (
-  'Category' => '',
+  'Category' => 'Kategorie',
   'Description' => 'Popis',
   'Sort Order' => 'Řazení',
   'Title' => 'Název',
