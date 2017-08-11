@@ -17,7 +17,10 @@ use Yii;
 class Category extends \humhub\modules\content\components\ContentActiveRecord
 {
 
-    public $autoAddToWall = false;
+    /**
+     * @inheritdoc
+     */
+    public $streamChannel = null;
 
     /**
      * @return string the associated database table name
@@ -32,11 +35,11 @@ class Category extends \humhub\modules\content\components\ContentActiveRecord
      */
     public function rules()
     {
-        return array(
-            array('sort_order', 'integer'),
-            array(['title', 'description'], 'safe'),
-            array('title', 'required'),
-        );
+        return [
+            ['sort_order', 'integer'],
+            [['title', 'description'], 'safe'],
+            ['title', 'required'],
+        ];
     }
 
     public function getLinks()
