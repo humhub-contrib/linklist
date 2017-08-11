@@ -122,7 +122,7 @@ humhub\modules\linklist\Assets::register($this);
         <?php if ($accessLevel != 0) { ?>
             <?php if ($accessLevel == 2) { ?>
             <div class="linklist-add-category linklist-editable">
-                <?= Html::a('Add Category', $contentContainer->createUrl('/linklist/linklist/edit-category', ['category_id' => -1]), ['class' => 'btn btn-primary']); ?>
+                <?= Html::a(Yii::t('LinklistModule.base', 'Add Category'), $contentContainer->createUrl('/linklist/linklist/edit-category', ['category_id' => -1]), ['class' => 'btn btn-primary']); ?>
             </div>
             <?php } ?>
         <?php } ?>
