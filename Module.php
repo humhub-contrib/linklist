@@ -122,6 +122,7 @@ class Module extends ContentContainerModule
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
                 'url' => $user->createUrl('/linklist/linklist'),
+                'icon' => '<i class="fa fa-link"></i>',
                 'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist'),
             ));
         }
