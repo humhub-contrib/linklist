@@ -1,8 +1,7 @@
 <?php
-
-return [
-	'Category' => 'Kategorie',
-    'Title' => 'Titel',
-    'Description' => 'Beschreibung',
-    'Sort Order' => 'Sortierungs Position',
-];
+return array (
+  'Category' => 'Kategorie',
+  'Description' => 'Beschreibung',
+  'Sort Order' => 'Sortierreihenfolge',
+  'Title' => 'Titel',
+);
