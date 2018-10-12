@@ -13,7 +13,7 @@ return array (
   'Extend link validation by a connection test.' => 'Kontrollera länken med anslutningstest.',
   'Link' => 'Länk',
   'Linklist' => 'Länklista',
-  'Linklist Module Configuration' => '',
+  'Linklist Module Configuration' => 'Länklista modulkonfiguration',
   'No description available.' => 'Ingen beskrivning finns.',
   'Requested category could not be found.' => 'Begärd kategori finns inte.',
   'Requested link could not be found.' => 'Begärd länk finns inte.',
