@@ -28,4 +28,5 @@ return array (
   'You miss the rights to edit this category!' => 'Vous n\'avez pas les droits pour modifier cette catégorie !',
   'You miss the rights to edit this link!' => 'Vous n\'avez pas les droits pour modifier ce lien !',
   'list' => 'liste',
+  'Add Category' => 'Ajouter un catégorie',
 );
