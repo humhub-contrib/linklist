@@ -1,6 +1,6 @@
 <?php
 return array (
   'Description' => 'Leírás',
-  'Sort Order' => '',
-  'Title' => 'Naslov',
+  'Sort Order' => 'Rendezési sorrend',
+  'Title' => 'Hivatkozás neve',
 );

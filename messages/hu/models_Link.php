@@ -1,7 +1,7 @@
 <?php
 return array (
-  'Category' => '',
+  'Category' => 'Kategória',
   'Description' => 'Leírás',
-  'Sort Order' => '',
-  'Title' => 'Naslov',
+  'Sort Order' => 'Rendezési sorrend',
+  'Title' => 'Hivatkozás neve',
 );
