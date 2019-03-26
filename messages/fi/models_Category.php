@@ -1,7 +1,6 @@
 <?php
-
-return [
-    'Description' => '',
-    'Sort Order' => '',
-    'Title' => '',
-];
+return array (
+  'Description' => 'Kuvaus',
+  'Sort Order' => 'Lajittelujärjestys',
+  'Title' => 'Otsikko',
+);

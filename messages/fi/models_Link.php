@@ -1,8 +1,7 @@
 <?php
-
-return [
-    'Category' => '',
-    'Description' => '',
-    'Sort Order' => '',
-    'Title' => '',
-];
+return array (
+  'Category' => 'Kategoria',
+  'Description' => 'Kuvaus',
+  'Sort Order' => 'Lajittelujärjestys',
+  'Title' => 'Otsikko',
+);

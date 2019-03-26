@@ -18,7 +18,7 @@ return array (
   'Requested category could not be found.' => 'Die gewünschte Kategorie konnte nicht gefunden werden.',
   'Requested link could not be found.' => 'Der gewünschte Link konnte nicht gefunden werden.',
   'Save' => 'Speichern',
-  'Show the links as a widget on the right.' => 'Zeige die Links als ein Widget am rechten Rand.',
+  'Show the links as a widget on the right.' => 'Zeige die Links als Widget am rechten Rand.',
   'The category you want to create your link in could not be found!' => 'Die Kategorie, in der du den Link erstellen möchtest, konnte nicht gefunden werden.',
   'There have been no links or categories added to this space yet.' => 'Zu diesem Space wurden noch keine Links oder Kategorien hinzugefügt.',
   'You can enable the extended validation of links for a space or user.' => 'Du kannst die erweiterte Überprüfung von Links für einen Space oder einen Benutzer aktivieren.',
