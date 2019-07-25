@@ -6,6 +6,7 @@ use Yii;
 use yii\web\HttpException;
 use humhub\modules\user\models\User;
 use humhub\modules\space\models\Space;
+use humhub\modules\post\permissions\CreatePost;
 use humhub\modules\content\components\ContentContainerController;
 use humhub\modules\linklist\models\Category;
 use humhub\modules\linklist\models\Link;
@@ -53,10 +54,10 @@ class LinklistController extends ContentContainerController
      */
     private function getAccessLevel()
     {
-        if ($this->contentContainer instanceof User) {
+        if ($this->contentContainer instanceof \humhub\modules\user\models\User) {
             return $this->contentContainer->id == Yii::$app->user->id ? 2 : 0;
-        } else if ($this->contentContainer instanceof Space) {
-            return $this->contentContainer->isAdmin(Yii::$app->user->id) ? 2 : 1;
+        } else if ($this->contentContainer instanceof \humhub\modules\space\models\Space) {
+            return $this->contentContainer->can(new \humhub\modules\post\permissions\CreatePost()) ? 2 : 1;
         }
     }
 
