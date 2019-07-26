@@ -44,7 +44,7 @@ humhub\modules\linklist\Assets::register($this);
                                         'buttonTrue' => Yii::t('LinklistModule.base', 'Delete'),
                                         'buttonFalse' => Yii::t('LinklistModule.base', 'Cancel'),
                                         'linkContent' => '<i class="fa fa-trash-o"></i>',
-                                        'linkHref' => $contentContainer->createUrl("/linklist/linklist/delete-category", array('category_id' => $category->id)),
+                                        'linkHref' => $contentContainer->createUrl("/linklist/linklist/delete-category", ['category_id' => $category->id]),
                                         'confirmJS' => 'function() {
                                             $("#linklist-category_' . $category->id . '").remove();
                                             $("#linklist-widget-category_' . $category->id . '").remove();
@@ -53,10 +53,10 @@ humhub\modules\linklist\Assets::register($this);
                                             }
                                         }'
                                     ]);
-                                    echo Html::a('<i class="fa fa-pencil"></i>', $contentContainer->createUrl('/linklist/linklist/edit-category', ['category_id' => $category->id]), array('title' => 'Edit Category', 'class' => 'btn btn-xs btn-primary')) . ' ';
+                                    echo Html::a('<i class="fa fa-pencil"></i>', $contentContainer->createUrl('/linklist/linklist/edit-category', ['category_id' => $category->id]), ['title' => 'Edit Category', 'class' => 'btn btn-xs btn-primary']) . ' ';
                                 }
                                 // all users may add a link to an existing category
-                                echo Html::a('<i class="fa fa-plus" style="font-size: 12px;"></i> Add link', $contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => -1, 'category_id' => $category->id]), array('title' => 'Add Link', 'class' => 'btn btn-xs btn-info'));
+                                echo Html::a('<i class="fa fa-plus" style="font-size: 12px;"></i> '.Yii::t('LinklistModule.base', 'Add link'), $contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => -1, 'category_id' => $category->id]), ['title' => 'Add Link', 'class' => 'btn btn-xs btn-info']);
                                 ?>
                             </div>
                         <?php } ?>
