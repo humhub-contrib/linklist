@@ -2,6 +2,6 @@
 return array (
   'Category' => 'Kategori',
   'Description' => 'Beskrivelse',
-  'Sort Order' => 'Sorterings rekkefølge',
+  'Sort Order' => 'Sorteringsrekkefølge',
   'Title' => 'Tittel',
 );
