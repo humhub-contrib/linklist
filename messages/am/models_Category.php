@@ -1,7 +1,6 @@
 <?php
-
-return [
-    'Description' => '',
-    'Sort Order' => '',
-    'Title' => '',
-];
+return array (
+  'Description' => '',
+  'Sort Order' => 'ቅደም ተከተል ያስይዙ',
+  'Title' => 'ርዕስ',
+);

@@ -1,6 +1,6 @@
 <?php
 return array (
-  'Description' => '',
+  'Description' => 'Descripción',
   'Sort Order' => '',
   'Title' => 'Titulek',
 );

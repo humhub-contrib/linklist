@@ -1,7 +1,7 @@
 <?php
 return array (
-  'Category' => '',
+  'Category' => 'Nhóm link',
   'Description' => 'Miêu tả',
-  'Sort Order' => '',
+  'Sort Order' => 'Thứ tự sắp xếp',
   'Title' => 'Tiêu đề',
 );

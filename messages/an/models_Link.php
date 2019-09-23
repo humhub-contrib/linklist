@@ -1,7 +1,7 @@
 <?php
 return array (
-  'Category' => '',
-  'Description' => '',
+  'Category' => 'Categoría',
+  'Description' => 'Descripción',
   'Sort Order' => '',
   'Title' => 'Titulek',
 );
