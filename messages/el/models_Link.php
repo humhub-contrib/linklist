@@ -2,6 +2,6 @@
 return array (
   'Category' => '',
   'Description' => 'Περιγραφή',
-  'Sort Order' => '',
+  'Sort Order' => 'Σειρά ταξινόμησης',
   'Title' => 'Τίτλος',
 );

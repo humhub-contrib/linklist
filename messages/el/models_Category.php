@@ -1,6 +1,6 @@
 <?php
 return array (
   'Description' => 'Περιγραφή',
-  'Sort Order' => '',
+  'Sort Order' => 'Σειρά ταξινόμησης',
   'Title' => 'Τίτλος',
 );
