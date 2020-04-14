@@ -28,5 +28,5 @@ return array (
   'You miss the rights to delete this link!' => '',
   'You miss the rights to edit this category!' => '',
   'You miss the rights to edit this link!' => '',
-  'list' => '',
+  'list' => 'λίστα',
 );
