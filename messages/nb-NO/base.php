@@ -3,6 +3,7 @@ return array (
   '<strong>Confirm</strong> category deleting' => '<strong>Bekreft</strong> sletting av kategori',
   '<strong>Confirm</strong> link deleting' => '<strong>Bekreft</strong> sletting av lenke',
   'Add Category' => 'Legg til kategori',
+  'Add link' => 'Legg til link',
   'Added a new link %link% to category "%category%".' => 'La til en ny lenke %link% i kategori «%category%».',
   'Cancel' => 'Avbryt',
   'Delete' => 'Slett',

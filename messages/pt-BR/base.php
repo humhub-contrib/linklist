@@ -3,6 +3,7 @@ return array (
   '<strong>Confirm</strong> category deleting' => '<strong>Confirmar</strong> exclusão de categoria',
   '<strong>Confirm</strong> link deleting' => '<strong>Confirmar</strong> exclusão de link',
   'Add Category' => 'Adicionar categoria',
+  'Add link' => 'Adicionar Link',
   'Added a new link %link% to category "%category%".' => 'Adicionado um novo link %link% à categoria "%category%"',
   'Cancel' => 'Cancelar',
   'Delete' => 'Excluir',
