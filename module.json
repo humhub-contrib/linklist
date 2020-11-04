@@ -3,8 +3,8 @@
     "name": "Link List",
     "description": "Adds a link list to spaces or user profiles.",
     "keywords": ["user", "space", "links", "directory"],
-    "version": "0.5.8",
+    "version": "0.6.0",
     "humhub": {
-        "minVersion": "1.2"
+        "minVersion": "1.7"
     }
 }

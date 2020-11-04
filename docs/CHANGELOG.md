@@ -1,7 +1,11 @@
 Changelog
 =========
 
-0.5.9 (Februrary 19, 2020)
+0.6.0 (November 4, 2020)
+------------------------
+- Enh #38: Wall Stream Layout Migration for HumHub 1.7+ 
+
+0.5.9 (February 19, 2020)
 ---------------------------
 - Fix #36: XSS vulnerability in link url 
 - Enh: Translation updates
