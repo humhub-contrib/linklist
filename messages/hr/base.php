@@ -2,7 +2,7 @@
 return array (
   '<strong>Confirm</strong> category deleting' => '<strong>Potvrdi</strong> brisanje kategorije',
   '<strong>Confirm</strong> link deleting' => '<strong>Potvrdi</strong> brisanje veze',
-  'Add Category' => '',
+  'Add Category' => 'Dodaj kategoriju',
   'Add link' => 'Dodaj poveznicu',
   'Added a new link %link% to category "%category%".' => 'Dodana nova veza %link% u kategoriji "%category%".',
   'Cancel' => 'poništi',
