@@ -10,8 +10,10 @@
  * @author Sebastian Stumpf
  */
 
+use humhub\modules\comment\widgets\CommentLink;
+use humhub\modules\content\widgets\ContentObjectLinks;
+use humhub\modules\like\widgets\LikeLink;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 humhub\modules\linklist\Assets::register($this);
 ?>
@@ -81,9 +83,15 @@ humhub\modules\linklist\Assets::register($this);
                                                 ['target' => '_blank']
                                             ); ?>
                                             <div class="linklist-interaction-controls">
-                                                <?= humhub\modules\comment\widgets\CommentLink::widget(['object' => $link, 'mode' => 'popup']); ?>
-                                                &middot;
-                                                <?= humhub\modules\like\widgets\LikeLink::widget(['object' => $link]); ?>
+                                                <?= ContentObjectLinks::widget([
+                                                    'object' => $link,
+                                                    'widgetParams' => [CommentLink::class => ['mode' => CommentLink::MODE_POPUP]],
+                                                    'widgetOptions' => [
+                                                        CommentLink::class => ['sortOrder' => 100],
+                                                        LikeLink::class => ['sortOrder' => 200],
+                                                    ],
+                                                    'seperator' => '&middot;',
+                                                ]); ?>
                                             </div>
                                             <?php // all admins and users that created the link may edit or delete it  ?>
                                             <?php if ($accessLevel == 2 || $accessLevel == 1 && $link->content->created_by == Yii::$app->user->id) { ?>
