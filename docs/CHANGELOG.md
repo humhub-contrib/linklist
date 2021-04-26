@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.1 (Unreleased)
+------------------------
+- Fix #42: Fix permissions
+
 0.6.0 (November 4, 2020)
 ------------------------
 - Enh #38: Wall Stream Layout Migration for HumHub 1.7+ 
