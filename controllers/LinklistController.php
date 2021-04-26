@@ -2,15 +2,17 @@
 
 namespace humhub\modules\linklist\controllers;
 
-use Yii;
-use yii\web\HttpException;
-use humhub\modules\user\models\User;
-use humhub\modules\space\models\Space;
-use humhub\modules\post\permissions\CreatePost;
+use humhub\components\access\ControllerAccess;
+use humhub\modules\admin\permissions\ManageSpaces;
 use humhub\modules\content\components\ContentContainerController;
+use humhub\modules\content\components\ContentContainerControllerAccess;
 use humhub\modules\linklist\models\Category;
 use humhub\modules\linklist\models\Link;
 use humhub\modules\linklist\models\ConfigureForm;
+use humhub\modules\user\models\User;
+use humhub\modules\space\models\Space;
+use Yii;
+use yii\web\HttpException;
 
 /**
  * Description of LinklistController.
@@ -24,28 +26,22 @@ class LinklistController extends ContentContainerController
     /** access level of the user currently logged in. 0 -> no write access / 1 -> create links and edit own links / 2 -> full write access. * */
     public $accessLevel = 0;
 
-    /*
-      public function behaviors()
-      {
-      return array(
-      'HReorderContentBehavior' => array(
-      'class' => 'application.behaviors.HReorderContentBehavior',
-      )
-      );
-      }
-     */
+    public function getAccessRules()
+    {
+        return [
+            [ContentContainerControllerAccess::RULE_USER_GROUP_ONLY => [Space::USERGROUP_MEMBER, User::USERGROUP_SELF]],
+            [ControllerAccess::RULE_PERMISSION => [ManageSpaces::class], 'actions' => ['config']],
+        ];
+    }
 
     /**
      * Automatically loads the underlying contentContainer (User/Space) by using
      * the uguid/sguid request parameter
-     *
-     * @return boolean
      */
     public function init()
     {
-        $retVal = parent::init();
+        parent::init();
         $this->accessLevel = $this->getAccessLevel();
-        return $retVal;
     }
 
     /**
@@ -213,6 +209,7 @@ class LinklistController extends ContentContainerController
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             $this->contentContainer->setSetting('enableDeadLinkValidation', $form->enableDeadLinkValidation, 'linklist');
             $this->contentContainer->setSetting('enableWidget', $form->enableWidget, 'linklist');
+            $this->view->saved();
             return $this->redirect($this->contentContainer->createUrl('/linklist/linklist/config'));
         }
 

@@ -3,7 +3,7 @@ return array (
   '<strong>Confirm</strong> category deleting' => 'Kategória <strong>törlésének</strong> megerősítése',
   '<strong>Confirm</strong> link deleting' => 'Link <strong>törlésének</strong> megerősítése',
   'Add Category' => 'Kategória hozzáadása',
-  'Add link' => 'Új link',
+  'Add link' => 'Link hozzáadása',
   'Added a new link %link% to category "%category%".' => 'Új link %link% lett hozzáadva a "%category%" kategóriához.',
   'Cancel' => 'Mégsem',
   'Delete' => 'Törlés',
