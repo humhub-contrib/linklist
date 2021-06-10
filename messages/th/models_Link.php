@@ -1,7 +1,7 @@
 <?php
 return array (
-  'Category' => '',
-  'Description' => '',
-  'Sort Order' => 'Ordem de classificação',
-  'Title' => 'Título',
+  'Category' => 'ประเภท',
+  'Description' => 'คำอธิบาย',
+  'Sort Order' => 'เรียงลำดับ',
+  'Title' => 'หัวข้อ',
 );
