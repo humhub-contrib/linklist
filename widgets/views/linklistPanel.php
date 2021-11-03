@@ -8,7 +8,6 @@
  * @author Sebastian Stumpf
  */
 
-use \humhub\compat\CHtml;
 use humhub\libs\Html;
 
 humhub\modules\linklist\Assets::register($this);

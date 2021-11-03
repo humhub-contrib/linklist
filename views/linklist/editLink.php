@@ -1,17 +1,18 @@
 <?php
 /**
  * View to edit a link category.
- * 
- * @uses $link the link object.
- * @uses $isCreated true if the link is first created, false if an existing link is edited
- * 
+ *
+ * @var $link \humhub\modules\linklist\models\Link
+ * @var $isCreated bool true if the link is first created, false if an existing link is edited
+ *
  * @author Sebastian Stumpf
- * 
+ *
  */
 humhub\modules\linklist\Assets::register($this);
 
-use humhub\compat\CActiveForm;
+use humhub\modules\ui\form\widgets\ActiveForm;
 use yii\helpers\Html;
+
 ?>
 
 
@@ -23,37 +24,26 @@ use yii\helpers\Html;
     <?php endif; ?>
 
     <div class="panel-body">
-        <?php
-        $form = CActiveForm::begin();
-        //echo $form->errorSummary($link); 
-        ?>
+        <?php $form = ActiveForm::begin(); ?>
 
         <div class="form-group">
-            <?php echo $form->labelEx($link, 'title'); ?>
-            <?php echo $form->textField($link, 'title', array('class' => 'form-control')); ?>
-            <?php echo $form->error($link, 'title'); ?>
+            <?= $form->field($link, 'title')->textInput(); ?>
         </div>
 
         <div class="form-group">
-            <?php echo $form->labelEx($link, 'description'); ?>
-            <?php echo $form->textArea($link, 'description', array('class' => 'form-control', 'rows' => '2')); ?>
-            <?php echo $form->error($link, 'description'); ?>
+            <?= $form->field($link, 'description')->textarea(); ?>
         </div>
 
         <div class="form-group">
-            <?php echo $form->labelEx($link, 'href'); ?>
-            <?php echo $form->textField($link, 'href', array('class' => 'form-control')); ?>
-            <?php echo $form->error($link, 'href'); ?>
+            <?= $form->field($link, 'href')->textInput(); ?>
         </div>
 
         <div class="form-group">
-            <?php echo $form->labelEx($link, 'sort_order'); ?>
-            <?php echo $form->textField($link, 'sort_order', array('class' => 'form-control')); ?>
-            <?php echo $form->error($link, 'sort_order'); ?>
+            <?= $form->field($link, 'sort_order')->textInput(); ?>
         </div>
 
-        <?php echo Html::submitButton('Save', array('class' => 'btn btn-primary')); ?>
+        <?= Html::submitButton('Save', ['class' => 'btn btn-primary']); ?>
 
-        <?php CActiveForm::end(); ?>
+        <?php $form::end(); ?>
     </div>
 </div>
