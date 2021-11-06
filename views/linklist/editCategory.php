@@ -1,17 +1,18 @@
 <?php
 /**
  * View to edit a link category.
- * 
+ *
  * @uses $category the category object.
  * @uses $isCreated true if the category is first created, false if an existing category is edited.
- * 
+ *
  * @author Sebastian Stumpf
- * 
+ *
  */
 humhub\modules\linklist\Assets::register($this);
 
-use humhub\compat\CActiveForm;
+use humhub\modules\ui\form\widgets\ActiveForm;
 use yii\helpers\Html;
+
 ?>
 
 
@@ -23,31 +24,22 @@ use yii\helpers\Html;
     <?php endif; ?>
     <div class="panel-body">
 
-        <?php
-        $form = CActiveForm::begin();
-        $form->errorSummary($category);
-        ?>
+        <?php $form = ActiveForm::begin(); ?>
 
         <div class="form-group">
-            <?php echo $form->labelEx($category, 'title'); ?>
-            <?php echo $form->textField($category, 'title', array('class' => 'form-control')); ?>
-            <?php echo $form->error($category, 'title'); ?>
+            <?= $form->field($category, 'title')->textInput(); ?>
         </div>
 
         <div class="form-group">
-            <?php echo $form->labelEx($category, 'description'); ?>
-            <?php echo $form->textArea($category, 'description', array('class' => 'form-control', 'rows' => 3)); ?>
-            <?php echo $form->error($category, 'description'); ?>
+            <?= $form->field($category, 'description')->textarea(); ?>
         </div>
 
         <div class="form-group">
-            <?php echo $form->labelEx($category, 'sort_order'); ?>
-            <?php echo $form->textField($category, 'sort_order', array('class' => 'form-control')); ?>
-            <?php echo $form->error($category, 'sort_order'); ?>
+            <?= $form->field($category, 'sort_order')->textInput(); ?>
         </div>
 
-        <?php echo Html::submitButton('Save', array('class' => 'btn btn-primary')); ?>
+        <?= Html::submitButton('Save', ['class' => 'btn btn-primary']); ?>
 
-        <?php CActiveForm::end(); ?>
+        <?php $form::end(); ?>
     </div>
 </div>

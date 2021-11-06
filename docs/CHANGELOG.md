@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.1 (unreleased)
+------------------------
+- Enh #4823: Remove CHTML/CActiveForm usages
+
 0.7.0 (April 26, 2020)
 ------------------------
 - Enh #4751: Hide separator between content links
