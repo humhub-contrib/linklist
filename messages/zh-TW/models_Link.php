@@ -1,6 +1,6 @@
 <?php
 return array (
-  'Category' => '',
+  'Category' => '類別',
   'Description' => '',
   'Sort Order' => '',
   'Title' => '標題',
