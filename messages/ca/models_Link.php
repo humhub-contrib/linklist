@@ -1,6 +1,6 @@
 <?php
 return array (
-  'Category' => '',
+  'Category' => 'Categoria',
   'Description' => 'Descripció',
   'Sort Order' => 'Ordre de classificació',
   'Title' => 'Títol',
