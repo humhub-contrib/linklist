@@ -50,8 +50,12 @@ class Module extends ContentContainerModule
      */
     public function enableContentContainer(ContentContainerActiveRecord $container)
     {
-        $container->setSetting('enableDeadLinkValidation', 0, 'linklist');
-        $container->setSetting('enableWidget', 0, 'linklist');
+        /** @var Module $module */
+        $module = Yii::$app->getModule('linklist');
+
+        $module->settings->contentContainer($container)->set('enableDeadLinkValidation', 0);
+        $module->settings->contentContainer($container)->set('enableWidget', 0);
+
         parent::enableContentContainer($container);
     }
 

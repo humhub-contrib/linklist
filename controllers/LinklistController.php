@@ -9,6 +9,7 @@ use humhub\modules\content\components\ContentContainerControllerAccess;
 use humhub\modules\linklist\models\Category;
 use humhub\modules\linklist\models\Link;
 use humhub\modules\linklist\models\ConfigureForm;
+use humhub\modules\linklist\Module;
 use humhub\modules\user\models\User;
 use humhub\modules\space\models\Space;
 use Yii;
@@ -201,15 +202,21 @@ class LinklistController extends ContentContainerController
      */
     public function actionConfig()
     {
+        /** @var Module $module */
+        $module = Yii::$app->getModule('linklist');
+
+        $settings = $module->settings->contentContainer($this->contentContainer);
+
         $form = new ConfigureForm();
-        $form->enableDeadLinkValidation = $this->contentContainer->getSetting('enableDeadLinkValidation', 'linklist');
-        $form->enableWidget = $this->contentContainer->getSetting('enableWidget', 'linklist');
+        $form->enableDeadLinkValidation = $settings->get('enableDeadLinkValidation');
+        $form->enableWidget = $settings->get('enableWidget');
 
 
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
-            $this->contentContainer->setSetting('enableDeadLinkValidation', $form->enableDeadLinkValidation, 'linklist');
-            $this->contentContainer->setSetting('enableWidget', $form->enableWidget, 'linklist');
+            $settings->set('enableDeadLinkValidation', $form->enableDeadLinkValidation);
+            $settings->set('enableWidget', $form->enableWidget);
             $this->view->saved();
+
             return $this->redirect($this->contentContainer->createUrl('/linklist/linklist/config'));
         }
 

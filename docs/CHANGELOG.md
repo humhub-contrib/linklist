@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.2 (November 18, 2022)
+-------------------------
+- Refactored old container setting usage
+
 0.7.1 (April 26, 2022)
 ----------------------
 - Enh #4823: Remove CHTML/CActiveForm usages

@@ -2,6 +2,9 @@
 
 namespace humhub\modules\linklist\components;
 
+use humhub\modules\linklist\Module;
+use Yii;
+
 /**
  * CValidator that validates the connection of a link using the Zend_Http_Cliend of the Zend framework.
  * The validation will not be executed if the extended validation is disabled in the space/user settings of the LinklistModule.
@@ -48,7 +51,13 @@ class DeadLinkValidator extends CValidator
      */
     private function isEnabled()
     {
-        $validateDeadLinks = Yii::$app->getController()->contentContainer->getSetting('enableDeadLinkValidation', 'linklist');
+        /** @var Module $module */
+        $module = Yii::$app->getModule('linklist');
+
+        $validateDeadLinks = $module->settings
+            ->contentContainer(contentContainer)
+            ->get('enableDeadLinkValidation', '');
+
         // set default if setting empty
         if ($validateDeadLinks == '' || $validateDeadLinks == null) {
             $validateDeadLinks = 0;

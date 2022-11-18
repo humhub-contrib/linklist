@@ -2,6 +2,7 @@
 
 namespace humhub\modules\linklist\widgets;
 
+use humhub\modules\linklist\Module;
 use Yii;
 use humhub\modules\linklist\models\Link;
 use humhub\modules\linklist\models\Category;
@@ -21,9 +22,11 @@ class Sidebar extends \humhub\components\Widget
 
     public function run()
     {
+        /** @var Module $module */
+        $module = Yii::$app->getModule('linklist');
 
         $container = $this->contentContainer;
-        if (!$container->getSetting('enableWidget', 'linklist')) {
+        if (!(bool)$module->settings->contentContainer($container)->get('enableWidget')) {
             return;
         }
         $categoryBuffer = Category::find()->contentContainer($this->contentContainer)->orderBy(['sort_order' => SORT_ASC])->all();
