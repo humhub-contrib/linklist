@@ -83,7 +83,7 @@ class Module extends ContentContainerModule
     {
 
         $space = $event->sender->space;
-        if ($space->isModuleEnabled('linklist')) {
+        if ($space->moduleManager->isEnabled('linklist')) {
             $event->sender->addWidget(widgets\Sidebar::className(), array('contentContainer' => $space), array(
                 'sortOrder' => 200,
             ));
@@ -100,7 +100,7 @@ class Module extends ContentContainerModule
     {
 
         $space = $event->sender->space;
-        if ($space->isModuleEnabled('linklist') && $space->isMember()) {
+        if ($space->moduleManager->isEnabled('linklist') && $space->isMember()) {
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
                 'group' => 'modules',
@@ -122,7 +122,7 @@ class Module extends ContentContainerModule
         $user = $event->sender->user;
 
         // Is Module enabled on this workspace?
-        if ($user->isModuleEnabled('linklist') && !Yii::$app->user->isGuest && $user->id == Yii::$app->user->id) {
+        if ($user->moduleManager->isEnabled('linklist') && !Yii::$app->user->isGuest && $user->id == Yii::$app->user->id) {
             $event->sender->addItem(array(
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
                 'url' => $user->createUrl('/linklist/linklist'),
@@ -141,7 +141,7 @@ class Module extends ContentContainerModule
     {
         $user = $event->sender->user;
 
-        if ($user->isModuleEnabled('linklist')) {
+        if ($user->moduleManager->isEnabled('linklist')) {
             $event->sender->addWidget(widgets\Sidebar::className(), array('contentContainer' => $user), array(
                 'sortOrder' => 200,
             ));
