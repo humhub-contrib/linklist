@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.3 (Unreleased)
+0.7.3 (November 18, 2022)
 ------------------
 - Removed deprecated `$space->isModuleEnabled()` calls
 
