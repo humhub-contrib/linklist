@@ -3,7 +3,6 @@
 namespace humhub\modules\linklist;
 
 use Yii;
-
 use humhub\modules\linklist\models\Link;
 use humhub\modules\linklist\models\Category;
 use humhub\modules\space\models\Space;
@@ -148,4 +147,11 @@ class Module extends ContentContainerModule
         }
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function getContentContainerName(ContentContainerActiveRecord $container)
+    {
+        return Yii::t('LinklistModule.base', 'Linklist');
+    }
 }
