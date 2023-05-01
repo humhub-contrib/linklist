@@ -38,9 +38,11 @@ class Module extends ContentContainerModule
     public function disable()
     {
         foreach (Category::find()->all() as $category) {
-            $category->delete();
+            $category->hardDelete();
         }
-        
+        foreach (Link::find()->all() as $content) {
+            $content->hardDelete();
+        }
         parent::disable();
     }
 
@@ -66,17 +68,17 @@ class Module extends ContentContainerModule
         parent::disableContentContainer($container);
 
         foreach (Category::find()->contentContainer($container)->all() as $content) {
-            $content->delete();
+            $content->hardDelete();
         }
         foreach (Link::find()->contentContainer($container)->all() as $content) {
-            $content->delete();
+            $content->hardDelete();
         }
     }
 
     /**
      * Defines what to do if a spaces sidebar is initialzed.
-     * 
-     * @param type $event        	
+     *
+     * @param type $event
      */
     public static function onSpaceSidebarInit($event)
     {
@@ -93,7 +95,7 @@ class Module extends ContentContainerModule
      * On build of a Space Navigation, check if this module is enabled.
      * When enabled add a menu item
      *
-     * @param type $event        	
+     * @param type $event
      */
     public static function onSpaceMenuInit($event)
     {

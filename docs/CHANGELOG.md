@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.4 (Unreleased)
+------------------
+- Fix #55: Hard delete records on disable module
+
 0.7.3 (November 18, 2022)
 ------------------
 - Removed deprecated `$space->isModuleEnabled()` calls
