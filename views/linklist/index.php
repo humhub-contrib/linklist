@@ -11,9 +11,18 @@
  */
 
 use humhub\modules\comment\widgets\CommentLink;
+use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\widgets\ContentObjectLinks;
 use humhub\modules\like\widgets\LikeLink;
+use humhub\modules\linklist\models\Category;
+use humhub\modules\linklist\models\Link;
+use humhub\widgets\Button;
 use yii\helpers\Html;
+
+/* @var ContentContainerActiveRecord $contentContainer */
+/* @var Category[] $categories */
+/* @var Link[] $links */
+/* @var int $accessLevel */
 
 humhub\modules\linklist\Assets::register($this);
 ?>
@@ -57,7 +66,11 @@ humhub\modules\linklist\Assets::register($this);
                                             }
                                         }'
                                         ]);
-                                        echo Html::a('<i class="fa fa-pencil"></i>', $contentContainer->createUrl('/linklist/linklist/edit-category', ['category_id' => $category->id]), ['title' => 'Edit Category', 'class' => 'btn btn-xs btn-primary']) . ' ';
+                                        echo Button::primary()->icon('pencil')->xs()
+                                            ->title(Yii::t('LinklistModule.base', 'Edit Category'))
+                                            ->link($contentContainer->createUrl('/linklist/linklist/edit-category', [
+                                                'category_id' => $category->id
+                                            ])) . ' ';
                                     }
                                     // all users may add a link to an existing category
                                     echo Html::a('<i class="fa fa-plus" style="font-size: 12px;"></i> ' . Yii::t('LinklistModule.base', 'Add link'), $contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => -1, 'category_id' => $category->id]), ['title' => 'Add Link', 'class' => 'btn btn-xs btn-info']);
@@ -118,7 +131,12 @@ humhub\modules\linklist\Assets::register($this);
                                                         }
                                                     }'
                                                     ]);
-                                                    echo Html::a('<i class="fa fa-pencil"></i>', $contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => $link->id, 'category_id' => $category->id]), ['title' => 'Edit Link', 'class' => 'btn btn-xs btn-primary']) . ' ';
+                                                    echo Button::primary()->icon('pencil')->xs()
+                                                        ->title(Yii::t('LinklistModule.base', 'Edit Link'))
+                                                        ->link($contentContainer->createUrl('/linklist/linklist/edit-link', [
+                                                            'link_id' => $link->id,
+                                                            'category_id' => $category->id
+                                                        ]));
                                                     ?>
                                                 </div>
                                             <?php } ?>

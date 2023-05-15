@@ -2,10 +2,10 @@
 
 namespace humhub\modules\linklist\widgets;
 
+use humhub\modules\linklist\models\Category;
+use humhub\modules\linklist\models\Link;
 use humhub\modules\linklist\Module;
 use Yii;
-use humhub\modules\linklist\models\Link;
-use humhub\modules\linklist\models\Category;
 
 /**
  * LinklistSidebarWidget displaying a list of links.
@@ -29,13 +29,21 @@ class Sidebar extends \humhub\components\Widget
         if (!(bool)$module->settings->contentContainer($container)->get('enableWidget')) {
             return;
         }
-        $categoryBuffer = Category::find()->contentContainer($this->contentContainer)->orderBy(['sort_order' => SORT_ASC])->all();
+        $categoryBuffer = Category::find()
+            ->contentContainer($this->contentContainer)
+            ->readable()
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
         $categories = array();
         $links = array();
         $render = false;
 
         foreach ($categoryBuffer as $category) {
-            $linkBuffer = Link::find()->where(array('category_id' => $category->id))->orderBy(['sort_order' => SORT_ASC])->all();
+            $linkBuffer = Link::find()
+                ->where(['category_id' => $category->id])
+                ->readable()
+                ->orderBy(['sort_order' => SORT_ASC])
+                ->all();
             // categories are only displayed in the widget if they contain at least one link
             if (!empty($linkBuffer)) {
                 $categories[] = $category;
