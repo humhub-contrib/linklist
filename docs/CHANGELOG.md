@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.8.1 (Unreleased)
--------------------
+0.8.1 (May 15, 2023)
+--------------------
 - Fix #56: Fix visibility of soft deleted records
 
 0.8.0 (May 1, 2023)
