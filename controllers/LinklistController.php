@@ -64,22 +64,28 @@ class LinklistController extends ContentContainerController
      */
     public function actionIndex()
     {
-        $categoryBuffer = Category::find()->contentContainer($this->contentContainer)->orderBy(['sort_order' => SORT_ASC])->all();
+        $categories = Category::find()
+            ->contentContainer($this->contentContainer)
+            ->readable()
+            ->orderBy(['sort_order' => SORT_ASC])
+            ->all();
 
-        $categories = array();
         $links = array();
 
-        foreach ($categoryBuffer as $category) {
-            $categories[] = $category;
-            $links[$category->id] = Link::find()->where(array('category_id' => $category->id))->orderBy(['sort_order' => SORT_ASC])->all();
+        foreach ($categories as $category) {
+            $links[$category->id] = Link::find()
+                ->where(['category_id' => $category->id])
+                ->readable()
+                ->orderBy(['sort_order' => SORT_ASC])
+                ->all();
         }
 
-        return $this->render('index', array(
-                    'contentContainer' => $this->contentContainer,
-                    'categories' => $categories,
-                    'links' => $links,
-                    'accessLevel' => $this->accessLevel,
-        ));
+        return $this->render('index', [
+            'contentContainer' => $this->contentContainer,
+            'categories' => $categories,
+            'links' => $links,
+            'accessLevel' => $this->accessLevel,
+        ]);
     }
 
     /**
@@ -96,7 +102,11 @@ class LinklistController extends ContentContainerController
         }
 
         $category_id = (int) Yii::$app->request->get('category_id');
-        $category = Category::find()->contentContainer($this->contentContainer)->where(array('linklist_category.id' => $category_id))->one();
+        $category = Category::find()
+            ->where(['linklist_category.id' => $category_id])
+            ->contentContainer($this->contentContainer)
+            ->readable()
+            ->one();
 
         if ($category == null) {
             $category = new Category;
@@ -106,9 +116,7 @@ class LinklistController extends ContentContainerController
         if ($category->load(Yii::$app->request->post()) && $category->validate() && $category->save()) {
             $this->redirect($this->contentContainer->createUrl('/linklist/linklist/index'));
         }
-        return $this->render('editCategory', array(
-                    'category' => $category,
-        ));
+        return $this->render('editCategory', ['category' => $category]);
     }
 
     /**
@@ -123,13 +131,19 @@ class LinklistController extends ContentContainerController
         }
 
         $category_id = (int) Yii::$app->request->get('category_id');
-        $category = Category::find()->contentContainer($this->contentContainer)->where(array('linklist_category.id' => $category_id))->one();
+        $category = Category::find()
+            ->where(['linklist_category.id' => $category_id])
+            ->contentContainer($this->contentContainer)
+            ->readable()
+            ->one();
 
         if ($category == null) {
             throw new HttpException(404, Yii::t('LinklistModule.base', 'Requested category could not be found.'));
         }
 
-        $category->delete();
+        if ($category->delete()) {
+            $this->view->success(Yii::t('LinklistModule.base', 'Deleted'));
+        }
 
         $this->redirect($this->contentContainer->createUrl('/linklist/linklist/index'));
     }
@@ -143,11 +157,14 @@ class LinklistController extends ContentContainerController
      */
     public function actionEditLink()
     {
-
         $link_id = (int) Yii::$app->request->get('link_id');
         $category_id = (int) Yii::$app->request->get('category_id');
 
-        $link = Link::find()->where(array('linklist_link.id' => $link_id))->contentContainer($this->contentContainer)->one();
+        $link = Link::find()
+            ->where(['linklist_link.id' => $link_id])
+            ->contentContainer($this->contentContainer)
+            ->readable()
+            ->one();
 
         // access level 0 may neither create nor edit
         if ($this->accessLevel == 0) {
@@ -155,7 +172,12 @@ class LinklistController extends ContentContainerController
         } else if ($link == null) {
             // access level 1 + 2 may create
             $link = new Link();
-            if (Category::find()->contentContainer($this->contentContainer)->where(['linklist_category.id' => $category_id])->one() == null) {
+            $categoryExists = Category::find()
+                ->where(['linklist_category.id' => $category_id])
+                ->contentContainer($this->contentContainer)
+                ->readable()
+                ->exists();
+            if (!$categoryExists) {
                 throw new HttpException(404, Yii::t('LinklistModule.base', 'The category you want to create your link in could not be found!'));
             }
             $link->category_id = $category_id;
@@ -169,9 +191,7 @@ class LinklistController extends ContentContainerController
             return $this->redirect($this->contentContainer->createUrl('/linklist/linklist/index'));
         }
 
-        return $this->render('editLink', array(
-                    'link' => $link,
-        ));
+        return $this->render('editLink', ['link' => $link]);
     }
 
     /**
@@ -182,7 +202,11 @@ class LinklistController extends ContentContainerController
     public function actionDeleteLink()
     {
         $link_id = (int) Yii::$app->request->get('link_id');
-        $link = Link::find()->where(array('linklist_link.id' => $link_id))->contentContainer($this->contentContainer)->one();
+        $link = Link::find()
+            ->where(['linklist_link.id' => $link_id])
+            ->contentContainer($this->contentContainer)
+            ->readable()
+            ->one();
 
         if ($link == null) {
             throw new HttpException(404, Yii::t('LinklistModule.base', 'Requested link could not be found.'));
@@ -192,7 +216,9 @@ class LinklistController extends ContentContainerController
             throw new HttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to delete this link!'));
         }
 
-        $link->delete();
+        if ($link->delete()) {
+            $this->view->success(Yii::t('LinklistModule.base', 'Deleted'));
+        }
 
         return $this->redirect($this->contentContainer->createUrl('/linklist/linklist/index'));
     }
@@ -220,9 +246,7 @@ class LinklistController extends ContentContainerController
             return $this->redirect($this->contentContainer->createUrl('/linklist/linklist/config'));
         }
 
-        return $this->render('config', array('model' => $form));
+        return $this->render('config', ['model' => $form]);
     }
 
 }
-
-?>
