@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.8.2 (May 30, 2023)
+--------------------
+- Fix: Compatibility with the new "Reaction" module
+
 0.8.1 (May 15, 2023)
 --------------------
 - Fix #56: Fix visibility of soft deleted records
@@ -26,17 +30,14 @@ Changelog
 - Enh #4751: Hide separator between content links
 - Fix #42: Fix permissions
 
-
 0.6.0 (November 4, 2020)
 ------------------------
-- Enh #38: Wall Stream Layout Migration for HumHub 1.7+ 
-
+- Enh #38: Wall Stream Layout Migration for HumHub 1.7+
 
 0.5.9 (February 19, 2020)
 ---------------------------
-- Fix #36: XSS vulnerability in link url 
+- Fix #36: XSS vulnerability in link url
 - Enh: Translation updates
-
 
 0.5.8 (October 14, 2018)
 ---------------------------
