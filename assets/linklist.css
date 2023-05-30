@@ -1,69 +1,69 @@
 /* css for the linklist module site */
 #linklist-empty-txt {
-	visibility:hidden;
-	display:none;
-	padding-bottom:20px;
+    visibility: hidden;
+    display: none;
+    padding-bottom: 20px;
 }
 
 .toggle-view-mode {
-	padding-bottom:20px;
-	float:left;
+    padding-bottom: 20px;
+    float: left;
 }
 
 .panel-linklist-category {
-	
+
 }
 
 .panel-linklist-category .panel-heading .heading {
-	position:relative;	
-	padding:0;	
+    position: relative;
+    padding: 0;
 }
 
 .panel-linklist-category .panel-body {
-	
+
 }
 
 .panel-linklist-category .panel-body .media .media-heading {
-	
+
 }
 
 .panel-linklist-category .panel-body .media .media-heading {
-	margin:0;
-	padding-bottom:15px;
+    margin: 0;
+    padding-bottom: 15px;
 }
 
 .panel-linklist-category .panel-body .media .media-body {
-	
+
 }
 
-.panel-linklist-category .panel-body .media .media-body ul {
-	
+.panel-linklist-category .panel-body .media .media-body > ul {
+
 }
 
-.panel-linklist-category .panel-body .media .media-body ul li {
-	position:relative;
-	padding-bottom:10px;
+.panel-linklist-category .panel-body .media .media-body > ul > li {
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.panel-linklist-category .panel-body .media .media-body ul li:last-child {
-	padding-bottom:0;
+.panel-linklist-category .panel-body .media .media-body > ul > li:last-child {
+    padding-bottom: 0;
 }
 
 .panel-linklist-category .linklist-interaction-controls {
-	font-size: 11px;
-	color: #AEAEAE;
+    font-size: 11px;
+    color: #AEAEAE;
 }
 
 .panel-linklist-category .linklist-interaction-controls a {
-	font-size: 11px;
-	color: #AEAEAE;
+    font-size: 11px;
+    color: #AEAEAE;
 }
 
 .panel-linklist-category .linklist-edit-controls {
-	position:absolute;
-	display:inline;
-	top:0;
-	right:0;
+    position: absolute;
+    display: inline;
+    top: 0;
+    right: 0;
 }
 
 .panel-linklist-category .btn-xs.btn-danger, .panel-linklist-category .btn-xs.btn-primary {
@@ -76,7 +76,7 @@
 
 
 .panel-linklist-category .linklist-edit-controls a {
-	padding-left:4px;
+    padding-left: 4px;
 }
 
 .panel-linklist-category .fa {
@@ -86,64 +86,68 @@
 
 /* css for the linklist module widget */
 .panel-linklist-widget {
-	
+
 }
 
 .panel-linklist-widget .panel-heading {
-	
+
 }
 
 .panel-linklist-widget .linklist-body {
-	padding-bottom:10px;
-	font-size:13px;
+    padding-bottom: 10px;
+    font-size: 13px;
 }
 
 .panel-linklist-widget .linklist-body .scrollable-content-container {
-	max-height:200px;
-	overflow: hidden;	
+    max-height: 200px;
+    overflow: hidden;
 }
 
 .panel-linklist-widget .linklist-body .scrollable-content-container .media {
-	border-bottom: 1px solid #EEE;
-	margin:0;
-	padding:5px 10px 5px 10px;
+    border-bottom: 1px solid #EEE;
+    margin: 0;
+    padding: 5px 10px 5px 10px;
 }
 
 .panel-linklist-widget .linklist-body .scrollable-content-container .media:last-child {
-	border:none;
-	padding-bottom:0;
+    border: none;
+    padding-bottom: 0;
 }
 
 .panel-linklist-widget .linklist-body .scrollable-content-container .media:first-child {
-	padding-top:0;
+    padding-top: 0;
 }
 
 .panel-linklist-widget .linklist-body .scrollable-content-container .media-heading {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .panel-linklist-widget .linklist-body .scrollable-content-container .media-list {
-	
+
 }
 
-.panel-linklist-widget .linklist-body .scrollable-content-container .media-list li {
-	border-bottom:none;
-	border-top:none;
-	padding:2px 10px 2px 20px;
-	margin-left:-10px;
-	margin-right:-10px;
+.panel-linklist-widget .linklist-body .scrollable-content-container .media-list > li {
+    border-bottom: none;
+    border-top: none;
+    padding: 2px 10px 2px 20px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
-.panel-linklist-widget .linklist-body .scrollable-content-container .media-list li a {
-	display: block;
+.panel-linklist-widget .linklist-body .scrollable-content-container .media-list > li a {
+    display: block;
 }
 
 ul.linklist-links {
-    padding-left:40px; list-style:none;
+    padding-left: 40px;
+    list-style: none;
 }
 
-ul.linklist-links li { margin-bottom:10px; }
-ul.linklist-links li:before {
+ul.linklist-links > li {
+    margin-bottom: 10px;
+}
+
+ul.linklist-links > li:before {
     font-family: 'FontAwesome';
     font-size: 14px;
     content: '\f0c1';

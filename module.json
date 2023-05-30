@@ -1,11 +1,16 @@
 {
-    "id": "linklist",
-    "name": "Link List",
-    "description": "Adds a link list to spaces or user profiles.",
-    "keywords": ["user", "space", "links", "directory"],
-    "version": "0.8.1",
-    "homepage": "https://github.com/humhub-contrib/linklist",
-    "humhub": {
-        "minVersion": "1.14"
-    }
+  "id": "linklist",
+  "name": "Link List",
+  "description": "Adds a link list to spaces or user profiles.",
+  "keywords": [
+    "user",
+    "space",
+    "links",
+    "directory"
+  ],
+  "version": "0.8.2",
+  "homepage": "https://github.com/humhub-contrib/linklist",
+  "humhub": {
+    "minVersion": "1.14"
+  }
 }
