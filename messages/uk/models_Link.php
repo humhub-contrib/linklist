@@ -1,7 +1,7 @@
 <?php
 return array (
   'Category' => '',
-  'Description' => '',
+  'Description' => 'Опис',
   'Sort Order' => 'Сортувати за номером',
   'Title' => 'Заголовок',
 );
