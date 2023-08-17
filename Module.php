@@ -19,9 +19,17 @@ class Module extends ContentContainerModule
     public function getContentContainerTypes()
     {
         return [
-            User::className(),
-            Space::className(),
+            User::class,
+            Space::class,
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getContentClasses(): array
+    {
+        return [Link::class];
     }
 
     /**

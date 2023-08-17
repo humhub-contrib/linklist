@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.8.3 (Unreleased)
+--------------------
+- Fix #62: Initialize module content class
+
 0.8.2 (May 30, 2023)
 --------------------
 - Fix: Compatibility with the new "Reaction" module
