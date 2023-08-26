@@ -18,6 +18,7 @@ use humhub\modules\linklist\models\Category;
 use humhub\modules\linklist\models\Link;
 use humhub\widgets\Button;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var ContentContainerActiveRecord $contentContainer */
 /* @var Category[] $categories */
@@ -47,25 +48,21 @@ humhub\modules\linklist\Assets::register($this);
                                 <div class="linklist-edit-controls linklist-editable">
                                     <?php
                                     if ($accessLevel == 2) {
-                                        // admins may edit and delete categories
-                                        echo humhub\widgets\ModalConfirm::widget([
-                                            'uniqueID' => 'modal_categorydelete_' . $category->id,
-                                            'linkOutput' => 'a',
-                                            'class' => 'deleteButton btn btn-xs btn-danger" title="' . Yii::t('LinklistModule.base', 'Delete category'),
-                                            'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> category deleting'),
-                                            'message' => Yii::t('LinklistModule.base', 'Do you really want to delete this category? All connected links will be lost!'),
-                                            'buttonTrue' => Yii::t('LinklistModule.base', 'Delete'),
-                                            'buttonFalse' => Yii::t('LinklistModule.base', 'Cancel'),
-                                            'linkContent' => '<i class="fa fa-trash-o"></i>',
-                                            'linkHref' => $contentContainer->createUrl("/linklist/linklist/delete-category", ['category_id' => $category->id]),
-                                            'confirmJS' => 'function() {
-                                            $("#linklist-category_' . $category->id . '").remove();
-                                            $("#linklist-widget-category_' . $category->id . '").remove();
-                                            if($(".panel-linklist-widget").find(".media").length == 0) {
-                                                $(".panel-linklist-widget").remove();
-                                            }
-                                        }'
-                                        ]);
+                                        echo Html::a(
+                                            Html::tag('i', '', ['class' => ['fa', 'fa-trash-o']]),
+                                            Url::to($contentContainer->createUrl("/linklist/linklist/delete-category", ['category_id' => $category->id])), [
+                                                'class' => 'deleteButton btn btn-xs btn-danger',
+                                                'title' => Yii::t('LinklistModule.base', 'Delete category'),
+                                                'data' => [
+                                                    'category_id' => $category->id,
+                                                    'action-click' => 'linklist.removeCategory',
+                                                    'action-confirm-header' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> category deleting'),
+                                                    'action-confirm' => Yii::t('LinklistModule.base', 'Do you really want to delete this category? All connected links will be lost!'),
+                                                    'action-confirm-text' => Yii::t('LinklistModule.base', 'Delete'),
+                                                    'action-cancel-text' => Yii::t('LinklistModule.base', 'Cancel'),
+                                                ],
+                                            ]
+                                        );
                                         echo Button::primary()->icon('pencil')->xs()
                                             ->title(Yii::t('LinklistModule.base', 'Edit Category'))
                                             ->link($contentContainer->createUrl('/linklist/linklist/edit-category', [
@@ -109,35 +106,28 @@ humhub\modules\linklist\Assets::register($this);
                                             <?php // all admins and users that created the link may edit or delete it  ?>
                                             <?php if ($accessLevel == 2 || $accessLevel == 1 && $link->content->created_by == Yii::$app->user->id) { ?>
                                                 <div class="linklist-edit-controls linklist-editable">
-                                                    <?=
-                                                    humhub\widgets\ModalConfirm::widget([
-                                                        'uniqueID' => 'modal_linkdelete_' . $link->id,
-                                                        'linkOutput' => 'a',
-                                                        'class' => 'deleteButton btn btn-xs btn-danger" title="' . Yii::t('LinklistModule.base', 'Delete link'),
-                                                        'title' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> link deleting'),
-                                                        'message' => Yii::t('LinklistModule.base', 'Do you really want to delete this link?'),
-                                                        'buttonTrue' => Yii::t('LinklistModule.base', 'Delete'),
-                                                        'buttonFalse' => Yii::t('LinklistModule.base', 'Cancel'),
-                                                        'linkContent' => '<i class="fa fa-trash-o"></i>',
-                                                        'linkHref' => $contentContainer->createUrl("/linklist/linklist/delete-link", array('category_id' => $category->id, 'link_id' => $link->id)),
-                                                        'confirmJS' => 'function() {
-                                                        $("#linklist-link_' . $link->id . '").remove();
-                                                        $("#linklist-widget-link_' . $link->id . '").remove();
-                                                        if($("#linklist-widget-category_' . $category->id . '").find("li").length == 0) {
-                                                            $("#linklist-widget-category_' . $category->id . '").remove();
-                                                        }
-                                                        if($(".panel-linklist-widget").find(".media").length == 0) {
-                                                            $(".panel-linklist-widget").remove();
-                                                        }
-                                                    }'
-                                                    ]);
-                                                    echo Button::primary()->icon('pencil')->xs()
+                                                    <?= Html::a(
+                                                        Html::tag('i', '', ['class' => ['fa', 'fa-trash-o']]),
+                                                        Url::to($contentContainer->createUrl("/linklist/linklist/delete-link", array('category_id' => $category->id, 'link_id' => $link->id))), [
+                                                            'class' => 'deleteButton btn btn-xs btn-danger',
+                                                            'title' => Yii::t('LinklistModule.base', 'Delete link'),
+                                                            'data' => [
+                                                                'link_id' => $link->id,
+                                                                'category_id' => $category->id,
+                                                                'action-click' => 'linklist.removeLink',
+                                                                'action-confirm-header' => Yii::t('LinklistModule.base', '<strong>Confirm</strong> link deleting'),
+                                                                'action-confirm' => Yii::t('LinklistModule.base', 'Do you really want to delete this link?'),
+                                                                'action-confirm-text' => Yii::t('LinklistModule.base', 'Delete'),
+                                                                'action-cancel-text' => Yii::t('LinklistModule.base', 'Cancel'),
+                                                            ],
+                                                        ]
+                                                    ); ?>
+                                                    <?= Button::primary()->icon('pencil')->xs()
                                                         ->title(Yii::t('LinklistModule.base', 'Edit Link'))
                                                         ->link($contentContainer->createUrl('/linklist/linklist/edit-link', [
                                                             'link_id' => $link->id,
                                                             'category_id' => $category->id
-                                                        ]));
-                                                    ?>
+                                                    ])); ?>
                                                 </div>
                                             <?php } ?>
                                         </li>
