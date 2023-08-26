@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.8.3 (Unreleased)
---------------------
+0.8.3 (August 26, 2023)
+-----------------------
 - Fix #62: Initialize module content class
 - Fix #63: Replace ModalConfirm usages
 
