@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.8.4 (Unreleased)
+-----------------------
+- Fix #64: Fix visibility of the method `Controller::getAccessRules()`
+
 0.8.3 (August 26, 2023)
 -----------------------
 - Fix #62: Initialize module content class
