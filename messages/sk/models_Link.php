@@ -1,7 +1,7 @@
 <?php
 return array (
   'Category' => '',
-  'Description' => '',
-  'Sort Order' => '',
+  'Description' => 'Popis',
+  'Sort Order' => 'Poradie zoradenia',
   'Title' => '제목',
 );

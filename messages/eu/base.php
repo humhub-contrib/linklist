@@ -9,7 +9,7 @@ return array (
   'Delete' => 'Ezabatu',
   'Delete category' => '',
   'Delete link' => '',
-  'Deleted' => '',
+  'Deleted' => 'Ezabatua',
   'Do you really want to delete this category? All connected links will be lost!' => '',
   'Do you really want to delete this link?' => '',
   'Edit Category' => '',

@@ -1,6 +1,6 @@
 <?php
 return array (
-  'Description' => '',
-  'Sort Order' => '',
+  'Description' => 'Popis',
+  'Sort Order' => 'Poradie zoradenia',
   'Title' => '제목',
 );
