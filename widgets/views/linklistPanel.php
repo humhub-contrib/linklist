@@ -10,7 +10,7 @@
 
 use humhub\libs\Html;
 
-humhub\modules\linklist\Assets::register($this);
+humhub\modules\linklist\assets\Assets::register($this);
 ?>
 <div class="panel panel-default panel-linklist-widget">
     <div class="panel-heading">

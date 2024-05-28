@@ -25,7 +25,7 @@ use yii\helpers\Url;
 /* @var Link[] $links */
 /* @var int $accessLevel */
 
-humhub\modules\linklist\Assets::register($this);
+humhub\modules\linklist\assets\Assets::register($this);
 ?>
 <div class="panel panel-default">
     <div class="panel-body">
