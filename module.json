@@ -8,9 +8,9 @@
     "links",
     "directory"
   ],
-  "version": "0.8.4",
+  "version": "0.9.0",
   "homepage": "https://github.com/humhub-contrib/linklist",
   "humhub": {
-    "minVersion": "1.14"
+    "minVersion": "1.17"
   }
 }

@@ -6,24 +6,28 @@
  * @license https://www.humhub.com/licences
  */
 
-namespace humhub\modules\linklist;
+namespace humhub\modules\linklist\assets;
 
 use yii\web\AssetBundle;
 
 class Assets extends AssetBundle
 {
+    /**
+     * @inheritdoc
+     */
+    public $sourcePath = '@linklist/resources';
 
+    /**
+     * @inheritdoc
+     */
     public $css = [
         'linklist.css',
     ];
+
+    /**
+     * @inheritdoc
+     */
     public $js = [
         'linklist.js',
     ];
-
-    public function init()
-    {
-        $this->sourcePath = dirname(__FILE__) . '/assets';
-        parent::init();
-    }
-
 }

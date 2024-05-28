@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.9.0 (Unreleased)
+-----------------------
+- Fix #65: Update module resources path
+
 0.8.4 (Unreleased)
 -----------------------
 - Fix #64: Fix visibility of the method `Controller::getAccessRules()`

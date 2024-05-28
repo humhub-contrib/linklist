@@ -11,7 +11,7 @@ use humhub\modules\linklist\models\ConfigureForm;
 use humhub\modules\ui\form\widgets\ActiveForm;
 use yii\helpers\Html;
 
-humhub\modules\linklist\Assets::register($this);
+humhub\modules\linklist\assets\Assets::register($this);
 
 ?>
 
