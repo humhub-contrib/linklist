@@ -8,7 +8,7 @@
  * @author Sebastian Stumpf
  *
  */
-humhub\modules\linklist\Assets::register($this);
+humhub\modules\linklist\assets\Assets::register($this);
 
 use humhub\modules\ui\form\widgets\ActiveForm;
 use yii\helpers\Html;
