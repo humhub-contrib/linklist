@@ -4,6 +4,7 @@ Changelog
 0.8.4 (Unreleased)
 -----------------------
 - Fix #64: Fix visibility of the method `Controller::getAccessRules()`
+- Fix #37: Fix for scrollbar missing on ajax requests
 
 0.8.3 (August 26, 2023)
 -----------------------
