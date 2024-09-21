@@ -1,7 +1,7 @@
 <?php
 return array (
-  'Category' => '',
+  'Category' => 'الفئة',
   'Description' => 'توضيج',
-  'Sort Order' => '',
+  'Sort Order' => 'طريقة الفرز',
   'Title' => 'العنوان',
 );
