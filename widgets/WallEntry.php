@@ -21,7 +21,7 @@ class WallEntry extends WallStreamModuleEntryWidget
     public function renderContent()
     {
         return $this->render('wallEntry', [
-            'link' => $this->model
+            'link' => $this->model,
         ]);
     }
 

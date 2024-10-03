@@ -23,7 +23,6 @@ use yii\web\HttpException;
  */
 class LinklistController extends ContentContainerController
 {
-
     /** access level of the user currently logged in. 0 -> no write access / 1 -> create links and edit own links / 2 -> full write access. * */
     public $accessLevel = 0;
 
@@ -56,7 +55,7 @@ class LinklistController extends ContentContainerController
     {
         if ($this->contentContainer instanceof \humhub\modules\user\models\User) {
             return $this->contentContainer->id == Yii::$app->user->id ? 2 : 0;
-        } else if ($this->contentContainer instanceof \humhub\modules\space\models\Space) {
+        } elseif ($this->contentContainer instanceof \humhub\modules\space\models\Space) {
             return $this->contentContainer->can(new \humhub\modules\post\permissions\CreatePost()) ? 2 : 1;
         }
     }
@@ -73,7 +72,7 @@ class LinklistController extends ContentContainerController
             ->orderBy(['sort_order' => SORT_ASC])
             ->all();
 
-        $links = array();
+        $links = [];
 
         foreach ($categories as $category) {
             $links[$category->id] = Link::find()
@@ -112,7 +111,7 @@ class LinklistController extends ContentContainerController
             ->one();
 
         if ($category == null) {
-            $category = new Category;
+            $category = new Category();
             $category->content->container = $this->contentContainer;
         }
 
@@ -124,7 +123,7 @@ class LinklistController extends ContentContainerController
 
     /**
      * Action that deletes a given category.<br />
-     * The request has to provide the id of the category to delete in the url parameter 'category_id'. 
+     * The request has to provide the id of the category to delete in the url parameter 'category_id'.
      * @throws HttpException 404, if the logged in User misses the rights to access this view.
      */
     public function actionDeleteCategory()
@@ -172,7 +171,7 @@ class LinklistController extends ContentContainerController
         // access level 0 may neither create nor edit
         if ($this->accessLevel == 0) {
             throw new HttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to add/edit links!'));
-        } else if ($link == null) {
+        } elseif ($link == null) {
             // access level 1 + 2 may create
             $link = new Link();
             $categoryExists = Category::find()
@@ -185,7 +184,7 @@ class LinklistController extends ContentContainerController
             }
             $link->category_id = $category_id;
             $link->content->container = $this->contentContainer;
-        } else if ($this->accessLevel == 1 && $link->content->created_by != Yii::$app->user->id) {
+        } elseif ($this->accessLevel == 1 && $link->content->created_by != Yii::$app->user->id) {
             // access level 1 may edit own links, 2 all links
             throw new HttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to edit this link!'));
         }
@@ -215,7 +214,7 @@ class LinklistController extends ContentContainerController
             throw new HttpException(404, Yii::t('LinklistModule.base', 'Requested link could not be found.'));
         }
         // access level 1 may delete own links, 2 all links
-        else if ($this->accessLevel == 0 || $this->accessLevel == 1 && $link->content->created_by != Yii::$app->user->id) {
+        elseif ($this->accessLevel == 0 || $this->accessLevel == 1 && $link->content->created_by != Yii::$app->user->id) {
             throw new HttpException(404, Yii::t('LinklistModule.base', 'You miss the rights to delete this link!'));
         }
 

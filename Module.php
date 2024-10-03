@@ -12,7 +12,6 @@ use humhub\modules\content\components\ContentContainerModule;
 
 class Module extends ContentContainerModule
 {
-
     /**
      * @inheritdoc
      */
@@ -93,9 +92,9 @@ class Module extends ContentContainerModule
 
         $space = $event->sender->space;
         if ($space->moduleManager->isEnabled('linklist')) {
-            $event->sender->addWidget(widgets\Sidebar::className(), array('contentContainer' => $space), array(
+            $event->sender->addWidget(widgets\Sidebar::className(), ['contentContainer' => $space], [
                 'sortOrder' => 200,
-            ));
+            ]);
         }
     }
 
@@ -110,13 +109,13 @@ class Module extends ContentContainerModule
 
         $space = $event->sender->space;
         if ($space->moduleManager->isEnabled('linklist') && $space->isMember()) {
-            $event->sender->addItem(array(
+            $event->sender->addItem([
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
                 'group' => 'modules',
                 'url' => $space->createUrl('/linklist/linklist'),
                 'icon' => '<i class="fa fa-link"></i>',
-                'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist')
-            ));
+                'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist'),
+            ]);
         }
     }
 
@@ -132,12 +131,12 @@ class Module extends ContentContainerModule
 
         // Is Module enabled on this workspace?
         if ($user->moduleManager->isEnabled('linklist') && !Yii::$app->user->isGuest && $user->id == Yii::$app->user->id) {
-            $event->sender->addItem(array(
+            $event->sender->addItem([
                 'label' => Yii::t('LinklistModule.base', 'Linklist'),
                 'url' => $user->createUrl('/linklist/linklist'),
                 'icon' => '<i class="fa fa-link"></i>',
                 'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist'),
-            ));
+            ]);
         }
     }
 
@@ -151,9 +150,9 @@ class Module extends ContentContainerModule
         $user = $event->sender->user;
 
         if ($user->moduleManager->isEnabled('linklist')) {
-            $event->sender->addWidget(widgets\Sidebar::className(), array('contentContainer' => $user), array(
+            $event->sender->addWidget(widgets\Sidebar::className(), ['contentContainer' => $user], [
                 'sortOrder' => 200,
-            ));
+            ]);
         }
     }
 

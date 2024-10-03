@@ -17,7 +17,6 @@ use Yii;
  */
 class Sidebar extends \humhub\components\Widget
 {
-
     public $contentContainer;
 
     public function run()
@@ -34,8 +33,8 @@ class Sidebar extends \humhub\components\Widget
             ->readable()
             ->orderBy(['sort_order' => SORT_ASC])
             ->all();
-        $categories = array();
-        $links = array();
+        $categories = [];
+        $links = [];
         $render = false;
 
         foreach ($categoryBuffer as $category) {
@@ -54,10 +53,8 @@ class Sidebar extends \humhub\components\Widget
 
         // if none of the categories contains a link, the linklist widget is not rendered.
         if ($render) {
-            return $this->render('linklistPanel', array('container' => $container, 'categories' => $categories, 'links' => $links));
+            return $this->render('linklistPanel', ['container' => $container, 'categories' => $categories, 'links' => $links]);
         }
     }
 
 }
-
-?>
