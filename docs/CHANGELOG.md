@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.8.5 (Unreleased)
+---------------------
+- Enh #69: Use PHP CS Fixer
+
 0.8.4 (July 30, 2024)
 ---------------------
 - Fix #64: Fix visibility of the method `Controller::getAccessRules()`
