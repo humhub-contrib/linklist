@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '',
   '<strong>Confirm</strong> link deleting' => '',
   'Add Category' => '',
   'Add link' => '링크 추가',
   'Added a new link %link% to category "%category%".' => '',
   'Cancel' => '취소',
+  'Category' => '',
   'Delete' => '삭제',
   'Delete category' => '',
   'Delete link' => '',
   'Deleted' => '삭제됨',
+  'Description' => '설명',
   'Do you really want to delete this category? All connected links will be lost!' => '',
   'Do you really want to delete this link?' => '',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => '',
   'Save' => '저장',
   'Show the links as a widget on the right.' => '',
+  'Sort Order' => '정렬 순서',
   'The category you want to create your link in could not be found!' => '',
   'There have been no links or categories added to this space yet.' => '',
+  'Title' => '제목',
   'You can enable the extended validation of links for a space or user.' => '',
   'You miss the rights to add/edit links!' => '',
   'You miss the rights to delete this category!' => '',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => '',
   'You miss the rights to edit this link!' => '',
   'list' => '',
-);
+];

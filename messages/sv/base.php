@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Bekräfta</strong> radering av kategori',
   '<strong>Confirm</strong> link deleting' => '<strong>Bekräfta</strong> radering av länk',
   'Add Category' => 'Lägg till kategori',
   'Add link' => 'Lägg till länk',
   'Added a new link %link% to category "%category%".' => 'Lade till en ny %link% till kategori "%category%".',
   'Cancel' => 'Avbryt',
+  'Category' => 'Kategori',
   'Delete' => 'Ta bort',
   'Delete category' => 'Radera kategori',
   'Delete link' => 'Radera länk',
   'Deleted' => 'Raderat',
+  'Description' => 'Beskrivning',
   'Do you really want to delete this category? All connected links will be lost!' => 'Vill du verkligen radera denna kategori? Alla underliggande länkar raderas!',
   'Do you really want to delete this link?' => 'Vill du verkligen radera denna länk?',
   'Edit Category' => 'Redigera kategori',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Begärd länk finns inte.',
   'Save' => 'Spara',
   'Show the links as a widget on the right.' => 'Visar länken i en widget till höger.',
+  'Sort Order' => 'Sorteringsordning',
   'The category you want to create your link in could not be found!' => 'Kategorin du vill skapa din länk i kunde inte hittas!',
   'There have been no links or categories added to this space yet.' => 'Det har inte lagts till några länkar eller kategorier till det här nätverket ännu.',
+  'Title' => 'Rubrik',
   'You can enable the extended validation of links for a space or user.' => 'Du kan aktivera utökad validering av länkar för ett nätverk eller användare.',
   'You miss the rights to add/edit links!' => 'Du saknar rättigheterna att lägga till / redigera länkar!',
   'You miss the rights to delete this category!' => 'Du saknar rättighet att ta bort denna kategori!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Du saknar rättighet att redigera denna kategori!',
   'You miss the rights to edit this link!' => 'Du saknar rättighet att redigera denna länk!',
   'list' => 'Lista',
-);
+];

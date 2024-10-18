@@ -4,6 +4,7 @@ Changelog
 0.8.5 (Unreleased)
 ---------------------
 - Enh #69: Use PHP CS Fixer
+- Enh #70: Reduce translation message categories
 
 0.8.4 (July 30, 2024)
 ---------------------

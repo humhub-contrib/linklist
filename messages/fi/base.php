@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Vahvista</strong> kategorian poistaminen',
   '<strong>Confirm</strong> link deleting' => '<strong>Vahvista</strong> linkin poistaminen',
   'Add Category' => 'Lisää kategoria',
   'Add link' => 'Lisää linkki',
   'Added a new link %link% to category "%category%".' => 'Linkki %link% lisätty kategoriaan "%category%".',
   'Cancel' => 'Peruutta',
+  'Category' => 'Kategoria',
   'Delete' => 'Poista',
   'Delete category' => 'Poista kategoria',
   'Delete link' => 'Poista linkki',
   'Deleted' => 'Poistettu',
+  'Description' => 'Kuvaus',
   'Do you really want to delete this category? All connected links will be lost!' => 'Haluatko todella poistaa tämän kategorian? Kaikki tähän kategoriaan yhdistetyt linkit poistetaan!',
   'Do you really want to delete this link?' => 'Haluatko todella poistaa tämän linkin?',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Pyydettyä linkkiä ei löytynyt.',
   'Save' => 'Tallenna',
   'Show the links as a widget on the right.' => 'Näytä linkit widgetissä.',
+  'Sort Order' => 'Lajittelujärjestys',
   'The category you want to create your link in could not be found!' => 'Kategoriaa, johon haluat luoda linkin, ei löytynyt!',
   'There have been no links or categories added to this space yet.' => 'Tälle sivulle ei ole vielä lisätty linkkejä.',
+  'Title' => 'Otsikko',
   'You can enable the extended validation of links for a space or user.' => 'Voit ottaa käyttöön sivujen tai käyttäjien linkkien laajennetun validoinnin',
   'You miss the rights to add/edit links!' => 'Sinulla ei ole oikeuksia lisätä/muokata linkkejä!',
   'You miss the rights to delete this category!' => 'Sinulla ei ole oikeuksia poistaa tätä kategoriaa!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Sinulla ei ole oikeuksia muokata tätä kategoriaa!',
   'You miss the rights to edit this link!' => 'Sinulla ei ole oikeuksia muokata tätä linkkiä!',
   'list' => 'lista',
-);
+];
