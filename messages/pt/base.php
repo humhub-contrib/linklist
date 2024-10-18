@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Confirmar</strong> eliminação de categoria',
   '<strong>Confirm</strong> link deleting' => '<strong>Confirmar</strong> eliminação de link',
   'Add Category' => 'Adicional Categoria',
   'Add link' => 'Adicionar link',
   'Added a new link %link% to category "%category%".' => 'Novo link %link% adicionado à categoria "%category%".',
   'Cancel' => 'Cancelar',
+  'Category' => 'Categoria',
   'Delete' => 'Apagar',
   'Delete category' => 'Apagar categoria',
   'Delete link' => 'Apagar link',
   'Deleted' => 'Eliminada',
+  'Description' => 'Descrição',
   'Do you really want to delete this category? All connected links will be lost!' => 'Queres mesmo apagar esta categoria? Todos os links conectados serão perdidos!',
   'Do you really want to delete this link?' => 'Queres mesmo apagar este link?',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'O link solicitado não foi encontrado.',
   'Save' => 'Gravar',
   'Show the links as a widget on the right.' => 'Mostrar os links como widgets do lado direito.',
+  'Sort Order' => 'Ordenação',
   'The category you want to create your link in could not be found!' => 'A categoria em que queres criar o teu link não foi encontrada!',
   'There have been no links or categories added to this space yet.' => 'Ainda não há links ou categorias adicionadas a este espaço.',
+  'Title' => 'Título',
   'You can enable the extended validation of links for a space or user.' => 'Podes activar o alongar de validação de links para um espaço ou pessoa.',
   'You miss the rights to add/edit links!' => 'Não tens permissões suficientes para adicionar/editar links!',
   'You miss the rights to delete this category!' => 'Não tens permissões suficientes para apagar esta categoria!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Não tens permissões suficientes para editar esta categoria!',
   'You miss the rights to edit this link!' => 'Não tens permissões suficientes para editar este link!',
   'list' => 'lista',
-);
+];

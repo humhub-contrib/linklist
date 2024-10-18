@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Potvrdiť</strong> odstránenie kategórie',
   '<strong>Confirm</strong> link deleting' => '<strong>Potvrdiť</strong> odstránenie odkazu',
   'Add Category' => 'Pridať kategóriu',
   'Add link' => 'Pridať odkaz',
   'Added a new link %link% to category "%category%".' => 'Pridaný nový odkaz %link% do kategórie "%category%".',
   'Cancel' => 'Zrušiť',
+  'Category' => 'Kategória',
   'Delete' => 'Odstrániť',
   'Delete category' => 'Odstrániť kategóriu',
   'Delete link' => 'Odstrániť odkaz',
   'Deleted' => 'Odstránené',
+  'Description' => 'Popis',
   'Do you really want to delete this category? All connected links will be lost!' => 'Naozaj chcete odstrániť túto kategóriu? Všetky pripojené odkazy sa stratia!',
   'Do you really want to delete this link?' => 'Naozaj chcete odstrániť tento odkaz?',
   'Edit Category' => 'Upraviť kategóriu',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Požadovaný odkaz sa nepodarilo nájsť.',
   'Save' => 'Uložiť',
   'Show the links as a widget on the right.' => 'Zobrazte odkazy ako miniaplikáciu na pravej strane.',
+  'Sort Order' => 'Poradie zoradenia',
   'The category you want to create your link in could not be found!' => 'Kategóriu, v ktorej chcete vytvoriť odkaz, sa nepodarilo nájsť!',
   'There have been no links or categories added to this space yet.' => 'Do tohto priestoru zatiaľ neboli pridané žiadne odkazy ani kategórie.',
+  'Title' => '제목',
   'You can enable the extended validation of links for a space or user.' => 'Môžete povoliť rozšírenú validáciu odkazov pre priestor alebo používateľa.',
   'You miss the rights to add/edit links!' => 'Chýbajú vám práva na pridávanie/úpravu odkazov!',
   'You miss the rights to delete this category!' => 'Chýbajú vám práva na odstránenie tejto kategórie!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Chýbajú vám práva na úpravu tejto kategórie!',
   'You miss the rights to edit this link!' => 'Chýbajú vám práva na úpravu tohto odkazu!',
   'list' => 'zoznam',
-);
+];

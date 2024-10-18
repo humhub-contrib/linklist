@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Potvrdi</strong> brisanje kategorije',
   '<strong>Confirm</strong> link deleting' => '<strong>Potvrdi</strong> brisanje veze',
   'Add Category' => 'Dodaj kategoriju',
   'Add link' => 'Dodaj poveznicu',
   'Added a new link %link% to category "%category%".' => 'Dodana nova veza %link% u kategoriji "%category%".',
   'Cancel' => 'poništi',
+  'Category' => 'Kategorija',
   'Delete' => 'Obriši.',
   'Delete category' => 'Obriši kategoriju',
   'Delete link' => 'Obriši poveznicu',
   'Deleted' => 'Obrisano',
+  'Description' => 'Opis',
   'Do you really want to delete this category? All connected links will be lost!' => 'Želite li zaista obrisati ovu kategoriju? Sve povezane poveznice biti će obrisane!',
   'Do you really want to delete this link?' => 'Zaista želite obrisati ovu poveznicu?',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Tražena poveznica nije pronađena.',
   'Save' => 'Spremi',
   'Show the links as a widget on the right.' => 'Pokaži veze kao widget na desnoj strani.',
+  'Sort Order' => 'Redoslijed',
   'The category you want to create your link in could not be found!' => 'Nije bilo moguće pronaći kategoriju u kojoj želite stvoriti vezu!',
   'There have been no links or categories added to this space yet.' => 'Još nema veza ili kategorija dodanih u ovaj prostor.',
+  'Title' => 'Naziv',
   'You can enable the extended validation of links for a space or user.' => 'Možete omogućiti proširenu provjeru veza za prostor ili korisnika.',
   'You miss the rights to add/edit links!' => 'Nemate prava na dodavanje / uređivanje veza!',
   'You miss the rights to delete this category!' => 'Nemate prava na brisanje ove kategorije!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Nemate prava za uređivanje ove kategorije!',
   'You miss the rights to edit this link!' => 'Nemate prava za uređivanje ove veze!',
   'list' => 'lista',
-);
+];

@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '',
   '<strong>Confirm</strong> link deleting' => '',
   'Add Category' => '',
   'Add link' => 'إضافة وصلة',
   'Added a new link %link% to category "%category%".' => '',
   'Cancel' => 'إلغاء',
+  'Category' => 'الفئة',
   'Delete' => 'حذف',
   'Delete category' => '',
   'Delete link' => '',
   'Deleted' => 'تم الحذف',
+  'Description' => 'توضيج',
   'Do you really want to delete this category? All connected links will be lost!' => '',
   'Do you really want to delete this link?' => '',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => '',
   'Save' => 'حفظ',
   'Show the links as a widget on the right.' => '',
+  'Sort Order' => 'طريقة الفرز',
   'The category you want to create your link in could not be found!' => '',
   'There have been no links or categories added to this space yet.' => '',
+  'Title' => 'العنوان',
   'You can enable the extended validation of links for a space or user.' => '',
   'You miss the rights to add/edit links!' => '',
   'You miss the rights to delete this category!' => '',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => '',
   'You miss the rights to edit this link!' => '',
   'list' => '',
-);
+];

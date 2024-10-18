@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => 'Kategória <strong>törlésének</strong> megerősítése',
   '<strong>Confirm</strong> link deleting' => 'Link <strong>törlésének</strong> megerősítése',
   'Add Category' => 'Kategória hozzáadása',
   'Add link' => 'Link hozzáadása',
   'Added a new link %link% to category "%category%".' => 'Új link %link% lett hozzáadva a "%category%" kategóriához.',
   'Cancel' => 'Mégsem',
+  'Category' => 'Kategória',
   'Delete' => 'Törlés',
   'Delete category' => 'Kategória törlése',
   'Delete link' => 'Link törlése',
   'Deleted' => 'Törölve',
+  'Description' => 'Leírás',
   'Do you really want to delete this category? All connected links will be lost!' => 'Biztos, hogy törölni akarod ezt a kategóriát? Minden kapcsolódó hivatkozás törlődni fog!',
   'Do you really want to delete this link?' => 'Biztos, hogy törölni szeretnéd ezt a hivatkozást?',
   'Edit Category' => 'Kategória szerkesztése',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'A kért hivatkozás nem található.',
   'Save' => 'Mentés',
   'Show the links as a widget on the right.' => 'Mutassa a hivatkozásokat widget-ként a jobb oldalon.',
+  'Sort Order' => 'Rendezési sorrend',
   'The category you want to create your link in could not be found!' => 'A kategória, amiben a hivatkozást létre akarod hozni, nem található!',
   'There have been no links or categories added to this space yet.' => 'Ehhez a témakörhöz, nem lett még hivatkozás vagy kategória hozzáadva.',
+  'Title' => 'Cím',
   'You can enable the extended validation of links for a space or user.' => 'Egyes közösségekhez vagy tagokhoz is bekapcsolhatod a kiterjesztett hivatkozás jóváhagyást.',
   'You miss the rights to add/edit links!' => 'Nincs jogosultságod hivatkozásokat hozzáadni/szerkeszteni!',
   'You miss the rights to delete this category!' => 'Nincs jogosultságod a kategória törléséhez!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Nincs hozzáférésed a kategória szerkesztéséhez!',
   'You miss the rights to edit this link!' => 'Nincs hozzáférésed a hivatkozás szerkesztéséhez!',
   'list' => 'lista',
-);
+];

@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Подтвердить</strong> удаление категории',
   '<strong>Confirm</strong> link deleting' => '<strong>Подтвердить</strong> удаление ссылки',
   'Add Category' => 'Добавить категорию',
   'Add link' => 'Добавить ссылку',
   'Added a new link %link% to category "%category%".' => 'Добавлена новая ссылка %link% для категории "%category%".',
   'Cancel' => 'Отменить',
+  'Category' => 'Категория',
   'Delete' => 'Удалить',
   'Delete category' => 'Удалить категорию',
   'Delete link' => 'Удалить ссылку',
   'Deleted' => 'Удалить',
+  'Description' => 'Описание',
   'Do you really want to delete this category? All connected links will be lost!' => 'Вы действительно хотите удалить эту категорию? Все подключенные ссылки будут потеряны!',
   'Do you really want to delete this link?' => 'Вы действительно хотите удалить эту ссылку?',
   'Edit Category' => 'Редактировать категорию',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Запрашиваемая ссылка не может быть найдена.',
   'Save' => 'Сохранить',
   'Show the links as a widget on the right.' => 'Показать ссылки в качестве виджета справа.',
+  'Sort Order' => 'Порядок сортировки',
   'The category you want to create your link in could not be found!' => 'Категория где вы хотите создать ссылку не может быть найдена!',
   'There have been no links or categories added to this space yet.' => 'Никаких ссылок или категорий, добавленных в это пространство пока нет.',
+  'Title' => 'Заголовок',
   'You can enable the extended validation of links for a space or user.' => 'Вы можете включить расширенную проверку ссылок для сообщества или пользователя.',
   'You miss the rights to add/edit links!' => 'У Вас отсутствуют права на добавление/редактирование ссылок!',
   'You miss the rights to delete this category!' => 'У Вас отсутствуют права на удаление этой категории!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'У Вас отсутствуют права на редактирование этой категории!',
   'You miss the rights to edit this link!' => 'У Вас отсутствуют права на редактирование этой ссылки!',
   'list' => 'список',
-);
+];

@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Patvirtinti</strong> kategorijos pašalinimą',
   '<strong>Confirm</strong> link deleting' => '<strong>Patvirtinti</strong> nuorodos pašalinimą',
   'Add Category' => '',
   'Add link' => 'įterpti nuorodą',
   'Added a new link %link% to category "%category%".' => '',
   'Cancel' => 'Atšaukti',
+  'Category' => '',
   'Delete' => 'Ištrinti',
   'Delete category' => 'Ištrinti kategoriją',
   'Delete link' => 'Ištrinti nuorodą',
   'Deleted' => 'Ištrinta',
+  'Description' => 'Aprašymas',
   'Do you really want to delete this category? All connected links will be lost!' => 'Ar tikrai norite ištrinti šią kategoriją? Visos susijusios nuorodos bus prarastos.',
   'Do you really want to delete this link?' => 'Ar tikrai norite ištrinti šią nuorodą?',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Nepavyko rasti prašomos nuorodos.',
   'Save' => 'Išsaugoti',
   'Show the links as a widget on the right.' => 'Nuorodas rodyti valdymo juostoje dešinėje.',
+  'Sort Order' => 'Rūšiavimo tvarka',
   'The category you want to create your link in could not be found!' => 'Nepavyko rasti kategorijos, kurią norite sukurti savo nuorodoje!',
   'There have been no links or categories added to this space yet.' => 'Kol kas į šią erdvę nepridėta nuorodų ar kategorijų.',
+  'Title' => 'Pavadinimas',
   'You can enable the extended validation of links for a space or user.' => 'Jūs galite leisti išplėstinį nuorodų tinkamumo patvirtinimą erdvei ar vartotojui.',
   'You miss the rights to add/edit links!' => 'Jūs neturite teisių pridėti/redaguoti nuorodas!',
   'You miss the rights to delete this category!' => 'Jūs neturite teisių ištrinti šią kategoriją!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Jūs neturite teisių redaguoti šią kategoriją!',
   'You miss the rights to edit this link!' => 'Jūs neturite teisių redaguoti šią nuorodą!',
   'list' => '',
-);
+];

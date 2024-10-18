@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>ยืนยัน</strong> การลบหมวดหมู่',
   '<strong>Confirm</strong> link deleting' => '<strong>ยืนยัน</strong> การลบลิงก์',
   'Add Category' => 'เพิ่มหมวดหมู่',
   'Add link' => 'เพิ่มลิงค์',
   'Added a new link %link% to category "%category%".' => 'เพิ่มลิงค์ใหม่ %link% ไปยังหมวดหมู่ "%category%"',
   'Cancel' => 'ยกเลิก',
+  'Category' => 'ประเภท',
   'Delete' => 'ลบ',
   'Delete category' => 'ลบหมวดหมู่',
   'Delete link' => 'ลบลิงค์',
   'Deleted' => 'ถูกลบ',
+  'Description' => 'คำอธิบาย',
   'Do you really want to delete this category? All connected links will be lost!' => 'คุณต้องการลบหมวดหมู่นี้หรือไม่? ลิงก์ที่เชื่อมต่อทั้งหมดจะหายไป!',
   'Do you really want to delete this link?' => 'คุณต้องการลบลิงก์นี้จริงหรือ',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'ไม่พบลิงก์ที่ร้องขอ',
   'Save' => 'บันทึก',
   'Show the links as a widget on the right.' => 'แสดงลิงก์เป็นวิดเจ็ตทางด้านขวา',
+  'Sort Order' => 'เรียงลำดับ',
   'The category you want to create your link in could not be found!' => 'ไม่พบหมวดหมู่ที่คุณต้องการสร้างลิงค์ของคุณ!',
   'There have been no links or categories added to this space yet.' => 'ยังไม่มีลิงก์หรือหมวดหมู่เพิ่มในพื้นที่นี้',
+  'Title' => 'หัวข้อ',
   'You can enable the extended validation of links for a space or user.' => 'คุณสามารถเปิดใช้งานการตรวจสอบความถูกต้องของลิงก์เพิ่มเติมสำหรับพื้นที่หรือผู้ใช้',
   'You miss the rights to add/edit links!' => 'คุณพลาดสิทธิ์ในการเพิ่ม/แก้ไขลิงก์',
   'You miss the rights to delete this category!' => 'คุณพลาดสิทธิ์ในการลบหมวดหมู่นี้',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'คุณพลาดสิทธิ์แก้ไขหมวดหมู่นี้',
   'You miss the rights to edit this link!' => 'คุณพลาดสิทธิ์แก้ไขลิงค์นี้',
   'list' => 'รายการ',
-);
+];
