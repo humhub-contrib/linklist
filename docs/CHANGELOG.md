@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.8.6 (November 14, 2024)
+-------------------------
+- Enh #73: Fix for assets 
+
 0.8.5 (November 14, 2024)
 -------------------------
 - Enh #69: Use PHP CS Fixer
