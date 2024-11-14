@@ -5,6 +5,7 @@ Changelog
 ---------------------
 - Enh #69: Use PHP CS Fixer
 - Enh #70: Reduce translation message categories
+- Fix #73: Asset not being loaded
 
 0.8.4 (July 30, 2024)
 ---------------------
