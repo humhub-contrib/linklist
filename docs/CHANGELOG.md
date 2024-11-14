@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.8.5 (Unreleased)
----------------------
+0.8.5 (November 14, 2024)
+-------------------------
 - Enh #69: Use PHP CS Fixer
 - Enh #70: Reduce translation message categories
 
