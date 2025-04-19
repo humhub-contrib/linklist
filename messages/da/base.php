@@ -10,7 +10,7 @@ return [
   'Delete' => 'Slet',
   'Delete category' => 'Slet kategori',
   'Delete link' => 'Slet link',
-  'Deleted' => '',
+  'Deleted' => 'Slettet',
   'Description' => 'Beskrivelse',
   'Do you really want to delete this category? All connected links will be lost!' => 'Vil du virkelig slette denne kategori? Alle tilsluttede links vil gå tabt!',
   'Do you really want to delete this link?' => 'Vil du virkelig slette dette link?',
