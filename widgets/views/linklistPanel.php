@@ -8,7 +8,7 @@
  * @author Sebastian Stumpf
  */
 
-use humhub\libs\Html;
+use humhub\helpers\Html;
 
 humhub\modules\linklist\assets\Assets::register($this);
 ?>
@@ -19,15 +19,15 @@ humhub\modules\linklist\assets\Assets::register($this);
     <div class="linklist-body">
         <div class="scrollable-content-container">
             <?php foreach ($categories as $category) { ?>
-                <div id="linklist-widget-category_<?php echo $category->id; ?>" class="media">
-                    <div class="media-heading"><?= Html::encode($category->title); ?></div>
-                    <ul class="media-list">
+                <div id="linklist-widget-category_<?php echo $category->id; ?>" class="d-flex">
+                    <h5 class="mt-0"><?= Html::encode($category->title) ?></h5>
+                    <div class="hh-list">
                         <?php foreach ($links[$category->id] as $link): ?>
-                            <li id="linklist-widget-link_<?= $link->id; ?>">
+                            <div id="linklist-widget-link_<?= $link->id ?>">
                                 <?= Html::a(Html::encode($link->title), $link->href, ['target' => '_blank', 'title' => Html::encode($link->description)]); ?>
-                            </li>
+                            </div>
                         <?php endforeach; ?>
-                    </ul>
+                    </div>
                 </div>
             <?php } ?>
         </div>

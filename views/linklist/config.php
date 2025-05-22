@@ -8,7 +8,7 @@
  */
 
 use humhub\modules\linklist\models\ConfigureForm;
-use humhub\modules\ui\form\widgets\ActiveForm;
+use humhub\widgets\form\ActiveForm;
 use yii\helpers\Html;
 
 humhub\modules\linklist\assets\Assets::register($this);

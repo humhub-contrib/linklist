@@ -16,13 +16,13 @@ humhub.module('linklist', function (module, require, $) {
 			e.preventDefault();
 			if(jQuery(this).data('enabled')) {
 				jQuery(this).data('enabled', false);
-				$(".linklist-editable").hide();
+				$(".linklist-editable").addClass('d-none');
 				$(".linklist-categories").sortable('disable');
 				$(".linklist-links").sortable('disable');
 			}
 			else {
 				jQuery(this).data('enabled', true);
-				$(".linklist-editable").show();
+				$(".linklist-editable").removeClass('d-none');
 				$(".linklist-categories").sortable('enable');
 				$(".linklist-links").sortable('enable');
 			}

@@ -10,7 +10,7 @@
  */
 humhub\modules\linklist\assets\Assets::register($this);
 
-use humhub\modules\ui\form\widgets\ActiveForm;
+use humhub\widgets\form\ActiveForm;
 use yii\helpers\Html;
 
 ?>
@@ -26,15 +26,15 @@ use yii\helpers\Html;
 
         <?php $form = ActiveForm::begin(); ?>
 
-        <div class="form-group">
+        <div class="mb-3">
             <?= $form->field($category, 'title')->textInput(); ?>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <?= $form->field($category, 'description')->textarea(); ?>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <?= $form->field($category, 'sort_order')->textInput(); ?>
         </div>
 
