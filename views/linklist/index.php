@@ -58,7 +58,7 @@ humhub\modules\linklist\assets\Assets::register($this);
                                             ->cssClass('deleteButton')
                                             ->sm() ?>
                                         <?= Button::primary()->icon('pencil')->sm()
-                                            ->title(Yii::t('LinklistModule.base', 'Edit Category'))
+                                            ->tooltip(Yii::t('LinklistModule.base', 'Edit Category'))
                                             ->link($contentContainer->createUrl('/linklist/linklist/edit-category', [
                                                 'category_id' => $category->id
                                             ])) ?>
@@ -113,7 +113,7 @@ humhub\modules\linklist\assets\Assets::register($this);
                                                         ->cssClass('deleteButton')
                                                         ->sm() ?>
                                                     <?= Button::primary()->icon('pencil')->sm()
-                                                        ->title(Yii::t('LinklistModule.base', 'Edit Link'))
+                                                        ->tooltip(Yii::t('LinklistModule.base', 'Edit Link'))
                                                         ->link($contentContainer->createUrl('/linklist/linklist/edit-link', [
                                                             'link_id' => $link->id,
                                                             'category_id' => $category->id
