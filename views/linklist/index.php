@@ -64,7 +64,7 @@ humhub\modules\linklist\assets\Assets::register($this);
                                             ])) ?>
                                     <?php endif; ?>
                                     <?php // all users may add a link to an existing category ?>
-                                    <?= Html::a('<i class="fa fa-plus" style="font-size: 12px;"></i> ' . Yii::t('LinklistModule.base', 'Add link'), $contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => -1, 'category_id' => $category->id]), ['title' => 'Add Link', 'class' => 'btn btn-sm btn-info']);
+                                    <?= Html::a('<i class="fa fa-plus" style="font-size: 12px;"></i> ' . Yii::t('LinklistModule.base', 'Add link'), $contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => -1, 'category_id' => $category->id]), ['title' => 'Add Link', 'class' => 'btn btn-sm btn-accent']);
                                     ?>
                                 </div>
                             <?php } ?>
