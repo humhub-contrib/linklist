@@ -7,7 +7,6 @@ use humhub\modules\linklist\models\Category;
 
 class m150727_085041_namespace extends Migration
 {
-
     public function up()
     {
         $this->renameClass('Link', Link::className());

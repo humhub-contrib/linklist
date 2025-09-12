@@ -2,24 +2,23 @@
 
 class m140708_155237_initial extends yii\db\Migration
 {
-
     public function up()
     {
-        $this->createTable('linklist_category', array(
+        $this->createTable('linklist_category', [
             'id' => 'pk',
             'title' => 'text DEFAULT NULL',
             'description' => 'text DEFAULT NULL',
             'sort_order' => 'int(11) DEFAULT NULL',
-                ), '');
+        ], '');
 
-        $this->createTable('linklist_link', array(
+        $this->createTable('linklist_link', [
             'id' => 'pk',
             'category_id' => 'int(11) NOT NULL',
             'href' => 'text DEFAULT NULL',
             'title' => 'text DEFAULT NULL',
             'description' => 'text DEFAULT NULL',
             'sort_order' => 'int(11) NOT NULL',
-                ), '');
+        ], '');
     }
 
     public function down()

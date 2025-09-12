@@ -2,7 +2,6 @@
 
 class uninstall extends \humhub\components\Migration
 {
-
     public function up()
     {
 

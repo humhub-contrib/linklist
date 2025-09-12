@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Potvrzení</strong> smazání kategorie',
   '<strong>Confirm</strong> link deleting' => '<strong>Potvrzení</strong> smazání odkazu',
   'Add Category' => '',
   'Add link' => 'Přidat odkaz',
   'Added a new link %link% to category "%category%".' => 'Byl přidán nový odkaz %link% do kategorie "%category%".',
   'Cancel' => 'Zrušit',
+  'Category' => 'Kategorie',
   'Delete' => 'Smazat',
   'Delete category' => 'Smazat kategorii',
   'Delete link' => 'Smazat odkaz',
   'Deleted' => 'Smazáno',
+  'Description' => 'Popis',
   'Do you really want to delete this category? All connected links will be lost!' => 'Opravdu chcete smazat tuto kategorii? Veškeré odkazy, které obsahuje, budou smazány!',
   'Do you really want to delete this link?' => 'Opravdu chcete smazat tento odkaz?',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Požadovaný odkaz nebyl nalezen.',
   'Save' => 'Uložit',
   'Show the links as a widget on the right.' => 'Zobrazit odkazy jako widget v pravém bočním menu.',
+  'Sort Order' => 'Řazení',
   'The category you want to create your link in could not be found!' => 'Kategorie, do které chcete přidat odkaz, nebyla nalezena.',
   'There have been no links or categories added to this space yet.' => 'Do tohoto prostoru nebyly přidány ještě žádné kategorie ani odkazy.',
+  'Title' => 'Název',
   'You can enable the extended validation of links for a space or user.' => 'Zde můžete nastavit rozšířené možnosti ověření odkazu.',
   'You miss the rights to add/edit links!' => 'Nemáte oprávnění pro přidávání/upravování odkazů!',
   'You miss the rights to delete this category!' => 'Nemáte oprávnění pro smazání této kategorie!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Nemáte oprávnění pro úpravu této kategorie!',
   'You miss the rights to edit this link!' => 'Nemáte oprávnění pro úpravu tohoto odkazu!',
   'list' => 'seznam',
-);
+];

@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => 'カテゴリ削除の <strong>確認</strong>',
   '<strong>Confirm</strong> link deleting' => 'リンクの削除の <strong>確認</strong>',
   'Add Category' => 'カテゴリを追加',
   'Add link' => 'リンクを追加',
   'Added a new link %link% to category "%category%".' => '新しいリンク %link% をカテゴリ "%category%" に追加しました。',
   'Cancel' => 'キャンセル',
+  'Category' => 'カテゴリ',
   'Delete' => '削除',
   'Delete category' => 'カテゴリを削除',
   'Delete link' => 'リンクを削除',
   'Deleted' => '削除しました',
+  'Description' => '説明',
   'Do you really want to delete this category? All connected links will be lost!' => '本当にこのカテゴリを削除しますか？接続されている全てのリンクが失われます。',
   'Do you really want to delete this link?' => '本当にこのリンクを削除しますか？',
   'Edit Category' => 'カテゴリの編集',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'リクエストされたリンクが見つかりませんでした。',
   'Save' => '保存',
   'Show the links as a widget on the right.' => 'リンクをウィジェットとして右側に表示します。',
+  'Sort Order' => '並べ替え順序',
   'The category you want to create your link in could not be found!' => 'リンクを作成したいカテゴリが見つかりませんでした！',
   'There have been no links or categories added to this space yet.' => 'このスペースにはまだリンクまたはカテゴリが追加されていません。',
+  'Title' => 'タイトル',
   'You can enable the extended validation of links for a space or user.' => 'スペースまたはユーザーのリンクの拡張検証を有効にする事ができます。',
   'You miss the rights to add/edit links!' => 'リンクを追加/編集する権限がありません！',
   'You miss the rights to delete this category!' => 'このカテゴリを削除する権限がありません！',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'このカテゴリを編集する権限がありません！',
   'You miss the rights to edit this link!' => 'このリンクを編集する権限がありません！',
   'list' => 'リスト',
-);
+];

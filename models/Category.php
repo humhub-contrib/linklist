@@ -6,17 +6,16 @@ use Yii;
 
 /**
  * This is the model class for table "linklist_category".
- * 
+ *
  * @package humhub.modules.linklist.models
  * The followings are the available columns in table 'linklist_category':
- * @property integer $id
+ * @property int $id
  * @property string $title
  * @property string $description
- * @property integer $sort_order
+ * @property int $sort_order
  */
 class Category extends \humhub\modules\content\components\ContentActiveRecord
 {
-
     /**
      * @inheritdoc
      */
@@ -65,23 +64,23 @@ class Category extends \humhub\modules\content\components\ContentActiveRecord
     {
         return 'Link Category';
     }
-    
+
     public function getContentDescription()
     {
         return $this->title;
-    }    
+    }
 
     /**
      * @return array customized attribute labels (name=>label)
      */
     public function attributeLabels()
     {
-        return array(
+        return [
             'id' => 'ID',
-            'title' => Yii::t('LinklistModule.models_Category', 'Title'),
-            'description' => Yii::t('LinklistModule.models_Category', 'Description'),
-            'sort_order' => Yii::t('LinklistModule.models_Category', 'Sort Order'),
-        );
+            'title' => Yii::t('LinklistModule.base', 'Title'),
+            'description' => Yii::t('LinklistModule.base', 'Description'),
+            'sort_order' => Yii::t('LinklistModule.base', 'Sort Order'),
+        ];
     }
 
 }

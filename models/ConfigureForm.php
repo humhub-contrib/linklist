@@ -12,7 +12,6 @@ use Yii;
  */
 class ConfigureForm extends \yii\base\Model
 {
-
     public $enableDeadLinkValidation;
     public $enableWidget;
 
@@ -21,11 +20,11 @@ class ConfigureForm extends \yii\base\Model
      */
     public function rules()
     {
-        return array(
+        return [
             // why do i nee a rule if if i dont haveobne, the value is not saved at all!
-            array('enableDeadLinkValidation', 'boolean', 'falseValue' => 0, 'trueValue' => 1),
-            array('enableWidget', 'boolean', 'falseValue' => 0, 'trueValue' => 1),
-        );
+            ['enableDeadLinkValidation', 'boolean', 'falseValue' => 0, 'trueValue' => 1],
+            ['enableWidget', 'boolean', 'falseValue' => 0, 'trueValue' => 1],
+        ];
     }
 
     /**
@@ -35,10 +34,10 @@ class ConfigureForm extends \yii\base\Model
      */
     public function attributeLabels()
     {
-        return array(
+        return [
             'enableDeadLinkValidation' => Yii::t('LinklistModule.base', 'Extend link validation by a connection test.'),
             'enableWidget' => Yii::t('LinklistModule.base', 'Show the links as a widget on the right.'),
-        );
+        ];
     }
 
 }

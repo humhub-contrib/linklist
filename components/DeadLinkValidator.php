@@ -15,7 +15,6 @@ use Yii;
  */
 class DeadLinkValidator extends CValidator
 {
-
     /** PUSH or PULL * */
     public $type;
 
@@ -28,9 +27,9 @@ class DeadLinkValidator extends CValidator
             return;
         }
         try {
-            $client = new Zend_Http_Client($object->$attribute, array(
+            $client = new Zend_Http_Client($object->$attribute, [
                 'timeout' => $this->timeout,
-            ));
+            ]);
             $response = $client->request($this->type);
         } catch (Zend_Uri_Exception $e) {
             $this->addError($object, $attribute, $e->getMessage());
@@ -47,7 +46,7 @@ class DeadLinkValidator extends CValidator
     /**
      * Checks if the extended validation is enabled in the Linklists space/user settings.
      *
-     * @return boolean
+     * @return bool
      */
     private function isEnabled()
     {
@@ -66,5 +65,3 @@ class DeadLinkValidator extends CValidator
     }
 
 }
-
-?>

@@ -1,13 +1,25 @@
 Changelog
 =========
 
-0.9.0 (Unreleased)
------------------------
+0.9.0 (September 12, 2025)
+--------------------------
 - Fix #65: Update module resources path
+- Enh #76: Migration to Bootstrap 5 for HumHub 1.18
 
-0.8.4 (Unreleased)
------------------------
+0.8.6 (November 14, 2024)
+-------------------------
+- Enh #73: Fix for assets 
+
+0.8.5 (November 14, 2024)
+-------------------------
+- Enh #69: Use PHP CS Fixer
+- Enh #70: Reduce translation message categories
+- Fix #73: Asset not being loaded
+
+0.8.4 (July 30, 2024)
+---------------------
 - Fix #64: Fix visibility of the method `Controller::getAccessRules()`
+- Fix #37: Fix for scrollbar missing on ajax requests
 
 0.8.3 (August 26, 2023)
 -----------------------

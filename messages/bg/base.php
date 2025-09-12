@@ -1,15 +1,17 @@
 <?php
-return array (
+return [
   '<strong>Confirm</strong> category deleting' => '<strong>Потвърдете</strong> изтриването на категорията',
   '<strong>Confirm</strong> link deleting' => '<strong>Потвърждаване</strong> на изтриването на връзката',
   'Add Category' => 'Добавяне на категория',
   'Add link' => 'Добавяне на връзка',
   'Added a new link %link% to category "%category%".' => 'Добавена е нова връзка %link% към категория "%category%".',
   'Cancel' => 'Отказ',
+  'Category' => 'Категория',
   'Delete' => 'Изтрий',
   'Delete category' => 'Изтрий категория',
   'Delete link' => 'Изтрий връзка',
   'Deleted' => 'Изтрита',
+  'Description' => 'Описание',
   'Do you really want to delete this category? All connected links will be lost!' => 'Наистина ли искате да изтриете тази категория? Всички свързани връзки ще бъдат загубени!',
   'Do you really want to delete this link?' => 'Наистина ли искате да изтриете тази връзка?',
   'Edit Category' => '',
@@ -23,8 +25,10 @@ return array (
   'Requested link could not be found.' => 'Заявената връзка не можа да бъде намерена.',
   'Save' => 'Запази',
   'Show the links as a widget on the right.' => 'Покажете връзките като приспособление вдясно.',
+  'Sort Order' => 'Сортирай ред',
   'The category you want to create your link in could not be found!' => 'Категорията, в която искате да създадете вашата връзка, не може да бъде намерена!',
   'There have been no links or categories added to this space yet.' => 'Все още няма добавени връзки или категории в този раздел.',
+  'Title' => 'Заглавие',
   'You can enable the extended validation of links for a space or user.' => 'Можете да активирате разширената проверка на връзките за раздел или потребител.',
   'You miss the rights to add/edit links!' => 'Пропускате правата за добавяне / редактиране на връзки!',
   'You miss the rights to delete this category!' => 'Пропускате правата за изтриване на тази категория!',
@@ -32,4 +36,4 @@ return array (
   'You miss the rights to edit this category!' => 'Пропускате правата за редактиране на тази категория!',
   'You miss the rights to edit this link!' => 'Пропускате правата за редактиране на тази връзка!',
   'list' => 'списък',
-);
+];
