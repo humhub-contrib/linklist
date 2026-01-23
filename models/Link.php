@@ -61,7 +61,6 @@ class Link extends \humhub\modules\content\components\ContentActiveRecord implem
             [['href', 'title', 'description'], 'safe'],
             [['href', 'title'], 'required'],
             ['href', 'url'],
-            #array('href', 'DeadLinkValidator', 'type' => 'GET', 'timeout' => 5),
         ];
     }
 
