@@ -31,10 +31,7 @@ class DeadLinkValidator extends CValidator
                 'timeout' => $this->timeout,
             ]);
             $response = $client->request($this->type);
-        } catch (Zend_Uri_Exception $e) {
-            $this->addError($object, $attribute, $e->getMessage());
-            return;
-        } catch (Zend_Http_Client_Exception $e) {
+        } catch (Zend_Uri_Exception|Zend_Http_Client_Exception $e) {
             $this->addError($object, $attribute, $e->getMessage());
             return;
         }
@@ -54,7 +51,7 @@ class DeadLinkValidator extends CValidator
         $module = Yii::$app->getModule('linklist');
 
         $validateDeadLinks = $module->settings
-            ->contentContainer(contentContainer)
+            ->contentContainer(\CONTENTCONTAINER)
             ->get('enableDeadLinkValidation', '');
 
         // set default if setting empty

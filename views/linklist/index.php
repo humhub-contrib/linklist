@@ -102,7 +102,7 @@ humhub\modules\linklist\assets\Assets::register($this);
                                                 <div class="linklist-edit-controls linklist-editable">
 
                                                     <?= Button::danger()
-                                                        ->link($contentContainer->createUrl("/linklist/linklist/delete-link", array('category_id' => $category->id, 'link_id' => $link->id)))
+                                                        ->link($contentContainer->createUrl("/linklist/linklist/delete-link", ['category_id' => $category->id, 'link_id' => $link->id]))
                                                         ->icon('trash-o')
                                                         ->tooltip(Yii::t('LinklistModule.base', 'Delete link'))
                                                         ->action('linklist.removeCategory')
