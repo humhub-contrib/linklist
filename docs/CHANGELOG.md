@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.9.1 (Unreleased)
+--------------------------
+- Fix #79: Fix asset bundle
+
 0.9.0 (September 12, 2025)
 --------------------------
 - Fix #65: Update module resources path
