@@ -14,17 +14,18 @@ use humhub\modules\comment\widgets\CommentLink;
 use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\widgets\ContentObjectLinks;
 use humhub\modules\like\widgets\LikeLink;
+use humhub\modules\linklist\assets\Assets;
 use humhub\modules\linklist\models\Category;
-use humhub\modules\linklist\models\Link;
+use humhub\modules\linklist\models\Link as LinkModel;
 use humhub\widgets\bootstrap\Button;
 use yii\helpers\Html;
 
 /* @var ContentContainerActiveRecord $contentContainer */
 /* @var Category[] $categories */
-/* @var Link[] $links */
+/* @var LinkModel[] $links */
 /* @var int $accessLevel */
 
-humhub\modules\linklist\assets\Assets::register($this);
+Assets::register($this);
 ?>
 <div class="panel panel-default">
     <div class="panel-body">
@@ -64,8 +65,10 @@ humhub\modules\linklist\assets\Assets::register($this);
                                             ])) ?>
                                     <?php endif; ?>
                                     <?php // all users may add a link to an existing category ?>
-                                    <?= Html::a('<i class="fa fa-plus" style="font-size: 12px;"></i> ' . Yii::t('LinklistModule.base', 'Add link'), $contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => -1, 'category_id' => $category->id]), ['title' => 'Add Link', 'class' => 'btn btn-sm btn-accent']);
-                                    ?>
+                                    <?= Button::accent(Yii::t('LinklistModule.base', 'Add link'))
+                                            ->link($contentContainer->createUrl('/linklist/linklist/edit-link', ['link_id' => -1, 'category_id' => $category->id]))
+                                            ->icon('plus')
+                                            ->sm() ?>
                                 </div>
                             <?php } ?>
                         </div>
@@ -132,7 +135,8 @@ humhub\modules\linklist\assets\Assets::register($this);
         <?php if ($accessLevel != 0) { ?>
             <?php if ($accessLevel == 2) { ?>
                 <div class="linklist-add-category linklist-editable">
-                    <?= Html::a(Yii::t('LinklistModule.base', 'Add Category'), $contentContainer->createUrl('/linklist/linklist/edit-category', ['category_id' => -1]), ['class' => 'btn btn-primary']); ?>
+                    <?= Button::primary(Yii::t('LinklistModule.base', 'Add Category'))
+                            ->link($contentContainer->createUrl('/linklist/linklist/edit-category', ['category_id' => -1])) ?>
                 </div>
             <?php } ?>
         <?php } ?>

@@ -9,27 +9,36 @@
  */
 
 use humhub\helpers\Html;
+use humhub\modules\linklist\assets\Assets;
+use humhub\modules\linklist\models\Category;
+use humhub\modules\linklist\models\Link as LinkModel;
+use humhub\widgets\bootstrap\Link;
 
-humhub\modules\linklist\assets\Assets::register($this);
+/* @var Category[] $categories */
+/* @var LinkModel[] $links */
+
+Assets::register($this);
 ?>
 <div class="panel panel-default panel-linklist-widget">
     <div class="panel-heading">
-        <strong><?php echo Yii::t('LinklistModule.base', 'Link'); ?></strong> <?php echo Yii::t('LinklistModule.base', 'list'); ?>
+        <?= Yii::t('LinklistModule.base', '<strong>Link</strong> list') ?>
     </div>
     <div class="linklist-body">
         <div class="scrollable-content-container">
-            <?php foreach ($categories as $category) { ?>
-                <div id="linklist-widget-category_<?php echo $category->id; ?>" class="d-flex">
-                    <h5 class="mt-0"><?= Html::encode($category->title) ?></h5>
+            <?php foreach ($categories as $category) : ?>
+                <div id="linklist-widget-category_<?= $category->id; ?>">
+                    <h5 class="mt-3 px-3"><?= Html::encode($category->title) ?></h5>
                     <div class="hh-list">
                         <?php foreach ($links[$category->id] as $link): ?>
                             <div id="linklist-widget-link_<?= $link->id ?>">
-                                <?= Html::a(Html::encode($link->title), $link->href, ['target' => '_blank', 'title' => Html::encode($link->description)]); ?>
+                                <?= Link::to(Html::encode($link->title), $link->href)
+                                        ->tooltip(Html::encode($link->description))
+                                        ->blank() ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
-            <?php } ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
