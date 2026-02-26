@@ -2,6 +2,8 @@
 
 namespace humhub\modules\linklist\models;
 
+use humhub\modules\content\components\ContentActiveRecord;
+use humhub\modules\linklist\widgets\WallEntry;
 use Yii;
 
 /**
@@ -15,16 +17,15 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property int $sort_order
+ *
+ * @property-read Category $category
  */
-class Link extends \humhub\modules\content\components\ContentActiveRecord implements \humhub\modules\search\interfaces\Searchable
+class Link extends ContentActiveRecord
 {
-    public $autoAddToWall = true;
-    public $wallEntryClass = "humhub\modules\linklist\widgets\WallEntry";
-
+    public $wallEntryClass = WallEntry::class;
 
     public function beforeSave($insert)
     {
-
         if ($this->sort_order == "") {
             $this->sort_order = 0;
         }
@@ -34,7 +35,7 @@ class Link extends \humhub\modules\content\components\ContentActiveRecord implem
 
     public function getContentName()
     {
-        return Yii::t('LinklistModule.base', "Link");
+        return Yii::t('LinklistModule.base', 'Link');
     }
 
     public function getContentDescription()
@@ -66,7 +67,7 @@ class Link extends \humhub\modules\content\components\ContentActiveRecord implem
 
     public function getCategory()
     {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
     /**

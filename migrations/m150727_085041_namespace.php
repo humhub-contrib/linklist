@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use humhub\components\Migration;
 use humhub\modules\linklist\models\Link;
 use humhub\modules\linklist\models\Category;
@@ -9,8 +8,8 @@ class m150727_085041_namespace extends Migration
 {
     public function up()
     {
-        $this->renameClass('Link', Link::className());
-        $this->renameClass('Category', Category::className());
+        $this->renameClass('Link', Link::class);
+        $this->renameClass('Category', Category::class);
     }
 
     public function down()

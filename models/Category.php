@@ -43,7 +43,7 @@ class Category extends \humhub\modules\content\components\ContentActiveRecord
 
     public function getLinks()
     {
-        $query = $this->hasMany(Link::className(), ['category_id' => 'id']);
+        $query = $this->hasMany(Link::class, ['category_id' => 'id']);
         return $query;
     }
 

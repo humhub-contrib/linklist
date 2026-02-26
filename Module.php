@@ -2,13 +2,13 @@
 
 namespace humhub\modules\linklist;
 
-use Yii;
-use humhub\modules\linklist\models\Link;
-use humhub\modules\linklist\models\Category;
-use humhub\modules\space\models\Space;
-use humhub\modules\user\models\User;
 use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\components\ContentContainerModule;
+use humhub\modules\linklist\models\Category;
+use humhub\modules\linklist\models\Link;
+use humhub\modules\space\models\Space;
+use humhub\modules\user\models\User;
+use Yii;
 
 class Module extends ContentContainerModule
 {
@@ -79,80 +79,6 @@ class Module extends ContentContainerModule
         }
         foreach (Link::find()->contentContainer($container)->all() as $content) {
             $content->hardDelete();
-        }
-    }
-
-    /**
-     * Defines what to do if a spaces sidebar is initialzed.
-     *
-     * @param type $event
-     */
-    public static function onSpaceSidebarInit($event)
-    {
-
-        $space = $event->sender->space;
-        if ($space->moduleManager->isEnabled('linklist')) {
-            $event->sender->addWidget(widgets\Sidebar::className(), ['contentContainer' => $space], [
-                'sortOrder' => 200,
-            ]);
-        }
-    }
-
-    /**
-     * On build of a Space Navigation, check if this module is enabled.
-     * When enabled add a menu item
-     *
-     * @param type $event
-     */
-    public static function onSpaceMenuInit($event)
-    {
-
-        $space = $event->sender->space;
-        if ($space->moduleManager->isEnabled('linklist') && $space->isMember()) {
-            $event->sender->addItem([
-                'label' => Yii::t('LinklistModule.base', 'Linklist'),
-                'group' => 'modules',
-                'url' => $space->createUrl('/linklist/linklist'),
-                'icon' => '<i class="fa fa-link"></i>',
-                'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist'),
-            ]);
-        }
-    }
-
-    /**
-     * On build of a Profile Navigation, check if this module is enabled.
-     * When enabled add a menu item
-     *
-     * @param type $event
-     */
-    public static function onProfileMenuInit($event)
-    {
-        $user = $event->sender->user;
-
-        // Is Module enabled on this workspace?
-        if ($user->moduleManager->isEnabled('linklist') && !Yii::$app->user->isGuest && $user->id == Yii::$app->user->id) {
-            $event->sender->addItem([
-                'label' => Yii::t('LinklistModule.base', 'Linklist'),
-                'url' => $user->createUrl('/linklist/linklist'),
-                'icon' => '<i class="fa fa-link"></i>',
-                'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'linklist'),
-            ]);
-        }
-    }
-
-    /**
-     * Defines what to do if a spaces sidebar is initialzed.
-     *
-     * @param type $event
-     */
-    public static function onProfileSidebarInit($event)
-    {
-        $user = $event->sender->user;
-
-        if ($user->moduleManager->isEnabled('linklist')) {
-            $event->sender->addWidget(widgets\Sidebar::className(), ['contentContainer' => $user], [
-                'sortOrder' => 200,
-            ]);
         }
     }
 
