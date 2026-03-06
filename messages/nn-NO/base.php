@@ -4,6 +4,7 @@ return [
     'Title' => 'Tittel',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',
+    '<strong>Link</strong> list' => '',
     'Add Category' => '',
     'Add link' => '',
     'Added a new link %link% to category "%category%".' => '',
@@ -34,5 +35,4 @@ return [
     'You miss the rights to delete this link!' => '',
     'You miss the rights to edit this category!' => '',
     'You miss the rights to edit this link!' => '',
-    'list' => '',
 ];

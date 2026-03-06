@@ -32,7 +32,7 @@ return [
     'You miss the rights to delete this link!' => 'Nemate prava na brisanje ove veze!',
     'You miss the rights to edit this category!' => 'Nemate prava za uređivanje ove kategorije!',
     'You miss the rights to edit this link!' => 'Nemate prava za uređivanje ove veze!',
-    'list' => 'lista',
+    '<strong>Link</strong> list' => '',
     'Edit Category' => '',
     'Edit Link' => '',
 ];

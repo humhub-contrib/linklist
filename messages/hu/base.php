@@ -34,5 +34,5 @@ return [
     'You miss the rights to delete this link!' => 'Nincs jogosultságod a hivatkozás törléséhez!',
     'You miss the rights to edit this category!' => 'Nincs hozzáférésed a kategória szerkesztéséhez!',
     'You miss the rights to edit this link!' => 'Nincs hozzáférésed a hivatkozás szerkesztéséhez!',
-    'list' => 'lista',
+    '<strong>Link</strong> list' => '',
 ];

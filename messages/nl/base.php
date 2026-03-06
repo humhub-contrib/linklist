@@ -34,5 +34,5 @@ return [
     'You miss the rights to delete this link!' => 'Je hebt niet genoeg rechten om deze link te verwijderen!',
     'You miss the rights to edit this category!' => 'Je hebt niet genoeg rechten om deze categorie aan te passen!',
     'You miss the rights to edit this link!' => 'Je hebt niet genoeg rechten om deze link aan te passen!',
-    'list' => 'lijst',
+    '<strong>Link</strong> list' => '',
 ];

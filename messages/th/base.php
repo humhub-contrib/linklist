@@ -32,7 +32,7 @@ return [
     'You miss the rights to delete this link!' => 'คุณพลาดสิทธิ์ในการลบลิงค์นี้',
     'You miss the rights to edit this category!' => 'คุณพลาดสิทธิ์แก้ไขหมวดหมู่นี้',
     'You miss the rights to edit this link!' => 'คุณพลาดสิทธิ์แก้ไขลิงค์นี้',
-    'list' => 'รายการ',
+    '<strong>Link</strong> list' => '',
     'Edit Category' => '',
     'Edit Link' => '',
 ];

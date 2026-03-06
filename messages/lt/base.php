@@ -28,11 +28,11 @@ return [
     'You miss the rights to delete this link!' => 'Jūs neturite teisių ištrinti šią nuorodą!',
     'You miss the rights to edit this category!' => 'Jūs neturite teisių redaguoti šią kategoriją!',
     'You miss the rights to edit this link!' => 'Jūs neturite teisių redaguoti šią nuorodą!',
+    '<strong>Link</strong> list' => '',
     'Add Category' => '',
     'Added a new link %link% to category "%category%".' => '',
     'Category' => '',
     'Edit Category' => '',
     'Edit Link' => '',
     'No description available.' => '',
-    'list' => '',
 ];

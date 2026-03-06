@@ -31,7 +31,7 @@ return [
     'You miss the rights to delete this link!' => 'Nemáte oprávnění pro smazání tohoto odkazu!',
     'You miss the rights to edit this category!' => 'Nemáte oprávnění pro úpravu této kategorie!',
     'You miss the rights to edit this link!' => 'Nemáte oprávnění pro úpravu tohoto odkazu!',
-    'list' => 'seznam',
+    '<strong>Link</strong> list' => '',
     'Add Category' => '',
     'Edit Category' => '',
     'Edit Link' => '',

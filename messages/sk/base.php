@@ -34,5 +34,5 @@ return [
     'You miss the rights to delete this link!' => 'Chýbajú vám práva na odstránenie tohto odkazu!',
     'You miss the rights to edit this category!' => 'Chýbajú vám práva na úpravu tejto kategórie!',
     'You miss the rights to edit this link!' => 'Chýbajú vám práva na úpravu tohto odkazu!',
-    'list' => 'zoznam',
+    '<strong>Link</strong> list' => '',
 ];

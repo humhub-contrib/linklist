@@ -29,7 +29,7 @@ return [
     'You miss the rights to delete this link!' => 'شما حق پاک کردن این پیوند را ندارید!',
     'You miss the rights to edit this category!' => 'شما حق ویرایش این گروه را ندارید!',
     'You miss the rights to edit this link!' => 'شما حق ویرایش این پیوند را ندارید!',
-    'list' => 'ليست',
+    '<strong>Link</strong> list' => '',
     'Add Category' => '',
     'Category' => '',
     'Deleted' => '',

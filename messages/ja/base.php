@@ -34,5 +34,5 @@ return [
     'You miss the rights to delete this link!' => 'このリンクを削除する権限がありません！',
     'You miss the rights to edit this category!' => 'このカテゴリを編集する権限がありません！',
     'You miss the rights to edit this link!' => 'このリンクを編集する権限がありません！',
-    'list' => 'リスト',
+    '<strong>Link</strong> list' => '',
 ];

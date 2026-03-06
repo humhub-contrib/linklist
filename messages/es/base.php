@@ -34,5 +34,5 @@ return [
     'You miss the rights to delete this link!' => '¡No tienes permisos para eliminar el enlace!',
     'You miss the rights to edit this category!' => '¡No tienes permisos para editar la categoría!',
     'You miss the rights to edit this link!' => '¡No tienes permisos para editar el enlace!',
-    'list' => 'lista',
+    '<strong>Link</strong> list' => '',
 ];

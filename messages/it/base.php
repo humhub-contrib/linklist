@@ -32,7 +32,7 @@ return [
     'You miss the rights to delete this link!' => 'Ti mancano i diritti per eliminare questo link!',
     'You miss the rights to edit this category!' => 'Ti mancano i diritti per modificare questa categoria!',
     'You miss the rights to edit this link!' => 'Ti mancano i diritti per modificare questo link!',
-    'list' => 'elenco',
+    '<strong>Link</strong> list' => '',
     'Edit Category' => '',
     'Edit Link' => '',
 ];

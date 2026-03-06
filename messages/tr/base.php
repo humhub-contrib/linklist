@@ -15,7 +15,7 @@ return [
     'Save' => 'Kaydet',
     'Sort Order' => 'Sıralama',
     'Title' => 'Başlık',
-    'list' => 'liste',
+    '<strong>Link</strong> list' => '',
     'Add Category' => '',
     'Added a new link %link% to category "%category%".' => '',
     'Deleted' => '',

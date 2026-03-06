@@ -31,7 +31,7 @@ return [
     'You miss the rights to delete this link!' => 'Bạn không được cấp quyền xóa link này!',
     'You miss the rights to edit this category!' => 'Bạn không được cáp quyền sửa nhóm link này!',
     'You miss the rights to edit this link!' => 'Bạn không được cấp quyền sửa link này!',
-    'list' => 'liệt kê',
+    '<strong>Link</strong> list' => '',
     'Add Category' => '',
     'Edit Category' => '',
     'Edit Link' => '',
