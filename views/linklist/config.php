@@ -7,14 +7,13 @@
  *
  */
 
+use humhub\modules\linklist\assets\Assets;
 use humhub\modules\linklist\models\ConfigureForm;
+use humhub\widgets\bootstrap\Button;
 use humhub\widgets\form\ActiveForm;
-use yii\helpers\Html;
 
-humhub\modules\linklist\assets\Assets::register($this);
-
+Assets::register($this);
 ?>
-
 <div class="panel panel-default">
     <div class="panel-heading">
         <?= Yii::t('LinklistModule.base', 'Linklist Module Configuration'); ?>
@@ -29,7 +28,7 @@ humhub\modules\linklist\assets\Assets::register($this);
         <?= $form->field($model, 'enableWidget')->checkbox(); ?>
 
         <hr>
-        <?= Html::submitButton(Yii::t('LinklistModule.base', 'Save'), ['class' => 'btn btn-primary']); ?>
+        <?= Button::save()->submit() ?>
         <?php $form::end(); ?>
     </div>
 </div>

@@ -8,14 +8,13 @@
  * @author Sebastian Stumpf
  *
  */
-humhub\modules\linklist\assets\Assets::register($this);
 
+use humhub\modules\linklist\assets\Assets;
+use humhub\widgets\bootstrap\Button;
 use humhub\widgets\form\ActiveForm;
-use yii\helpers\Html;
 
+Assets::register($this);
 ?>
-
-
 <div class="panel panel-default">
     <?php if ($link->isNewRecord) : ?>
         <div class="panel-heading"><strong>Create</strong> new link</div>
@@ -42,7 +41,7 @@ use yii\helpers\Html;
             <?= $form->field($link, 'sort_order')->textInput(); ?>
         </div>
 
-        <?= Html::submitButton('Save', ['class' => 'btn btn-primary']); ?>
+        <?= Button::save()->submit() ?>
 
         <?php $form::end(); ?>
     </div>
