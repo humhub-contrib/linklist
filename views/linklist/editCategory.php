@@ -8,14 +8,16 @@
  * @author Sebastian Stumpf
  *
  */
-humhub\modules\linklist\assets\Assets::register($this);
 
+use humhub\modules\linklist\assets\Assets;
+use humhub\modules\linklist\models\Category;
+use humhub\widgets\bootstrap\Button;
 use humhub\widgets\form\ActiveForm;
-use yii\helpers\Html;
 
+/* @var Category $category */
+
+Assets::register($this);
 ?>
-
-
 <div class="panel panel-default">
     <?php if ($category->isNewRecord) : ?>
         <div class="panel-heading"><strong>Create</strong> new category</div>
@@ -38,7 +40,7 @@ use yii\helpers\Html;
             <?= $form->field($category, 'sort_order')->textInput(); ?>
         </div>
 
-        <?= Html::submitButton('Save', ['class' => 'btn btn-primary']); ?>
+        <?= Button::save()->submit() ?>
 
         <?php $form::end(); ?>
     </div>
