@@ -179,15 +179,36 @@ ul.linklist-links > li:before {
 }
 
 @media (max-width: 767px) {
-    .panel-linklist-category .panel-heading .heading,
-    .panel-linklist-category ul.linklist-links > li {
-        flex-direction: column;
+    .panel-linklist-category .panel-heading .heading {
+        display: block;
     }
 
-    .panel-linklist-category .linklist-edit-controls {
-        width: 100%;
+    .panel-linklist-category .panel-heading .linklist-edit-controls {
+        display: flex;
+        width: auto;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-top: 12px;
+    }
+
+    .panel-linklist-category .panel-body {
+        padding-top: 10px;
+    }
+
+    .panel-linklist-category ul.linklist-links > li {
+        display: block;
+    }
+
+    .panel-linklist-category ul.linklist-links > li:before {
+        display: inline-block;
+        margin: 0 0 8px;
+        line-height: 1;
+    }
+
+    .panel-linklist-category .linklist-link .linklist-edit-controls {
+        display: flex;
+        width: auto;
         justify-content: flex-end;
+        margin-top: 10px;
     }
 }
-
-/* css for the linklist wall-entry widget */
