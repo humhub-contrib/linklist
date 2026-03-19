@@ -14,18 +14,17 @@ use humhub\modules\comment\widgets\CommentLink;
 use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\widgets\ContentObjectLinks;
 use humhub\modules\like\widgets\LikeLink;
-use humhub\modules\linklist\assets\Assets;
 use humhub\modules\linklist\models\Category;
-use humhub\modules\linklist\models\Link as LinkModel;
+use humhub\modules\linklist\models\Link;
 use humhub\widgets\bootstrap\Button;
 use yii\helpers\Html;
 
 /* @var ContentContainerActiveRecord $contentContainer */
 /* @var Category[] $categories */
-/* @var LinkModel[] $links */
+/* @var Link[] $links */
 /* @var int $accessLevel */
 
-Assets::register($this);
+humhub\modules\linklist\assets\Assets::register($this);
 ?>
 <div class="panel panel-default">
     <div class="panel-body">
@@ -43,7 +42,9 @@ Assets::register($this);
                      class="panel panel-default panel-linklist-category" data-id="<?= $category->id ?>">
                     <div class="panel-heading">
                         <div class="heading">
-                            <?= Html::encode($category->title); ?>
+                            <div class="linklist-category-title">
+                                <?= Html::encode($category->title); ?>
+                            </div>
                             <?php if ($accessLevel != 0) { ?>
                                 <div class="linklist-edit-controls linklist-editable">
                                     <?php if ($accessLevel == 2) : ?>
@@ -74,60 +75,60 @@ Assets::register($this);
                         </div>
                     </div>
                     <div class="panel-body">
-                        <div class="d-flex">
-                            <?php if (!($category->description == NULL || $category->description == "")) : ?>
-                                <h5 class="mt-0"><?= Html::encode($category->description) ?></h5>
-                            <?php endif; ?>
-                            <div class="flex-grow-1">
-                                <ul class="linklist-links">
-                                    <?php foreach ($links[$category->id] as $link) { ?>
-                                        <li class="linklist-link" id="linklist-link_<?= $link->id; ?>"
-                                            data-id="<?= $link->id; ?>">
-                                            <?= Html::a(
-                                                '<span class="title">' . Html::encode($link->title) . '</span>' .
-                                                '<div class="link-description">' . Html::encode($link->description) . '</div>',
-                                                $link->href,
-                                                ['target' => '_blank']
-                                            ); ?>
-                                            <div class="linklist-interaction-controls">
-                                                <?= ContentObjectLinks::widget([
-                                                    'object' => $link,
-                                                    'widgetParams' => [CommentLink::class => ['mode' => CommentLink::MODE_POPUP]],
-                                                    'widgetOptions' => [
-                                                        CommentLink::class => ['sortOrder' => 100],
-                                                        LikeLink::class => ['sortOrder' => 200],
-                                                    ],
-                                                    'seperator' => '&middot;',
-                                                ]); ?>
-                                            </div>
-                                            <?php // all admins and users that created the link may edit or delete it  ?>
-                                            <?php if ($accessLevel == 2 || $accessLevel == 1 && $link->content->created_by == Yii::$app->user->id) { ?>
-                                                <div class="linklist-edit-controls linklist-editable">
-
-                                                    <?= Button::danger()
-                                                        ->link($contentContainer->createUrl("/linklist/linklist/delete-link", ['category_id' => $category->id, 'link_id' => $link->id]))
-                                                        ->icon('trash-o')
-                                                        ->tooltip(Yii::t('LinklistModule.base', 'Delete link'))
-                                                        ->action('linklist.removeCategory')
-                                                        ->confirm(
-                                                            Yii::t('LinklistModule.base', '<strong>Confirm</strong> link deleting'),
-                                                            Yii::t('LinklistModule.base', 'Do you really want to delete this link?'),
-                                                        )
-                                                        ->cssClass('deleteButton')
-                                                        ->sm() ?>
-                                                    <?= Button::primary()->icon('pencil')->sm()
-                                                        ->tooltip(Yii::t('LinklistModule.base', 'Edit Link'))
-                                                        ->link($contentContainer->createUrl('/linklist/linklist/edit-link', [
-                                                            'link_id' => $link->id,
-                                                            'category_id' => $category->id
-                                                    ])); ?>
-                                                </div>
-                                            <?php } ?>
-                                        </li>
-                                    <?php } ?>
-                                </ul>
+                        <?php if (!empty($category->description)) : ?>
+                            <div class="linklist-category-description">
+                                <?= Html::encode($category->description) ?>
                             </div>
-                        </div>
+                        <?php endif; ?>
+                        <ul class="linklist-links">
+                            <?php foreach ($links[$category->id] as $link) { ?>
+                                <li class="linklist-link" id="linklist-link_<?= $link->id; ?>"
+                                    data-id="<?= $link->id; ?>">
+                                    <div class="linklist-link-main">
+                                        <?= Html::a(
+                                            '<span class="title">' . Html::encode($link->title) . '</span>' .
+                                            '<div class="link-description">' . Html::encode($link->description) . '</div>',
+                                            $link->href,
+                                            ['target' => '_blank']
+                                        ); ?>
+                                        <div class="linklist-interaction-controls">
+                                            <?= ContentObjectLinks::widget([
+                                                'object' => $link,
+                                                'widgetParams' => [CommentLink::class => ['mode' => CommentLink::MODE_POPUP]],
+                                                'widgetOptions' => [
+                                                    CommentLink::class => ['sortOrder' => 100],
+                                                    LikeLink::class => ['sortOrder' => 200],
+                                                ],
+                                                'seperator' => '&middot;',
+                                            ]); ?>
+                                        </div>
+                                    </div>
+                                    <?php // all admins and users that created the link may edit or delete it  ?>
+                                    <?php if ($accessLevel == 2 || $accessLevel == 1 && $link->content->created_by == Yii::$app->user->id) { ?>
+                                        <div class="linklist-edit-controls linklist-editable">
+
+                                            <?= Button::danger()
+                                                ->link($contentContainer->createUrl("/linklist/linklist/delete-link", ['category_id' => $category->id, 'link_id' => $link->id]))
+                                                ->icon('trash-o')
+                                                ->tooltip(Yii::t('LinklistModule.base', 'Delete link'))
+                                                ->action('linklist.removeCategory')
+                                                ->confirm(
+                                                    Yii::t('LinklistModule.base', '<strong>Confirm</strong> link deleting'),
+                                                    Yii::t('LinklistModule.base', 'Do you really want to delete this link?'),
+                                                )
+                                                ->cssClass('deleteButton')
+                                                ->sm() ?>
+                                            <?= Button::primary()->icon('pencil')->sm()
+                                                ->tooltip(Yii::t('LinklistModule.base', 'Edit Link'))
+                                                ->link($contentContainer->createUrl('/linklist/linklist/edit-link', [
+                                                    'link_id' => $link->id,
+                                                    'category_id' => $category->id
+                                            ])); ?>
+                                        </div>
+                                    <?php } ?>
+                                </li>
+                            <?php } ?>
+                        </ul>
                     </div>
                 </div>
             <?php } ?>
