@@ -5,6 +5,7 @@ Changelog
 --------------------------
 - Fix #79: Fix asset bundle
 - Fix #80: Remove deprecations
+- Fix #84: Fix broken UI
 
 0.9.0 (September 12, 2025)
 --------------------------
