@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.9.1 (Unreleased)
---------------------------
+0.9.1 (March 20, 2026)
+----------------------
 - Fix #79: Fix asset bundle
 - Fix #80: Remove deprecations
 - Fix #84: Fix broken UI
