@@ -5,7 +5,6 @@ return [
     'Category' => 'الفئة',
     'Deleted' => 'تم الحذف',
     'Description' => 'توضيج',
-    'Save' => 'حفظ',
     'Sort Order' => 'طريقة الفرز',
     'Title' => 'العنوان',
     '<strong>Confirm</strong> category deleting' => '',

@@ -2,7 +2,6 @@
 
 return [
     'Add link' => 'Ajoute lyen',
-    'Save' => 'Sere',
     'Title' => 'Tit',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

@@ -18,7 +18,6 @@ return [
     'No description available.' => 'Ingen beskrivelse tilgængelig',
     'Requested category could not be found.' => 'Ønsket kategori kunne ikke findes.',
     'Requested link could not be found.' => 'Ønsket link kunne ikke findes.',
-    'Save' => 'Gem',
     'Show the links as a widget on the right.' => 'Vis links som en widget til højre.',
     'Sort Order' => 'Sorteringsrækkefølge',
     'The category you want to create your link in could not be found!' => 'Kategorien som du vil oprette dit link i, kunne ikke blive fundet!',

@@ -3,7 +3,6 @@
 return [
     'Description' => 'Περιγραφή',
     'Link' => 'Σύνδεσμος',
-    'Save' => 'Αποθήκευση',
     'Sort Order' => 'Σειρά ταξινόμησης',
     'Title' => 'Τίτλος',
     '<strong>Confirm</strong> category deleting' => '',

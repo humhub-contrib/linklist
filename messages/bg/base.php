@@ -20,7 +20,6 @@ return [
     'No description available.' => 'Няма налично описание.',
     'Requested category could not be found.' => 'Заявената категория не можа да бъде намерена.',
     'Requested link could not be found.' => 'Заявената връзка не можа да бъде намерена.',
-    'Save' => 'Запази',
     'Show the links as a widget on the right.' => 'Покажете връзките като приспособление вдясно.',
     'Sort Order' => 'Сортирай ред',
     'The category you want to create your link in could not be found!' => 'Категорията, в която искате да създадете вашата връзка, не може да бъде намерена!',

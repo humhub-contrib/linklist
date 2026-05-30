@@ -4,7 +4,6 @@ return [
     'Add link' => 'Adhibir vinclo',
     'Category' => 'Categoría',
     'Description' => 'Descripción',
-    'Save' => 'Uložit',
     'Title' => 'Titulek',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

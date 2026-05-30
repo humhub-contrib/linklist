@@ -4,7 +4,6 @@ return [
     'Add link' => '링크 추가',
     'Deleted' => '삭제됨',
     'Description' => '설명',
-    'Save' => '저장',
     'Sort Order' => '정렬 순서',
     'Title' => '제목',
     '<strong>Confirm</strong> category deleting' => '',

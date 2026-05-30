@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'Save' => 'Shrani',
     'Title' => 'Naslov',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

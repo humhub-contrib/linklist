@@ -20,7 +20,6 @@ return [
     'No description available.' => 'ไม่มีคำอธิบาย',
     'Requested category could not be found.' => 'ไม่พบหมวดหมู่ที่ร้องขอ',
     'Requested link could not be found.' => 'ไม่พบลิงก์ที่ร้องขอ',
-    'Save' => 'บันทึก',
     'Show the links as a widget on the right.' => 'แสดงลิงก์เป็นวิดเจ็ตทางด้านขวา',
     'Sort Order' => 'เรียงลำดับ',
     'The category you want to create your link in could not be found!' => 'ไม่พบหมวดหมู่ที่คุณต้องการสร้างลิงค์ของคุณ!',

@@ -24,7 +24,6 @@ return [
     'No description available.' => '',
     'Requested category could not be found.' => '',
     'Requested link could not be found.' => '',
-    'Save' => '',
     'Show the links as a widget on the right.' => '',
     'Sort Order' => '',
     'The category you want to create your link in could not be found!' => '',

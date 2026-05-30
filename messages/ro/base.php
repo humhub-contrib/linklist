@@ -3,7 +3,6 @@
 return [
     'Add link' => 'Adaugă legătură',
     'Description' => 'Descriere',
-    'Save' => 'Salvează',
     'Title' => 'Titlul',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

@@ -3,7 +3,6 @@
 return [
     'Add link' => 'ማስፈንጠሪያ ያክሉ',
     'Link' => 'ማስፈንጠሪያ',
-    'Save' => 'አስቀምጥ',
     'Sort Order' => 'ቅደም ተከተል ያስይዙ',
     'Title' => 'ርዕስ',
     '<strong>Confirm</strong> category deleting' => '',

@@ -3,7 +3,6 @@
 return [
     'Add link' => 'Pievienot saiti',
     'Description' => 'Apraksts',
-    'Save' => 'Saglabāt',
     'Title' => 'Nosaukums',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

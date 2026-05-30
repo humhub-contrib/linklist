@@ -3,7 +3,6 @@
 return [
     'Deleted' => 'Ezabatua',
     'Description' => 'Deskribapena',
-    'Save' => 'Gorde',
     'Sort Order' => 'Sailkapen hurrenkera',
     'Title' => 'Izenburua',
     '<strong>Confirm</strong> category deleting' => '',

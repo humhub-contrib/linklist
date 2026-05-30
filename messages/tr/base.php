@@ -12,7 +12,6 @@ return [
     'Linklist' => 'Bağlantılar',
     'No description available.' => 'Kullanılabilir açıklama yok.',
     'Requested link could not be found.' => 'Bağlantı bulunamadı.',
-    'Save' => 'Kaydet',
     'Sort Order' => 'Sıralama',
     'Title' => 'Başlık',
     '<strong>Link</strong> list' => '',

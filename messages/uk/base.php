@@ -3,7 +3,6 @@
 return [
     'Description' => 'Опис',
     'Link' => 'Лінк',
-    'Save' => 'Зберегти',
     'Sort Order' => 'Сортувати за номером',
     'Title' => 'Заголовок',
     '<strong>Confirm</strong> category deleting' => '',

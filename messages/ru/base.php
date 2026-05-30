@@ -22,7 +22,6 @@ return [
     'No description available.' => 'Нет описания.',
     'Requested category could not be found.' => 'Запрашиваемая категория не может быть найдена.',
     'Requested link could not be found.' => 'Запрашиваемая ссылка не может быть найдена.',
-    'Save' => 'Сохранить',
     'Show the links as a widget on the right.' => 'Показать ссылки в качестве виджета справа.',
     'Sort Order' => 'Порядок сортировки',
     'The category you want to create your link in could not be found!' => 'Категория где вы хотите создать ссылку не может быть найдена!',

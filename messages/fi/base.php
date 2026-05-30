@@ -20,7 +20,6 @@ return [
     'No description available.' => 'Kuvausta ei saatavilla.',
     'Requested category could not be found.' => 'Pyydettyä kategoriaa ei löytynyt.',
     'Requested link could not be found.' => 'Pyydettyä linkkiä ei löytynyt.',
-    'Save' => 'Tallenna',
     'Show the links as a widget on the right.' => 'Näytä linkit widgetissä.',
     'Sort Order' => 'Lajittelujärjestys',
     'The category you want to create your link in could not be found!' => 'Kategoriaa, johon haluat luoda linkin, ei löytynyt!',

@@ -4,7 +4,6 @@ return [
     'Add link' => '添加連結',
     'Category' => '類別',
     'Description' => '描述',
-    'Save' => '儲存',
     'Sort Order' => '排列順序',
     'Title' => '標題',
     '<strong>Confirm</strong> category deleting' => '',

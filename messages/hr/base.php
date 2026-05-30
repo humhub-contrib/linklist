@@ -20,7 +20,6 @@ return [
     'No description available.' => 'Opis nije dostupan.',
     'Requested category could not be found.' => 'Tražena kategorija nije pronađena.',
     'Requested link could not be found.' => 'Tražena poveznica nije pronađena.',
-    'Save' => 'Spremi',
     'Show the links as a widget on the right.' => 'Pokaži veze kao widget na desnoj strani.',
     'Sort Order' => 'Redoslijed',
     'The category you want to create your link in could not be found!' => 'Nije bilo moguće pronaći kategoriju u kojoj želite stvoriti vezu!',

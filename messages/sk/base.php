@@ -22,7 +22,6 @@ return [
     'No description available.' => 'Popis nie je k dispozícii.',
     'Requested category could not be found.' => 'Požadovanú kategóriu sa nepodarilo nájsť.',
     'Requested link could not be found.' => 'Požadovaný odkaz sa nepodarilo nájsť.',
-    'Save' => 'Uložiť',
     'Show the links as a widget on the right.' => 'Zobrazte odkazy ako miniaplikáciu na pravej strane.',
     'Sort Order' => 'Poradie zoradenia',
     'The category you want to create your link in could not be found!' => 'Kategóriu, v ktorej chcete vytvoriť odkaz, sa nepodarilo nájsť!',

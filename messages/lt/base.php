@@ -16,7 +16,6 @@ return [
     'Linklist Module Configuration' => 'Nuorodų sąrašo modulio konfigūracija',
     'Requested category could not be found.' => 'Nepavyko rasti prašomos kategorijos.',
     'Requested link could not be found.' => 'Nepavyko rasti prašomos nuorodos.',
-    'Save' => 'Išsaugoti',
     'Show the links as a widget on the right.' => 'Nuorodas rodyti valdymo juostoje dešinėje.',
     'Sort Order' => 'Rūšiavimo tvarka',
     'The category you want to create your link in could not be found!' => 'Nepavyko rasti kategorijos, kurią norite sukurti savo nuorodoje!',

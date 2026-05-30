@@ -3,7 +3,6 @@
 return [
     'Add link' => 'Tambah link',
     'Description' => 'Deskripsi',
-    'Save' => 'Simpan',
     'Title' => 'Judul',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

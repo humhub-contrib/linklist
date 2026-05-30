@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'Save' => 'שמירה',
     'Title' => 'כותרת',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

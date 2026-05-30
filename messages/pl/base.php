@@ -22,7 +22,6 @@ return [
     'No description available.' => 'Brak opisu.',
     'Requested category could not be found.' => 'Nie można znaleźć żądanej kategorii.',
     'Requested link could not be found.' => 'Nie można znaleźć żądanego linku.',
-    'Save' => 'Zapisz',
     'Show the links as a widget on the right.' => 'Po prawej stronie pokaż linki jako widget.',
     'Sort Order' => 'Sortuj',
     'The category you want to create your link in could not be found!' => 'Nie można znaleźć kategorii do której chcesz utworzyć link!',

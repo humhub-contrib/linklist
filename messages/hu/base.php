@@ -22,7 +22,6 @@ return [
     'No description available.' => 'Nem érhető el leírás...',
     'Requested category could not be found.' => 'A kért kategória nem található.',
     'Requested link could not be found.' => 'A kért hivatkozás nem található.',
-    'Save' => 'Mentés',
     'Show the links as a widget on the right.' => 'Mutassa a hivatkozásokat widget-ként a jobb oldalon.',
     'Sort Order' => 'Rendezési sorrend',
     'The category you want to create your link in could not be found!' => 'A kategória, amiben a hivatkozást létre akarod hozni, nem található!',

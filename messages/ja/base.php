@@ -22,7 +22,6 @@ return [
     'No description available.' => '使用出来る物がありません。',
     'Requested category could not be found.' => 'リクエストされたカテゴリが見つかりませんでした。',
     'Requested link could not be found.' => 'リクエストされたリンクが見つかりませんでした。',
-    'Save' => '保存',
     'Show the links as a widget on the right.' => 'リンクをウィジェットとして右側に表示します。',
     'Sort Order' => '並べ替え順序',
     'The category you want to create your link in could not be found!' => 'リンクを作成したいカテゴリが見つかりませんでした！',

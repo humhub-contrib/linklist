@@ -17,7 +17,6 @@ return [
     'No description available.' => 'هيچي توضيحي موجود نيست',
     'Requested category could not be found.' => 'گروه درخواست‌شده یافت نشد.',
     'Requested link could not be found.' => 'پیوند درخواست‌شده یافت نشد.',
-    'Save' => 'ذخیره',
     'Show the links as a widget on the right.' => 'پیوندها را به صورت ابزارک در سمت راست نمایش بده.',
     'Sort Order' => 'ترتیب مرتب‌سازی',
     'The category you want to create your link in could not be found!' => 'گروهی که می‌خواهید پیوندتان را در آن بسازید یافت نشد! ',

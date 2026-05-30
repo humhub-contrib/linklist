@@ -22,7 +22,6 @@ return [
     'No description available.' => 'Ingen beskrivning finns.',
     'Requested category could not be found.' => 'Begärd kategori finns inte.',
     'Requested link could not be found.' => 'Begärd länk finns inte.',
-    'Save' => 'Spara',
     'Show the links as a widget on the right.' => 'Visar länken i en widget till höger.',
     'Sort Order' => 'Sorteringsordning',
     'The category you want to create your link in could not be found!' => 'Kategorin du vill skapa din länk i kunde inte hittas!',

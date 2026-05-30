@@ -3,7 +3,6 @@
 return [
     'Add link' => '增加链接',
     'Description' => '描述',
-    'Save' => '保存',
     'Title' => '标题',
     '<strong>Confirm</strong> category deleting' => '',
     '<strong>Confirm</strong> link deleting' => '',

@@ -20,7 +20,6 @@ return [
     'No description available.' => 'Ingen beskrivelse tilgjengelig.',
     'Requested category could not be found.' => 'Forespurt kategori ble ikke funnet.',
     'Requested link could not be found.' => 'Forespurt lenke ble ikke funnet.',
-    'Save' => 'Lagre',
     'Show the links as a widget on the right.' => 'Vis Link listen som en widget på høyre side.',
     'Sort Order' => 'Sorteringsrekkefølge',
     'The category you want to create your link in could not be found!' => 'Kategorien du ønsker og lagre lenken i ble ikke funnet!',

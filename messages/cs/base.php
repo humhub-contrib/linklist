@@ -19,7 +19,6 @@ return [
     'No description available.' => 'Není k dispozici žádný popis.',
     'Requested category could not be found.' => 'Požadovaná kategorie nebyla nalezena.',
     'Requested link could not be found.' => 'Požadovaný odkaz nebyl nalezen.',
-    'Save' => 'Uložit',
     'Show the links as a widget on the right.' => 'Zobrazit odkazy jako widget v pravém bočním menu.',
     'Sort Order' => 'Řazení',
     'The category you want to create your link in could not be found!' => 'Kategorie, do které chcete přidat odkaz, nebyla nalezena.',

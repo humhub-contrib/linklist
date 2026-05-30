@@ -20,7 +20,6 @@ return [
     'No description available.' => 'No hi ha descripció disponible.',
     'Requested category could not be found.' => 'La categoria indicada no s\'ha trobat.',
     'Requested link could not be found.' => 'L\'enllaç indicat no s\'ha trobat.',
-    'Save' => 'Desa',
     'Show the links as a widget on the right.' => 'Mostra l\'enllaç com un widget a la dreta.',
     'Sort Order' => 'Ordre de classificació',
     'The category you want to create your link in could not be found!' => 'La categoria on vols crear el teu enllaç no es troba!',

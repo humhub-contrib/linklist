@@ -19,7 +19,6 @@ return [
     'No description available.' => 'Không có mô tả',
     'Requested category could not be found.' => 'Không tìm thấy nhóm link yêu cầu.',
     'Requested link could not be found.' => 'Không tìm thấy link yêu cầu.',
-    'Save' => 'Lưu',
     'Show the links as a widget on the right.' => 'Hiển thị links theo dạng widget ở cột bên phải',
     'Sort Order' => 'Thứ tự sắp xếp',
     'The category you want to create your link in could not be found!' => 'Không tìm thấy nhóm link bạn muốn tạo link!',
