@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.9.2 (Unreleased)
+------------------
+- Fix: Refined link form handling
+
 0.9.1 (March 20, 2026)
 ----------------------
 - Fix #79: Fix asset bundle

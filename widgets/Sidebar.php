@@ -40,6 +40,7 @@ class Sidebar extends \humhub\components\Widget
         foreach ($categoryBuffer as $category) {
             $linkBuffer = Link::find()
                 ->where(['category_id' => $category->id])
+                ->contentContainer($this->contentContainer)
                 ->readable()
                 ->orderBy(['sort_order' => SORT_ASC])
                 ->all();
