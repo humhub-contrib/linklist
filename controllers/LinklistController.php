@@ -77,6 +77,7 @@ class LinklistController extends ContentContainerController
         foreach ($categories as $category) {
             $links[$category->id] = Link::find()
                 ->where(['category_id' => $category->id])
+                ->contentContainer($this->contentContainer)
                 ->readable()
                 ->orderBy(['sort_order' => SORT_ASC])
                 ->all();

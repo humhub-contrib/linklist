@@ -57,8 +57,8 @@ class Link extends ContentActiveRecord
     public function rules()
     {
         return [
-            ['category_id', 'required'],
-            [['category_id', 'sort_order'], 'integer'],
+            ['!category_id', 'required'],
+            [['!category_id', 'sort_order'], 'integer'],
             [['href', 'title', 'description'], 'safe'],
             [['href', 'title'], 'required'],
             ['href', 'url'],
