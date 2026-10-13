@@ -32,7 +32,7 @@ Assets::register($this);
                         <?php foreach ($links[$category->id] as $link): ?>
                             <div id="linklist-widget-link_<?= $link->id ?>">
                                 <?= Link::to(Html::encode($link->title), $link->href)
-                                        ->tooltip(Html::encode($link->description))
+                                        ->tooltip($link->description)
                                         ->blank() ?>
                             </div>
                         <?php endforeach; ?>

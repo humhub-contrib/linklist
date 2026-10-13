@@ -2,6 +2,7 @@
 
 namespace humhub\modules\linklist\models;
 
+use humhub\modules\content\components\ContentActiveRecord;
 use Yii;
 
 /**
@@ -13,8 +14,10 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property int $sort_order
+ *
+ * @property-read Link[] $links
  */
-class Category extends \humhub\modules\content\components\ContentActiveRecord
+class Category extends ContentActiveRecord
 {
     /**
      * @inheritdoc
@@ -47,10 +50,24 @@ class Category extends \humhub\modules\content\components\ContentActiveRecord
         return $query;
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function afterSoftDelete()
+    {
+        // Since HumHub 1.19 delete() is a soft delete and afterDelete() is no longer triggered
+        foreach ($this->links as $link) {
+            if (!$link->content->getStateService()->isDeleted()) {
+                $link->delete();
+            }
+        }
+        parent::afterSoftDelete();
+    }
+
     public function afterDelete()
     {
         foreach ($this->links as $link) {
-            $link->delete();
+            $link->hardDelete();
         }
         parent::afterDelete();
     }
