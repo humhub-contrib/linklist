@@ -55,7 +55,7 @@ class Category extends ContentActiveRecord
      */
     public function afterSoftDelete()
     {
-        // Since HumHub 1.19 delete() is a soft delete and afterDelete() is no longer triggered
+        // delete() is a soft delete and does not trigger afterDelete()
         foreach ($this->links as $link) {
             if (!$link->content->getStateService()->isDeleted()) {
                 $link->delete();
