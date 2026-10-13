@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.9.2 (Unreleased)
-------------------
+0.9.2 (October 13, 2026)
+------------------------
 - Fix: Refined link form handling
 
 0.9.1 (March 20, 2026)
