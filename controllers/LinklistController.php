@@ -3,7 +3,6 @@
 namespace humhub\modules\linklist\controllers;
 
 use humhub\components\access\ControllerAccess;
-use humhub\modules\admin\permissions\ManageSpaces;
 use humhub\modules\content\components\ContentContainerController;
 use humhub\modules\content\components\ContentContainerControllerAccess;
 use humhub\modules\linklist\models\Category;
@@ -33,7 +32,8 @@ class LinklistController extends ContentContainerController
     {
         return [
             [ContentContainerControllerAccess::RULE_USER_GROUP_ONLY => [Space::USERGROUP_MEMBER, User::USERGROUP_SELF]],
-            [ControllerAccess::RULE_PERMISSION => [ManageSpaces::class], 'actions' => ['config']],
+            [ControllerAccess::RULE_POST, 'actions' => ['delete-category', 'delete-link']],
+            [ControllerAccess::RULE_ADMIN_ONLY, 'actions' => ['config']],
         ];
     }
 

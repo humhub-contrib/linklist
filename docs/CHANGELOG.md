@@ -4,6 +4,7 @@ Changelog
 0.9.2 (October 13, 2026)
 ------------------------
 - Fix: Refined link form handling
+- Fix #86: Delete links with a soft deleted category; Require POST for delete actions; Allow profile owners to open the configuration; Fix double encoded tooltip
 
 0.9.1 (March 20, 2026)
 ----------------------
