@@ -35,7 +35,7 @@
 
 .panel-linklist-category .linklist-category-description {
     margin-bottom: 14px;
-    color: var(--hh-text-color-main);
+    color: var(--bs-body-color);
     line-height: 1.5;
     white-space: pre-line;
 }
@@ -147,7 +147,7 @@ ul.linklist-links > li:before {
     font-family: 'FontAwesome';
     font-size: 14px;
     content: '\f0c1';
-    color: var(--hh-text-color-soft2);
+    color: var(--bs-tertiary-color);
     flex: 0 0 auto;
     line-height: 1.6;
 }
@@ -164,7 +164,7 @@ ul.linklist-links > li:before {
 .linklist-links .link-description {
     margin-bottom: 0;
     font-size: 12px;
-    color: var(--hh-text-color-main);
+    color: var(--bs-body-color);
     word-break: break-word;
 }
 

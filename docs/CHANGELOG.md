@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.10.0 (Unreleased)
+-------------------
+- Enh: Colour tokens of the core 1.20 instead of the deprecated ones (humhub/humhub#8707)
+
 0.9.2 (October 13, 2026)
 ------------------------
 - Fix: Refined link form handling
