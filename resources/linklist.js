@@ -6,7 +6,7 @@ humhub.module('linklist', function (module, require, $) {
 		$(".panel-linklist-widget .linklist-body .scrollable-content-container").niceScroll({
 			cursorwidth: "7",
 			cursorborder:"",
-			cursorcolor:"#555",
+			cursorcolor:"var(--bs-body-color)",
 			cursoropacitymax:"0.2",
 			railpadding:{top:0,right:3,left:0,bottom:0}
 		});
