@@ -17,6 +17,7 @@ use humhub\modules\like\widgets\LikeLink;
 use humhub\modules\linklist\models\Category;
 use humhub\modules\linklist\models\Link;
 use humhub\widgets\bootstrap\Button;
+use humhub\widgets\Icon;
 use yii\helpers\Html;
 
 /* @var ContentContainerActiveRecord $contentContainer */
@@ -32,8 +33,7 @@ humhub\modules\linklist\assets\Assets::register($this);
             echo 'style="visibility:visible; display:block"';
         }
         ?>>
-            <?= Yii::t('LinklistModule.base', 'There have been no links or categories added to this space yet.') ?> <i
-                    class="fa fa-frown-o"></i>
+            <?= Yii::t('LinklistModule.base', 'There have been no links or categories added to this space yet.') ?> <?= Icon::get('mood-sad') ?>
         </div>
 
         <div class="linklist-categories">
@@ -50,7 +50,7 @@ humhub\modules\linklist\assets\Assets::register($this);
                                     <?php if ($accessLevel == 2) : ?>
                                         <?= Button::danger()
                                             ->link($contentContainer->createUrl("/linklist/linklist/delete-category", ['category_id' => $category->id]))
-                                            ->icon('trash-o')
+                                            ->icon('trash')
                                             ->tooltip(Yii::t('LinklistModule.base', 'Delete category'))
                                             ->action('linklist.removeCategory')
                                             ->confirm(
@@ -99,7 +99,7 @@ humhub\modules\linklist\assets\Assets::register($this);
                                                     CommentLink::class => ['sortOrder' => 100],
                                                     LikeLink::class => ['sortOrder' => 200],
                                                 ],
-                                                'seperator' => '&middot;',
+                                                'seperator' => '',
                                             ]); ?>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@ humhub\modules\linklist\assets\Assets::register($this);
 
                                             <?= Button::danger()
                                                 ->link($contentContainer->createUrl("/linklist/linklist/delete-link", ['category_id' => $category->id, 'link_id' => $link->id]))
-                                                ->icon('trash-o')
+                                                ->icon('trash')
                                                 ->tooltip(Yii::t('LinklistModule.base', 'Delete link'))
                                                 ->action('linklist.removeCategory')
                                                 ->confirm(

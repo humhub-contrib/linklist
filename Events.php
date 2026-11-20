@@ -11,9 +11,9 @@ namespace humhub\modules\linklist;
 use humhub\helpers\ControllerHelper;
 use humhub\modules\space\widgets\Menu as SpaceMenu;
 use humhub\modules\space\widgets\Sidebar as SpaceSidebar;
-use humhub\modules\ui\menu\MenuLink;
 use humhub\modules\user\widgets\ProfileMenu;
 use humhub\modules\user\widgets\ProfileSidebar;
+use humhub\widgets\menu\MenuLink;
 use Yii;
 
 class Events

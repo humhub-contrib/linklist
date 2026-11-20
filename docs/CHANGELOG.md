@@ -6,6 +6,7 @@ Changelog
 - Fix: The link controls and icons take the muted text colour instead of the disabled grey (humhub/humhub#8752)
 - Enh: Dark mode: hard-coded greys and light backgrounds became colour tokens of the core (humhub/humhub#8710)
 - Enh: Colour tokens of the core 1.20 instead of the deprecated ones (humhub/humhub#8707)
+- Enh: Tabler icons (incl. link glyph, no dot separator), `humhub\widgets\menu\MenuLink` instead of the deprecated `ui\menu\MenuLink`
 
 0.9.2 (October 13, 2026)
 ------------------------
