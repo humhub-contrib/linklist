@@ -106,7 +106,8 @@
 
 .panel-linklist-widget .linklist-body .scrollable-content-container {
     max-height: 200px;
-    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 .panel-linklist-widget .linklist-body .scrollable-content-container .media {

@@ -2,16 +2,6 @@ humhub.module('linklist', function (module, require, $) {
 	var client = require('client');
 
 	var init = function () {
-		// set niceScroll to linklist
-		$(".panel-linklist-widget .linklist-body .scrollable-content-container").niceScroll({
-			cursorwidth: "7",
-			cursorborder:"",
-			cursorcolor:"var(--bs-body-color)",
-			cursoropacitymax:"0.2",
-			railpadding:{top:0,right:3,left:0,bottom:0}
-		});
-		$(".panel-linklist-widget .linklist-body .scrollable-content-container").getNiceScroll().resize();
-
 		$(".toggle-view-mode a").on("click", function(e) {
 			e.preventDefault();
 			if(jQuery(this).data('enabled')) {
